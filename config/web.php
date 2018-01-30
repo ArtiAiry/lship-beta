@@ -86,6 +86,18 @@ $config = [
                 ],
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'yii2mod.comments' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/comments/messages',
+                    // when admin can edit comments on frontend
+                    // Setting unknown property: yii2mod\comments\Module::enableInlineEdit
+
+                ],
+                // ...
+            ],
+        ],
         'db' => require(__DIR__ . '/db.php'),
 
         'assetManager' => [

@@ -33,17 +33,20 @@ use dosamigos\datepicker\DatePicker;
         '1' => 'Женский',
     ])->label(''); ?>
 <!---->
-    <?= $form->field($profile, 'dob')->widget(
-        DatePicker::className(),[
-        'model' => $profile,
-        'inline' => false,
-        'language' => 'ru',
-        'size' => 'ms',
-        'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy-m-dd',
-        ]
-    ]);?>
+    <?= $form->field($profile, 'dob')->textInput();?>
+
+
+<!--    --><?//= $form->field($profile, 'dob')->widget(
+//        DatePicker::className(),[
+//        'model' => $profile,
+//        'inline' => false,
+//        'language' => 'ru',
+//        'size' => 'ms',
+//        'clientOptions' => [
+//            'autoclose' => true,
+//            'format' => 'yyyy-m-dd',
+//        ]
+//    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
