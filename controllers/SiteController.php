@@ -2,8 +2,8 @@
 
 namespace app\controllers;
 
-use app\models\PasswordResetRequestForm;
-use app\models\ResetPasswordForm;
+use app\models\form\PasswordResetRequestForm;
+use app\models\form\ResetPasswordForm;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
@@ -184,5 +184,26 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+
+    public function actionLockScreen($previous)
+    {
+        if(isset(Yii::$app->user->identity->email)){
+            // save current username
+            $email = Yii::$app->user->identity->email;
+            // force logout
+            Yii::$app->user->logout();
+            // render form lockscreen
+            $model = new LoginForm();
+            $model->email = $email;    //set default value
+            return $this->render('lockScreen', [
+                'model' => $model,
+                'previous' => $previous,
+            ]);
+        }
+        else{
+            return $this->redirect(['login']);
+        }
     }
 }

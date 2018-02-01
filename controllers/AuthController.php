@@ -15,21 +15,42 @@ use yii\web\Controller;
 
 class AuthController extends Controller
 {
-    public function actionLogin()
+//    public function actionLogin()
+//    {
+//        if (!Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return $this->goBack();
+//        }
+//        return $this->render('login', [
+//            'model' => $model,
+//        ]);
+//    }
+
+
+    public function actionLogin($previous="")
     {
-        if (!Yii::$app->user->isGuest) {
+        if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            if(!empty($previous)){
+                return $this->redirect($previous);
+            }
+            else{
+                return $this->goBack();
+            }
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
         }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
-
     /**
      * Logout action.
      *
