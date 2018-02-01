@@ -69,7 +69,7 @@ PublicAsset::register($this);
                 }
                 else{
                     clearTimeout(autoLockTimer);
-                    autoLockTimer = setTimeout(lockIdentity, 100*15*60);  // time is in milliseconds                       
+                    autoLockTimer = setTimeout(lockIdentity, 50*15*60);  // time is in milliseconds                       
                 }
                      
             }

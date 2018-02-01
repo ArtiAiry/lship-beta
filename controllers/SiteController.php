@@ -70,11 +70,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-    if(Yii::$app->user->isGuest){
-        return $this->redirect('auth/login');
-    }else{
-        return $this->render('index');
-    }
+        if(Yii::$app->user->isGuest){
+            return $this->redirect('auth/login');
+        }else{
+            return $this->render('index');
+        }
     }
 
     /**
@@ -190,7 +190,9 @@ class SiteController extends Controller
     public function actionLockScreen($previous)
     {
         if(isset(Yii::$app->user->identity->email)){
+        $this->layout = false;
             // save current username
+
             $email = Yii::$app->user->identity->email;
             // force logout
             Yii::$app->user->logout();
@@ -203,7 +205,7 @@ class SiteController extends Controller
             ]);
         }
         else{
-            return $this->redirect(['login']);
+            return $this->redirect(['auth/login']);
         }
     }
 }

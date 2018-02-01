@@ -25,7 +25,7 @@ class PublicAsset extends AssetBundle
     public $js = [
         'js/core/popper.min.js',
         'js/core/bootstrap.min.js',
-
+//        'js/lock-screen.js',
         'js/demo.js',
         'js/plugins/moment.min.js',
         'js/plugins/nouislider.js',
@@ -43,6 +43,7 @@ class PublicAsset extends AssetBundle
 
         'js/plugins/sweetalert2.min.js',
         'js/light-bootstrap-dashboard.js?v=2.0.1',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
