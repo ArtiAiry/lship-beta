@@ -189,16 +189,18 @@ class SiteController extends Controller
 
     public function actionLockScreen($previous)
     {
-        if(isset(Yii::$app->user->identity->email)){
+        if(isset(Yii::$app->user->identity->email) || isset(Yii::$app->user->identity->username)){
         $this->layout = false;
             // save current username
 
             $email = Yii::$app->user->identity->email;
+            $username = Yii::$app->user->identity->username;
             // force logout
             Yii::$app->user->logout();
             // render form lockscreen
             $model = new LoginForm();
-            $model->email = $email;    //set default value
+            $model->login = $email;
+            $model->username = $username;//set default value
             return $this->render('lockScreen', [
                 'model' => $model,
                 'previous' => $previous,

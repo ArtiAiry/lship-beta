@@ -1,21 +1,14 @@
 <?php
 /* @var $this \yii\web\View */
-
+/* @var $profile app\modules\profile\models\Profile */
 
 use app\assets\PublicAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 PublicAsset::register($this);
 ?>
-<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />-->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />-->
-<!--    <!-- CSS Files -->
-<!--    <link href="/web/css/bootstrap.min.css" rel="stylesheet" />-->
-<!--    <link href="/web/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />-->
-<!--    <!-- CSS Just for demo purpose, don't include it in your project -->
-<!--    <link href="/web/css/demo.css" rel="stylesheet" />-->
-
 
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -38,7 +31,7 @@ PublicAsset::register($this);
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
             <div class="container">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="#pablo">LessonShip</a>
+                    <a class="navbar-brand" href="">LessonShip</a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -48,23 +41,13 @@ PublicAsset::register($this);
                 <div class="collapse navbar-collapse justify-content-end" id="navbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="../dashboard.html" class="nav-link">
-                                <i class="nc-icon nc-chart-pie-35"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="register.html" class="nav-link">
+                            <a href="<?= Url::toRoute(['signup/index'])?>" class="nav-link">
                                 <i class="nc-icon nc-badge"></i> Register
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a href="login.html" class="nav-link">
+                        <li class="nav-item">
+                            <a href="<?= Url::toRoute(['auth/login'])?>" class="nav-link">
                                 <i class="nc-icon nc-mobile"></i> Login
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="lock.html" class="nav-link">
-                                <i class="nc-icon nc-key-25"></i> Lock
                             </a>
                         </li>
                     </ul>
@@ -75,19 +58,18 @@ PublicAsset::register($this);
 
         <div class="full-page lock-page" data-color="blue" data-image="/web/img/bg4.jpg">
             <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
-
             <div class="content">
                 <div class="container">
                     <div class="col-md-4 ml-auto mr-auto">
                         <div class="card card-lock text-center card-plain">
                             <div class="card-header ">
                                 <div class="author">
-                                    <img class="avatar" src="/web/img/default-avatar.png" alt="...">
+                                    <img class="avatar" src="/web/img/marina.jpg" alt="...">
                                 </div>
                             </div>
                             <div class="card-body ">
-
-                                <h4 class="card-title">Tania Andrew <?php echo $model->username ?></h4>
+                                <h4 class="card-title"><?= $model->username ?></h4>
+                                <h5 class="card-title"><?= $model->login ?></h5>
                                 <div class="form-group">
 <!--                                    <input type="password" placeholder="Enter Password" class="form-control">-->
                                     <?php
@@ -95,7 +77,7 @@ PublicAsset::register($this);
                                         'id' => 'login-form',
                                         'action' => ['auth/login'],
                                     ]);
-                                    echo Html::activeHiddenInput($model, 'email');
+                                    echo Html::activeHiddenInput($model, 'login');
                                     ?>
                                     <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Enter Password'])->label('') ?>
                                 </div>
@@ -151,14 +133,3 @@ PublicAsset::register($this);
       </body>
     </html>
 <?php $this->endPage() ?>
-
-<!--    <h1>--><?//= $model->email ?><!--</h1>-->
-<?//= $form->field($model, 'password')->passwordInput() ?>
-<?//= $form->field($model, 'rememberMe')->checkbox() ?>
-<!--    <div class="form-group">-->
-<!--        --><?//= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-<!--    </div>-->
-<!--    <div style="color:#999;margin:1em 0">-->
-<!--        Logged as someone else ? --><?//= Html::a('click here', ['auth/login']) ?><!--.-->
-<!--    </div>-->
-<?php //ActiveForm::end(); ?>
