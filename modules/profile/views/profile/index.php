@@ -46,7 +46,7 @@ Breadcrumbs::widget([
             //'wallet_id',
             //'isRemoved',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'app\widgets\CustomColumn'],
         ],
     ]); ?>
 </div>

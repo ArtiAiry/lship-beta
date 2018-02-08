@@ -8,6 +8,11 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
+//    'container' => [
+//        'definitions' => [
+//            'yii\grid\ActionColumn' => ['class' => "fa fa-$iconName"],
+//        ],
+//    ],
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
@@ -97,7 +102,9 @@ $config = [
                 ],
                 // ...
             ],
+
         ],
+
         'db' => require(__DIR__ . '/db.php'),
 
         'assetManager' => [
@@ -122,6 +129,8 @@ $config = [
                 ]
             ],
         ],
+
+
 
         'urlManager' => [
             'enablePrettyUrl' => true,
