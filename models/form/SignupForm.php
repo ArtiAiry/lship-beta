@@ -71,6 +71,7 @@ class SignupForm extends Model
             $profile = new Profile();
 
             $profile->user_id = $user->id;
+            $profile->ip_address = Yii::$app->request->userIP;
 
             $user->link('profile', $profile);
 

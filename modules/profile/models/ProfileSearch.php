@@ -18,8 +18,9 @@ class ProfileSearch extends Profile
     public function rules()
     {
         return [
-            [['id', 'user_id', 'phone', 'age', 'wallet_id', 'isRemoved'], 'integer'],
-            [['skype', 'country', 'city', 'ip_address', 'gender', 'dob', 'activity', 'interests'], 'safe'],
+            [['id', 'phone', 'age', 'wallet_id', 'isRemoved'], 'integer'],
+            [['skype','user_id', 'country', 'city', 'ip_address', 'gender', 'dob', 'activity', 'interests'], 'safe'],
+
         ];
     }
 
@@ -57,10 +58,14 @@ class ProfileSearch extends Profile
             return $dataProvider;
         }
 
+
+        $query->joinWith('user');
+
+        $query->alias('u');
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
+            'user.username' => $this->user_id,
             'phone' => $this->phone,
             'age' => $this->age,
             'dob' => $this->dob,

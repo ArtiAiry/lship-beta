@@ -66,7 +66,7 @@ class Profile extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
+            'user_id' => 'User',
             'skype' => 'Skype',
             'phone' => 'Phone',
             'country' => 'Country',
@@ -77,7 +77,7 @@ class Profile extends ActiveRecord
             'dob' => 'Dob',
             'activity' => 'Activity',
             'interests' => 'Interests',
-            'wallet_id' => 'Wallet ID',
+            'wallet_id' => 'Wallet',
         ];
     }
 

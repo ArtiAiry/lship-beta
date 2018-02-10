@@ -1,5 +1,6 @@
 <?php
 
+use app\models\User;
 use nivans\Bs4Breadcrumbs\Breadcrumbs;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -30,8 +31,12 @@ Breadcrumbs::widget([
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'user_id',
+            [
+                'attribute' => 'user_id',
+//                'filter' => User::find()->select('id','username')->indexBy('username')->column(),
+                'value' => 'user.username',
+            ],
+
             'skype',
             'phone',
             'country',
