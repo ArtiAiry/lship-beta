@@ -77,7 +77,7 @@ class Profile extends ActiveRecord
             'dob' => 'Dob',
             'activity' => 'Activity',
             'interests' => 'Interests',
-            'wallet_id' => 'Wallet',
+            'wallet_id' => 'Wallet ID',
         ];
     }
 
@@ -99,6 +99,11 @@ class Profile extends ActiveRecord
     public function isRemoved()
     {
         return $this->isRemoved;
+    }
+
+    public function getUserIp()
+    {
+
     }
 
 }

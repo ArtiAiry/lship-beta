@@ -2,7 +2,7 @@
 use app\modules\profile\models\Profile;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\datepicker\DatePicker;
+
 
 /* @var $this yii\web\View */
 /* @var $profile app\modules\profile\models\Profile */
@@ -10,7 +10,7 @@ use dosamigos\datepicker\DatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="profile-form">
+<div class="form-group">
 
 
 
@@ -32,25 +32,16 @@ use dosamigos\datepicker\DatePicker;
         '0' => 'Мужской',
         '1' => 'Женский',
     ])->label(''); ?>
-<!---->
-    <?= $form->field($profile, 'dob')->textInput();?>
 
 
-    <?= $form->field($profile, 'dob')->widget(
-        DatePicker::className(),[
-        'model' => $profile,
-        'inline' => false,
-        'language' => 'ru',
-        'size' => 'ms',
-        'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy-m-dd',
-        ]
-    ]);?>
+    <?= $form->field($profile, 'dob')->textInput(['class'=>'form-control datepicker','id'=>'datetimepicker']);?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
+
+
 
     <?php ActiveForm::end(); ?>
 

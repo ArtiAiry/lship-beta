@@ -57,6 +57,8 @@
     }
 
     var dateTimePicker = function(element, options) {
+
+
         var picker = {},
             date,
             viewDate,
