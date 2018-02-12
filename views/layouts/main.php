@@ -3,6 +3,7 @@
 /* @var $content string */
 /* @var $profile /app/models/Profile */
 use app\assets\PublicAsset;
+use app\widgets\CustomBreadcrumbs;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
@@ -29,7 +30,7 @@ PublicAsset::register($this);
         <div class="main-panel">
             <?= $this->render('//parts/navbar')?>
             <div class="content">
-                <?= Breadcrumbs::widget([
+                <?= CustomBreadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
                 <?= $content ?>

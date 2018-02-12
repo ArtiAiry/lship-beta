@@ -1,7 +1,7 @@
 <?php
 
 use app\models\User;
-use nivans\Bs4Breadcrumbs\Breadcrumbs;
+
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -13,7 +13,7 @@ $this->title = 'Profiles';
 $this->params['breadcrumbs'][] = $this->title;
 
 
-Breadcrumbs::widget([
+\app\widgets\CustomBreadcrumbs::widget([
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 ]);
 ?>

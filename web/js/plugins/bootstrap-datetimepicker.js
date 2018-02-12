@@ -57,6 +57,7 @@
     }
 
     var dateTimePicker = function(element, options) {
+        options.format = 'YYYY-MM-DD';
 
 
         var picker = {},

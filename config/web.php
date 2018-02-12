@@ -65,6 +65,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '0YyTLj_c1q1s87dup7te74Xmqhh99z2s',
         ],
+        'breadcrumbs' => [
+            'class' => 'app\widgets\CustomBreadcrumbs',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
