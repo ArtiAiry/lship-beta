@@ -10,6 +10,7 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Profiles';
+
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -40,6 +41,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'skype',
             'phone',
             'country',
+            [
+                'label'  => 'gender',
+                'value'  => function ($data) {
+                    if($data->getGenderValue()==0){
+                        return 'Female';
+                    }
+                    elseif($data->getGenderValue()==1){
+                        return 'Male';
+                    }else{
+                        return 'Not Selected';
+                    }
+
+                },
+
+            ],
             //'city',
             //'ip_address',
             //'age',

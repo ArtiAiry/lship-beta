@@ -37,7 +37,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'city',
 //            'ip_address',
             'age',
-            'gender',
+
+            [
+                'label'  => 'gender',
+                'value'  => function ($data) {
+                    if($data->getGenderValue()==0){
+                        return 'Female';
+                    }
+                    elseif($data->getGenderValue()==1){
+                        return 'Male';
+                    }else{
+                        return 'Not Selected';
+                    }
+
+                }, $model,
+
+            ],
+
             'dob',
             'activity',
             'interests',

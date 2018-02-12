@@ -117,4 +117,19 @@ class Profile extends ActiveRecord
 
     }
 
+    public static function getGenderList ()
+    {
+        return [
+
+            0=>'Женский',
+            1=>'Мужской'
+
+        ];
+    }
+
+    public function getGenderValue()
+    {
+        return $this->gender;
+    }
+
 }

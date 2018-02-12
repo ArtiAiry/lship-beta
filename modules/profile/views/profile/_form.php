@@ -1,5 +1,6 @@
 <?php
 use app\modules\profile\models\Profile;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -28,11 +29,19 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($profile, 'age')->textInput() ?>
 
-    <?= $form->field($profile, 'gender')->dropDownList([
-        '0' => 'Мужской',
-        '1' => 'Женский',
-    ])->label(''); ?>
 
+
+    <?php $item = $profile->getGenderList();
+
+    $params = [
+        'prompt' => 'Choose...'
+    ];
+?>
+
+    <?= $form->field($profile, 'gender')->dropDownList(
+        $item,
+        $params
+    )->label(''); ?>
 
     <?= $form->field($profile, 'dob')->textInput(['class'=>'form-control datepicker','id'=>'datetimepicker']);?>
 
