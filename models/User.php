@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\modules\comment\models\Comment;
+
 use app\modules\leads\models\LeadInfo;
 use app\modules\orders\models\OrderInfo;
 use app\modules\orders\models\OrderStatusLog;
@@ -23,9 +23,6 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $create_time
  *
- * @property Comment[] $comments
- * @property CommentUser[] $commentUsers
- * @property Comment[] $comments0
  * @property LeadInfo[] $leadInfos
  * @property Notification[] $notifications
  * @property OrderInfo[] $orderInfos
@@ -276,4 +273,18 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    public function isRemoved()
+    {
+        return $this->status;
+    }
+
+    public function removeUser()
+    {
+        $this->status = self::STATUS_DELETED;
+        return $this->save(false);
+    }
+
+
+
 }

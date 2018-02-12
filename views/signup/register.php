@@ -138,7 +138,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                             </div>
                                         </div>
                                         <div class="footer text-center">
-<!--                                            <button type="submit" class="btn btn-fill btn-neutral btn-wd">Create Account</button>-->
                                             <?= Html::submitButton('Create Account', ['class' => 'btn btn-fill btn-neutral btn-wd', 'name' => 'signup-button']) ?>
                                         </div>
                                     </div>

@@ -73,7 +73,16 @@ class ProfileSearch extends Profile
             'isRemoved' => $this->isRemoved,
         ]);
 
+
+        $query = Profile::find()->andWhere(['isRemoved' => 1]);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => ['pageSize' => 10],
+        ]);
+
         $query->andFilterWhere(['like', 'skype', $this->skype])
+            ->andFilterWhere(['isRemoved'=>'1'])
             ->andFilterWhere(['like', 'country', $this->country])
             ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'ip_address', $this->ip_address])

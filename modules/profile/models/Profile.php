@@ -34,7 +34,12 @@ class Profile extends ActiveRecord
 {
     /**
      * @inheritdoc
+     *
+     *
      */
+
+    const REMOVE = 0;
+
     public static function tableName()
     {
         return 'profile';
@@ -99,6 +104,12 @@ class Profile extends ActiveRecord
     public function isRemoved()
     {
         return $this->isRemoved;
+    }
+
+    public function removeProfile()
+    {
+        $this->isRemoved = self::REMOVE;
+        return $this->save(false);
     }
 
     public function getUserIp()

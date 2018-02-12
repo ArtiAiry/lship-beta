@@ -2,7 +2,6 @@
 
 namespace app\modules\profile\controllers;
 
-use app\models\form\CommentForm;
 use app\models\User;
 use Yii;
 use app\modules\profile\models\Profile;
@@ -60,25 +59,6 @@ class ProfileController extends Controller
             'profile' => $profile,
         ]);
     }
-
-    /**
-     * Creates a new Profile model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Profile();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
     /**
      * Updates an existing Profile model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -127,8 +107,9 @@ class ProfileController extends Controller
     {
         $user = User::findOne($id);
         $profile = Profile::findOne($id);
-        $user->findOne($id)->delete();
-//        $profile->findOne($id)->delete();
+        $user->findOne($id)->removeUser();
+        $profile->findOne($id)->removeProfile();
+
         return $this->redirect(['index']);
     }
 
