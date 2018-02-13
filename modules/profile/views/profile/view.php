@@ -41,16 +41,16 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label'  => 'gender',
                 'value'  => function ($data) {
-                    if($data->getGenderValue()==0){
+                    if($data->getGenderValue()==1){
                         return 'Female';
                     }
-                    elseif($data->getGenderValue()==1){
+                    elseif($data->getGenderValue()==2){
                         return 'Male';
                     }else{
-                        return 'Not Selected';
+                        return 'Not Set';
                     }
 
-                }, $model,
+                }, $model
 
             ],
 

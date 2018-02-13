@@ -32,16 +32,9 @@ use yii\widgets\ActiveForm;
 
 
     <?php $item = $profile->getGenderList();
-
-    $params = [
-        'prompt' => 'Choose...'
-    ];
 ?>
 
-    <?= $form->field($profile, 'gender')->dropDownList(
-        $item,
-        $params
-    )->label(''); ?>
+    <?= $form->field($profile, 'gender')->dropDownList($item)->label(''); ?>
 
     <?= $form->field($profile, 'dob')->textInput(['class'=>'form-control datepicker','id'=>'datetimepicker']);?>
 

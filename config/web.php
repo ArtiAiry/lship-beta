@@ -58,6 +58,9 @@ $config = [
         'profile' => [
             'class' => 'app\modules\profile\ProfileModule',
         ],
+        'settings' => [
+            'class' => 'app\modules\settings\SettingsModule',
+        ],
     ],
     'components' => [
         'request' => [
@@ -175,6 +178,9 @@ $config = [
                 //profile
                 '<module:profile>/<action:\w+>/<id:\d+>' => '<module>/profile/<action>',
                 '<module:profile>/<action:\w+>' => '<module>/profile/<action>',
+                //settings
+                '<module:settings>/<action:\w+>/<id:\d+>' => '<module>/settings/<action>',
+                '<module:settings>/<action:\w+>' => '<module>/settings/<action>',
             ],
         ],
 

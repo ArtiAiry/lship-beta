@@ -84,6 +84,13 @@ Tip 2: you can also add an image using data-image tag
 <!--                </ul>-->
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="<?= Url::toRoute(['/wallet/index'])?>">
+                    <i class="nc-icon nc-cart-simple"></i>
+                    <p>Wallets</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/payout/type/index'])?>">
                     <i class="nc-icon nc-paper-2"></i>
                     <p>Payouts</p>
@@ -91,25 +98,25 @@ Tip 2: you can also add an image using data-image tag
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/payment/type/index'])?>">
-                    <i class="nc-icon nc-atom"></i>
+                    <i class="nc-icon nc-money-coins"></i>
                     <p>Payments</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/tutors/default/index'])?>">
-                    <i class="nc-icon nc-pin-3"></i>
+                    <i class="nc-icon nc-badge"></i>
                     <p>Tutors</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/comment/index'])?>">
-                    <i class="nc-icon nc-bell-55"></i>
+                    <i class="nc-icon nc-notification-70"></i>
                     <p>Comments</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/events/index'])?>">
-                    <i class="nc-icon nc-bell-55"></i>
+                    <i class="nc-icon nc-bulb-63"></i>
                     <p>Events</p>
                 </a>
             </li>

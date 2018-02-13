@@ -76,7 +76,7 @@ Use yii\helpers\Url;
                         <a class="dropdown-item" href="#">
                             <i class="nc-icon nc-umbrella-13"></i> Help Center
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="<?= Url::to(['/settings/index'])?>">
                             <i class="nc-icon nc-settings-90"></i> Settings
                         </a>
                         <div class="divider"></div>

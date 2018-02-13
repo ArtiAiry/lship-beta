@@ -121,8 +121,9 @@ class Profile extends ActiveRecord
     {
         return [
 
-            0=>'Женский',
-            1=>'Мужской'
+            0=>'Not Set',
+            1=>'Female',
+            2=>'Male'
 
         ];
     }
