@@ -63,6 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php echo \yii2mod\comments\widgets\Comment::widget([
         'model' => $model,
+        'commentView' => '@app/views/comment/index',
         'dataProviderConfig' => [
             'pagination' => [
                 'pageSize' => 10
@@ -72,4 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'emptyText' => Yii::t('app', 'No comments found.'),
         ],
     ]); ?>
+
+
+
 </div>
