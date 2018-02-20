@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "88bd815a37346d93817be8a56b1f719a",
+    "content-hash": "db7ba64b8036ee0dcc60555587435f1a",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -339,17 +339,75 @@
             "time": "2017-06-03T02:28:16+00:00"
         },
         {
+            "name": "mdmsoft/yii2-admin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdmsoft/yii2-admin.git",
+                "reference": "e9cc1d8adc0e34f3a053d172116c6903c2e3c1fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdmsoft/yii2-admin/zipball/e9cc1d8adc0e34f3a053d172116c6903c2e3c1fb",
+                "reference": "e9cc1d8adc0e34f3a053d172116c6903c2e3c1fb",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.7"
+            },
+            "require-dev": {
+                "yiisoft/yii2-codeception": "~2.0"
+            },
+            "suggest": {
+                "yiisoft/yii2-bootstrap": "Used when using layout 'left-menu', 'right-menu' or 'top-menu'"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0.master": "1.0.x-dev",
+                    "dev-master": "2.x-dev"
+                },
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mdm\\admin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Misbahul Munir",
+                    "email": "misbahuldmunir@gmail.com"
+                }
+            ],
+            "description": "RBAC Auth manager for Yii2 ",
+            "keywords": [
+                "admin",
+                "auth",
+                "rbac",
+                "yii"
+            ],
+            "time": "2017-11-18T13:27:11+00:00"
+        },
+        {
             "name": "nesbot/carbon",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "1e377b1cdac8d086568168c4c95194a1aca6b402"
+                "reference": "2470039edeeb9cf84f7c572c02141f8532db3a84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1e377b1cdac8d086568168c4c95194a1aca6b402",
-                "reference": "1e377b1cdac8d086568168c4c95194a1aca6b402",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2470039edeeb9cf84f7c572c02141f8532db3a84",
+                "reference": "2470039edeeb9cf84f7c572c02141f8532db3a84",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +447,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-02-13T21:36:11+00:00"
+            "time": "2018-02-19T21:57:30+00:00"
         },
         {
             "name": "nivans/yii2-bs4-breadcrumbs",
@@ -646,12 +704,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "10b32cf0eae28b9b39fe26c456c42b19854c4b84"
+                "reference": "b3cc1f9b04bb36e24b015c8200c0935ee64f7442"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/10b32cf0eae28b9b39fe26c456c42b19854c4b84",
-                "reference": "10b32cf0eae28b9b39fe26c456c42b19854c4b84",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/b3cc1f9b04bb36e24b015c8200c0935ee64f7442",
+                "reference": "b3cc1f9b04bb36e24b015c8200c0935ee64f7442",
                 "shasum": ""
             },
             "require": {
@@ -706,7 +764,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-18T22:16:57+00:00"
+            "time": "2018-02-14T10:03:57+00:00"
         },
         {
             "name": "yii2mod/yii2-behaviors",
@@ -958,12 +1016,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "d6ed2e8163afb267a5d45d1ff8f6d4552fc74025"
+                "reference": "ababcd732e44435b8031a9c7b3ef7fae84954cc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d6ed2e8163afb267a5d45d1ff8f6d4552fc74025",
-                "reference": "d6ed2e8163afb267a5d45d1ff8f6d4552fc74025",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ababcd732e44435b8031a9c7b3ef7fae84954cc3",
+                "reference": "ababcd732e44435b8031a9c7b3ef7fae84954cc3",
                 "shasum": ""
             },
             "require": {
@@ -1050,7 +1108,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-02-14T10:39:48+00:00"
+            "time": "2018-02-19T20:56:23+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1417,23 +1475,23 @@
         },
         {
             "name": "codeception/stub",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Stub.git",
-                "reference": "673ea54cdd7141e0a5138ad78aaa60751912f573"
+                "reference": "95fb7a36b81890dd2e5163e7ab31310df6f1bb99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Stub/zipball/673ea54cdd7141e0a5138ad78aaa60751912f573",
-                "reference": "673ea54cdd7141e0a5138ad78aaa60751912f573",
+                "url": "https://api.github.com/repos/Codeception/Stub/zipball/95fb7a36b81890dd2e5163e7ab31310df6f1bb99",
+                "reference": "95fb7a36b81890dd2e5163e7ab31310df6f1bb99",
                 "shasum": ""
             },
             "require": {
-                "phpunit/phpunit-mock-objects": "^2.3|^3.0|^4.0|^5.0"
+                "phpunit/phpunit-mock-objects": ">2.3 <7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8|^5.0|^6.0|^7.0"
+                "phpunit/phpunit": ">=4.8 <8.0"
             },
             "type": "library",
             "autoload": {
@@ -1446,7 +1504,7 @@
                 "MIT"
             ],
             "description": "Flexible Stub wrapper for PHPUnit's Mock Builder",
-            "time": "2018-01-27T00:37:17+00:00"
+            "time": "2018-02-18T13:56:56+00:00"
         },
         {
             "name": "codeception/verify",
@@ -1544,12 +1602,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "f37aba0cefd88802b939c794c20c8bfa68e337c8"
+                "reference": "5dce1159142a1ba0fcab4672cb295bf7d8f98824"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/f37aba0cefd88802b939c794c20c8bfa68e337c8",
-                "reference": "f37aba0cefd88802b939c794c20c8bfa68e337c8",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/5dce1159142a1ba0fcab4672cb295bf7d8f98824",
+                "reference": "5dce1159142a1ba0fcab4672cb295bf7d8f98824",
                 "shasum": ""
             },
             "require": {
@@ -1586,7 +1644,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2018-02-14T11:17:26+00:00"
+            "time": "2018-02-14T13:50:47+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1996,12 +2054,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -2051,7 +2109,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2308,12 +2366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe"
+                "reference": "80798b8043cb3b4e770c21e64d4fbc2efdda7942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3330ef26ade05359d006041316ed0fa9e8e3cefe",
-                "reference": "3330ef26ade05359d006041316ed0fa9e8e3cefe",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/80798b8043cb3b4e770c21e64d4fbc2efdda7942",
+                "reference": "80798b8043cb3b4e770c21e64d4fbc2efdda7942",
                 "shasum": ""
             },
             "require": {
@@ -2384,7 +2442,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-01T05:57:37+00:00"
+            "time": "2018-02-16T06:05:42+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3398,12 +3456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "9e34a7af34870675f2ca2378ec667ec8b16e514d"
+                "reference": "58990682ac3fdc1f563b7e705452921372aad11d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9e34a7af34870675f2ca2378ec667ec8b16e514d",
-                "reference": "9e34a7af34870675f2ca2378ec667ec8b16e514d",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/58990682ac3fdc1f563b7e705452921372aad11d",
+                "reference": "58990682ac3fdc1f563b7e705452921372aad11d",
                 "shasum": ""
             },
             "require": {
@@ -3453,7 +3511,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-31T10:49:53+00:00"
+            "time": "2018-02-14T10:03:57+00:00"
         },
         {
             "name": "symfony/finder",
@@ -3510,12 +3568,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f44c40e9eb06da59bdaf83309e9a1312eb6eaf84"
+                "reference": "6af42631dcf89e9c616242c900d6c52bd53bd1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f44c40e9eb06da59bdaf83309e9a1312eb6eaf84",
-                "reference": "f44c40e9eb06da59bdaf83309e9a1312eb6eaf84",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/6af42631dcf89e9c616242c900d6c52bd53bd1bb",
+                "reference": "6af42631dcf89e9c616242c900d6c52bd53bd1bb",
                 "shasum": ""
             },
             "require": {
@@ -3560,7 +3618,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-11T15:00:48+00:00"
+            "time": "2018-02-16T09:50:28+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -3705,12 +3763,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-faker.git",
-                "reference": "1d2154a5053dd1a628455d81542e3436d653047e"
+                "reference": "bc6238fc7478d0eb252ee7144d98b9c6e732ec55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/1d2154a5053dd1a628455d81542e3436d653047e",
-                "reference": "1d2154a5053dd1a628455d81542e3436d653047e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/bc6238fc7478d0eb252ee7144d98b9c6e732ec55",
+                "reference": "bc6238fc7478d0eb252ee7144d98b9c6e732ec55",
                 "shasum": ""
             },
             "require": {
@@ -3744,7 +3802,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2018-02-05T08:50:49+00:00"
+            "time": "2018-02-19T20:27:40+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -3803,7 +3861,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "yiisoft/yii2-bootstrap": 20
+        "yiisoft/yii2-bootstrap": 20,
+        "mdmsoft/yii2-admin": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

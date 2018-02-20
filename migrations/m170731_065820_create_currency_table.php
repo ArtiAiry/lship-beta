@@ -3,16 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `payout_type`.
+ * Handles the creation of table `currency`.
  */
-class m170731_071423_create_payout_type_table extends Migration
+class m170731_065820_create_currency_table extends Migration
 {
     /**
      * @inheritdoc
      */
     public function up()
     {
-        $this->createTable('{{%payout_type}}', [
+        $this->createTable('{{%currency}}', [
             'id' => 'pk',
             'name' => $this->string(128)->notNull()->unique(),
             'isRemoved'=> "TINYINT (1) default 1",
@@ -24,6 +24,6 @@ class m170731_071423_create_payout_type_table extends Migration
      */
     public function down()
     {
-        $this->dropTable('{{%payout_type}}');
+        $this->dropTable('{{%currency}}');
     }
 }

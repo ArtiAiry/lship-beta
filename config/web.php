@@ -61,8 +61,25 @@ $config = [
         'settings' => [
             'class' => 'app\modules\settings\SettingsModule',
         ],
+        'rbac' => [
+            'class' => 'mdm\admin\Module',
+            'controllerMap'=> [
+                'assignment' => [
+                    'class' => 'mdm\admin\controllers\AssignmentController',
+                    'idfield'=>'id',
+                    'usernameField'=>'username',
+                ],
+            ],
+            'layout' => 'left-menu',
+            'mainLayout' => '@app/views/layouts/main.php',
+        ],
     ],
     'components' => [
+        'user' => [
+                'idenityClass' => 'mdm\admin'
+
+
+        ],
         'request' => [
             'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

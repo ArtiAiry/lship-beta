@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `bank`.
  */
-class m170731_071033_create_bank_table extends Migration
+class m170731_065830_create_bank_table extends Migration
 {
     /**
      * @inheritdoc

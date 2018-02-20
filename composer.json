@@ -15,7 +15,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "codemix/yii2-localeurls": "^1.4",
         "nivans/yii2-bs4-breadcrumbs": "*",
-        "yii2mod/yii2-comments": "*"
+        "yii2mod/yii2-comments": "*",
+        "mdmsoft/yii2-admin": "2.x-dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

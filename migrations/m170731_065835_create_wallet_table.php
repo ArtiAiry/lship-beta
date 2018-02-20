@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `wallet`.
  */
-class m170731_075945_create_wallet_table extends Migration
+class m170731_065835_create_wallet_table extends Migration
 {
     /**
      * @inheritdoc
