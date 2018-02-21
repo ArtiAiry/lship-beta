@@ -13,9 +13,11 @@ use yii\widgets\ActiveForm;
 
 <div class="form-group">
 
-
-
     <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($profile, 'first_name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($profile, 'last_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($user, 'email')->textInput(['maxlength' => true]) ?>
 
@@ -29,10 +31,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($profile, 'age')->textInput() ?>
 
-
-
-    <?php $item = $profile->getGenderList();
-?>
+    <?php $item = $profile->getGenderList(); ?>
 
     <?= $form->field($profile, 'gender')->dropDownList($item)->label(''); ?>
 

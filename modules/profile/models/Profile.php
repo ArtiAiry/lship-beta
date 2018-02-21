@@ -15,6 +15,8 @@ use yii\db\Query;
  *
  * @property integer $id
  * @property integer $user_id
+ * @property string $first_name
+ * @property string $last_name
  * @property string $skype
  * @property integer $phone
  * @property string $country
@@ -54,6 +56,7 @@ class Profile extends ActiveRecord
             [['user_id'], 'required'],
             [['user_id', 'phone', 'age', 'wallet_id'], 'integer'],
             [['dob'], 'safe'],
+            [['first_name','last_name'], 'string', 'max' => 255],
             [['skype', 'ip_address', 'activity', 'interests'], 'string', 'max' => 255],
             [['country'], 'string', 'max' => 38],
             [['city'], 'string', 'max' => 178],
@@ -72,6 +75,8 @@ class Profile extends ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User',
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
             'skype' => 'Skype',
             'phone' => 'Phone',
             'country' => 'Country',

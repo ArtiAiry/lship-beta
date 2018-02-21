@@ -72,12 +72,8 @@ class m170731_065835_create_wallet_table extends Migration
         );
     }
 
-    /**
-     * @inheritdoc
-     */
     public function down()
     {
-
         $this->dropTable('{{%wallet}}');
     }
 }

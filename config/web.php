@@ -74,11 +74,23 @@ $config = [
             'mainLayout' => '@app/views/layouts/main.php',
         ],
     ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions'=>[
+            'site/*',
+            'rbac/*',
+            'auth/*',
+            'signup/*',
+            'profile/*'
+            ],
+
+    ],
+
     'components' => [
+
         'user' => [
-                'idenityClass' => 'mdm\admin'
-
-
+                'identityClass' => 'app\models\User',
+                'loginUrl' => ['auth/login'],
         ],
         'request' => [
             'baseUrl' => '',
@@ -91,10 +103,10 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
+//        'user' => [
+//            'identityClass' => 'app\models\User',
+//            'enableAutoLogin' => true,
+//        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -113,6 +125,7 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+
         ],
         'i18n' => [
             'translations' => [
@@ -200,8 +213,11 @@ $config = [
                 '<module:settings>/<action:\w+>' => '<module>/settings/<action>',
             ],
         ],
-
+        'authManager'  => [
+            'class'        => 'yii\rbac\DbManager',
+        ],
     ],
+
     'params' => $params,
 ];
 

@@ -131,7 +131,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?= $form->field($model, 'email')->textInput(['placeholder' => 'Your email'])->label(false) ?>
                                             </div>
                                             <div class="form-group">
-                                                <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Your password'])->label(false) ?>
+                                                <?= $form->field($model, 'password_hash')->passwordInput(['placeholder' => 'Your password'])->label(false) ?>
                                             </div>
                                             <div class="form-group">
                                                 <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder' => 'Repeat password'])->label(false) ?>

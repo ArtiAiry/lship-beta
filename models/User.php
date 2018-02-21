@@ -20,7 +20,7 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $username
  * @property string $email
- * @property string $password
+ * @property string $password_hash
  * @property string $create_time
  *
  * @property LeadInfo[] $leadInfos
@@ -59,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             [['create_time'], 'safe'],
             [['username', 'email'], 'string', 'max' => 255],
-            [['password'], 'string', 'max' => 128],
+            [['password_hash'], 'string', 'max' => 128],
             [['email'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
@@ -75,7 +75,7 @@ class User extends ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'username' => 'Username',
             'email' => 'Email',
-            'password' => 'Password',
+            'password_hash' => 'Password',
             'create_time' => 'Create Time',
         ];
     }
@@ -234,14 +234,14 @@ class User extends ActiveRecord implements IdentityInterface
         return User::find()->where(['email'=>$email])->one();
     }
 
-    public function validatePassword($password)
+    public function validatePassword($password_hash)
     {
-        return Yii::$app->security->validatePassword($password, $this->password);
+        return Yii::$app->security->validatePassword($password_hash, $this->password_hash);
     }
 
-    public function setPassword($password)
+    public function setPassword($password_hash)
     {
-        $this->password = Yii::$app->security->generatePasswordHash($password);
+        $this->password_hash = Yii::$app->security->generatePasswordHash($password_hash);
     }
 
     //save-create method for signup form, where your data save to database.

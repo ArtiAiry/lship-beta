@@ -18,6 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $form = ActiveForm::begin(); ?>
 
+        <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
+
+        <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
+
         <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
@@ -27,6 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'repeat_password')->passwordInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'skype')->textInput(['maxlength' => true]) ?>
+
+
 
         <?= $form->field($model, 'phone')->textInput() ?>
 

@@ -20,7 +20,7 @@ class SignupForm extends Model
 {
     public $username;
     public $email;
-    public $password;
+    public $password_hash;
     public $repeat_password;
 
     public function rules()
@@ -28,14 +28,14 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            [['username','email','password','repeat_password'],'required'],
+            [['username','email','password_hash','repeat_password'],'required'],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>"This email has been already token."],
             ['email', 'filter', 'filter' => 'trim'],
             [['email'], 'trim'],
             ['email', 'string', 'max' => 255],
-            ['password', 'string', 'min' => 6],
-            ['repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match."],
+            ['password_hash', 'string', 'min' => 6],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
 
         ];
     }
@@ -63,7 +63,7 @@ class SignupForm extends Model
 
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->setPassword($this->password);
+            $user->setPassword($this->password_hash);
             $user->generateAuthKey();
 
             $user->save();

@@ -21,11 +21,13 @@ class AddUserForm extends Model
 {
     public $username;
     public $email;
-    public $password;
+    public $password_hash;
     public $repeat_password;
     public $status;
 
     public $skype;
+    public $first_name;
+    public $last_name;
     public $phone;
     public $city;
     public $country;
@@ -39,14 +41,14 @@ class AddUserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            [['username','email','password','repeat_password'],'required'],
+            [['username','email','password_hash','repeat_password'],'required'],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>"This email has been already token."],
             ['email', 'filter', 'filter' => 'trim'],
             [['email','phone'], 'trim'],
             ['email', 'string', 'max' => 255],
-            ['password', 'string', 'min' => 6],
-            ['repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match."],
+            ['password_hash', 'string', 'min' => 6],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
             [['dob'], 'safe'],
             [['skype', 'ip_address', 'phone'], 'string', 'max' => 255],
             [['country'], 'string', 'max' => 38],
@@ -63,7 +65,7 @@ class AddUserForm extends Model
 
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->setPassword($this->password);
+            $user->setPassword($this->password_hash);
             $user->generateAuthKey();
             $user->status = 10;
 
@@ -83,6 +85,7 @@ class AddUserForm extends Model
             $user->link('profile', $profile);
 
             $db = \Yii::$app->db;
+
             $transaction = $db->beginTransaction();
             if ($user->create() && $profile->save()) {
 
