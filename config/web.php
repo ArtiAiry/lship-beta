@@ -4,6 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'language' => 'ru',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -66,7 +67,7 @@ $config = [
             'controllerMap'=> [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
-                    'idfield'=>'id',
+                    'idField'=>'id',
                     'usernameField'=>'username',
                 ],
             ],
