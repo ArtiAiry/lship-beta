@@ -19,19 +19,20 @@ class UserController extends Controller
 {
 
 
+
+
     public function actionAdd()
     {
+
+
         $model = new AddUserForm();
 
 
-        if ($model->load(Yii::$app->request->post())) {
-//            echo '<pre>';
-//            var_dump($model);
-//            echo '</pre>';
-            if($model->user_create()){
+        if ($model->load(Yii::$app->request->post()) && $model->user_create()) {
+//                return $this->redirect(['view', 'id' => $model->id]);
                 return $this->redirect(['profile/index']);
-            }
-            return var_dump($model);
+
+
 
         }
 

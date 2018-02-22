@@ -6,11 +6,14 @@ use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\form\AddUserForm */
+/* @var $profile app\modules\profile\models\Profile */
 
 
 $this->title = 'Create Profile';
 $this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+
 ?>
 <div class="profile-create">
 
@@ -26,13 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'password_hash')->passwordInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'repeat_password')->passwordInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'skype')->textInput(['maxlength' => true]) ?>
-
-
 
         <?= $form->field($model, 'phone')->textInput() ?>
 
@@ -42,11 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= $form->field($model, 'age')->textInput() ?>
 
-        <?= $form->field($model, 'gender')->dropDownList([
-            '0' => 'Мужской',
-            '1' => 'Женский',
-        ])->label(''); ?>
+        <?php $item = $model->getGenderList(); ?>
 
+        <?= $form->field($model, 'gender')->dropDownList($item)->label('Gender'); ?>
 
         <?= $form->field($model, 'dob')->textInput(['class'=>'form-control datepicker','id'=>'datetimepicker']);?>
 
