@@ -1,15 +1,44 @@
-yii-app-bootstrap-4
+LessonShip CRM (beta, based on bootstrap 4)
 ===========
-yii-app-bootstrap-4 is a mixture of the Yii 2 Basic and Advanced templates with no backend / frontend separation, but with the database-based user functionality from the advanced template. The other important note is that it is using Bootsrap 4 instead of Boostrap 3. Some additional folders ('components', 'messages') have also been added.
+LessonShip CRM based on yii-app-bootstrap-4,which is a mixture of the Yii 2 Basic and Advanced templates with no backend / frontend separation, but with the database-based user functionality from the advanced template. The other important note is that it is using Bootsrap 4 instead of Boostrap 3.
 
 INSTALLATION
 ------------
-Project can be installed and initialized similarly to the [Yii Advanced Template](https://github.com/yiisoft/yii2-app-advanced/blob/master/docs/guide/start-installation.md).
 
-Installing using Composer
+From git:
+
 ~~~
-composer create-project -s dev dan-szabo/yii-app-bootstrap-4 folder_name
+git clone https://github.com/ArtiAiry/lship-beta -b (branch_name)
 ~~~
 
-For preparing the application, [please follow this guide](https://github.com/yiisoft/yii2-app-advanced/blob/master/docs/guide/start-installation.md#preparing-application). **You only need step 2. and 3.** (In step 2. update
-`config/db.php` instead of `common/config/main-local.php`.)
+For preparing the application, you should: 
+
+I. Update your composer:
+
+~~~
+composer update
+~~~
+
+II. Config your db in <b>app/config/db.php</b>
+
+~~~
+return [
+    'class' => 'yii\db\Connection',
+    'dsn' => 'mysql:host=localhost;dbname=your_db_name',
+    'username' => 'root',
+    'password' => '',
+    'charset' => 'utf8',
+];
+~~~
+
+III. Migrate tables to the database
+
+~~~
+php yii migrate
+~~~
+
+IV. Migrate tables for comments:
+
+~~~
+php yii migrate --migrationPath=@vendor/yii2mod/yii2-comments/migrations
+~~~

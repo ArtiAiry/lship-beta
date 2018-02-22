@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db7ba64b8036ee0dcc60555587435f1a",
+    "content-hash": "88bd815a37346d93817be8a56b1f719a",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -337,64 +337,6 @@
                 "html"
             ],
             "time": "2017-06-03T02:28:16+00:00"
-        },
-        {
-            "name": "mdmsoft/yii2-admin",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mdmsoft/yii2-admin.git",
-                "reference": "e9cc1d8adc0e34f3a053d172116c6903c2e3c1fb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mdmsoft/yii2-admin/zipball/e9cc1d8adc0e34f3a053d172116c6903c2e3c1fb",
-                "reference": "e9cc1d8adc0e34f3a053d172116c6903c2e3c1fb",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "~2.0.7"
-            },
-            "require-dev": {
-                "yiisoft/yii2-codeception": "~2.0"
-            },
-            "suggest": {
-                "yiisoft/yii2-bootstrap": "Used when using layout 'left-menu', 'right-menu' or 'top-menu'"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.0.master": "1.0.x-dev",
-                    "dev-master": "2.x-dev"
-                },
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "mdm\\admin\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Misbahul Munir",
-                    "email": "misbahuldmunir@gmail.com"
-                }
-            ],
-            "description": "RBAC Auth manager for Yii2 ",
-            "keywords": [
-                "admin",
-                "auth",
-                "rbac",
-                "yii"
-            ],
-            "time": "2017-11-18T13:27:11+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3861,8 +3803,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "yiisoft/yii2-bootstrap": 20,
-        "mdmsoft/yii2-admin": 20
+        "yiisoft/yii2-bootstrap": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

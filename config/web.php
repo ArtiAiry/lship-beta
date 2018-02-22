@@ -62,31 +62,7 @@ $config = [
         'settings' => [
             'class' => 'app\modules\settings\SettingsModule',
         ],
-        'rbac' => [
-            'class' => 'mdm\admin\Module',
-            'controllerMap'=> [
-                'assignment' => [
-                    'class' => 'mdm\admin\controllers\AssignmentController',
-                    'idField'=>'id',
-                    'usernameField'=>'username',
-                ],
-            ],
-            'layout' => 'left-menu',
-            'mainLayout' => '@app/views/layouts/main.php',
-        ],
     ],
-    'as access' => [
-        'class' => 'mdm\admin\components\AccessControl',
-        'allowActions'=>[
-            'site/*',
-            'rbac/*',
-            'auth/*',
-            'signup/*',
-            'profile/*'
-            ],
-
-    ],
-
     'components' => [
 
         'user' => [
