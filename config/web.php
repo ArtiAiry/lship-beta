@@ -62,6 +62,9 @@ $config = [
         'settings' => [
             'class' => 'app\modules\settings\SettingsModule',
         ],
+        'comments' => [
+            'class' => 'app\modules\comments\CommentsModule',
+        ],
     ],
     'components' => [
 

@@ -109,7 +109,7 @@ Tip 2: you can also add an image using data-image tag
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?=  Url::toRoute(['/comment/index'])?>">
+                <a class="nav-link" href="<?=  Url::toRoute(['/comments/manage/index'])?>">
                     <i class="nc-icon nc-notification-70"></i>
                     <p>Comments</p>
                 </a>
