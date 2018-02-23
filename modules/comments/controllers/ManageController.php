@@ -52,7 +52,7 @@ class ManageController extends Controller
         'rules' => [
             [
                 'allow' => true,
-                'roles' => ['admin'],
+                'roles' => ['admin','banking'],
             ],
         ],
     ];

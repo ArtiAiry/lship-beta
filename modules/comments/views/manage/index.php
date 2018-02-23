@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => false,
             ],
             [
-                'header' => 'Action1s',
+                'header' => 'Actions',
                 'class' => 'app\widgets\CustomColumn',
                 'template' => '{view}{update}{delete}',
                 'buttons' => [

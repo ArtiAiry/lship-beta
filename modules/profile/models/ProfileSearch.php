@@ -12,6 +12,8 @@ use app\modules\profile\models\Profile;
  */
 class ProfileSearch extends Profile
 {
+
+    public $username;
     /**
      * @inheritdoc
      */
@@ -20,7 +22,7 @@ class ProfileSearch extends Profile
         return [
             [['id', 'phone', 'age', 'wallet_id', 'isRemoved'], 'integer'],
             [['skype','user_id', 'country', 'city', 'ip_address', 'gender', 'dob', 'activity', 'interests'], 'safe'],
-
+            [['username'],'safe']
         ];
     }
 
@@ -59,13 +61,47 @@ class ProfileSearch extends Profile
         }
 
 
-        $query->joinWith('user');
+        $dataProvider->setSort([
+            'attributes' => [
+                'id',
+//                'fullName' => [
+//                    'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+//                    'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+//                    'label' => 'Full Name',
+//                    'default' => SORT_ASC
+//                ],
+                'username' => [
+                    'asc' => ['user.username' => SORT_ASC],
+                    'desc' => ['user.username' => SORT_DESC],
+                    'label' => 'Username'
+                ],
+                'country' => [
+                    'asc' => ['country' => SORT_ASC],
+                    'desc' => ['country' => SORT_DESC],
+                    'label' => 'Country'
+                ],
 
-        $query->alias('u');
+            ]
+        ]);
+
+        if (!($this->load($params) && $this->validate())) {
+            /**
+             * Жадная загрузка данных модели Страны
+             * для работы сортировки.
+             */
+            $query->joinWith(['user']);
+            return $dataProvider;
+        }
+
+        $query->joinWith(['user' => function ($q) {
+            $q->where('user.username LIKE "%' . $this->username . '%"');
+        }]);
+
+
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user.username' => $this->user_id,
             'phone' => $this->phone,
             'age' => $this->age,
             'dob' => $this->dob,
@@ -74,7 +110,7 @@ class ProfileSearch extends Profile
         ]);
 
 
-        $query = Profile::find()->andWhere(['isRemoved' => 1]);
+//      $query = Profile::find()->andWhere(['isRemoved' => 1]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -82,7 +118,7 @@ class ProfileSearch extends Profile
         ]);
 
         $query->andFilterWhere(['like', 'skype', $this->skype])
-            ->andFilterWhere(['isRemoved'=>'1'])
+//            ->andFilterWhere(['isRemoved'=>'1'])
             ->andFilterWhere(['like', 'country', $this->country])
             ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'ip_address', $this->ip_address])
