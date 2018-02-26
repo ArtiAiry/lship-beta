@@ -17,23 +17,23 @@ class RbacController extends Controller
 
         $auth = Yii::$app->authManager;
 
-        $manageWallets = $auth->createPermission('manageWallets');
-        $manageWallets->description = 'Manage wallets';
-        $auth->add($manageWallets);
+        $manageOrders = $auth->createPermission('manageOrders');
+        $manageOrders->description = 'Manage orders';
+        $auth->add($manageOrders);
 
         $manageUsers = $auth->createPermission('manageUsers');
         $manageUsers->description = 'Manage users';
         $auth->add($manageUsers);
 
-        $banking = $auth->createRole('banking');
-        $banking->description = 'Banking';
-        $auth->add($banking);
-        $auth->addChild($banking, $manageWallets);
+        $manager = $auth->createRole('manager');
+        $manager->description = 'Manager';
+        $auth->add($manager);
+        $auth->addChild($manager, $manageOrders);
 
         $admin = $auth->createRole('admin');
         $admin->description = 'Administrator';
         $auth->add($admin);
-        $auth->addChild($admin, $banking);
+        $auth->addChild($admin, $manager);
         $auth->addChild($admin, $manageUsers);
     }
 

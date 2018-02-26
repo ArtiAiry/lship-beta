@@ -2,6 +2,7 @@
 
 use app\models\User;
 
+use app\modules\profile\models\Profile;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -34,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'user_id',
-//                'filter' => User::find()->select('id','username')->indexBy('username')->column(),
+//              'filter' => User::find()->select('id','username')->indexBy('username')->column(),
                 'value' => 'user.username',
             ],
 
@@ -43,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'country',
             [
                 'label'  => 'gender',
+                'filter' => Profile::find()->select('id','gender')->indexBy('gender')->column(),
                 'value'  => function ($data) {
                     if($data->getGenderValue()==1){
                         return 'Female';

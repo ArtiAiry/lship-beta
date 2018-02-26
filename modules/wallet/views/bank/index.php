@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'name',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'app\widgets\CustomColumn'],
         ],
     ]); ?>
 </div>

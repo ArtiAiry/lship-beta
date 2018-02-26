@@ -61,20 +61,21 @@ class ProfileSearch extends Profile
 
         $query->joinWith('user');
 
-        $query->alias('u');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user.username' => $this->user_id,
+            'user.username' => $this->user->username,
             'phone' => $this->phone,
             'age' => $this->age,
             'dob' => $this->dob,
+            'gender' => $this->gender,
             'wallet_id' => $this->wallet_id,
             'isRemoved' => $this->isRemoved,
         ]);
 
 
-        $query = Profile::find()->andWhere(['isRemoved' => 1]);
+
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -82,6 +83,7 @@ class ProfileSearch extends Profile
         ]);
 
         $query->andFilterWhere(['like', 'skype', $this->skype])
+            ->andFilterWhere(['like', 'user.username', $this->user_id])
             ->andFilterWhere(['isRemoved'=>'1'])
             ->andFilterWhere(['like', 'country', $this->country])
             ->andFilterWhere(['like', 'city', $this->city])
@@ -89,6 +91,8 @@ class ProfileSearch extends Profile
             ->andFilterWhere(['like', 'gender', $this->gender])
             ->andFilterWhere(['like', 'activity', $this->activity])
             ->andFilterWhere(['like', 'interests', $this->interests]);
+
+//        $query = Profile::find()->andWhere(['isRemoved' => 1]);
 
         return $dataProvider;
     }

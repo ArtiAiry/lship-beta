@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'comment',
             'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'app\widgets\CustomColumn'],
         ],
     ]); ?>
 </div>

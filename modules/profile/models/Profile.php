@@ -74,7 +74,7 @@ class Profile extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User',
+            'user_id' => 'Username',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
             'skype' => 'Skype',

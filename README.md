@@ -42,3 +42,24 @@ IV. Migrate tables for comments:
 ~~~
 php yii migrate --migrationPath=@vendor/yii2mod/yii2-comments/migrations
 ~~~
+
+
+V. Migrate tables for RBAC:
+
+~~~
+php yii migrate --migrationPath=@yii/rbac/migrations
+~~~
+
+Working with RBAC:
+
+After migrating RBAC tables, you can work with console's commands help. To create the roles, you need to write the following command: 
+
+~~~
+php yii rbac/init
+~~~
+
+After that, if you want to add role to user, write the following command:
+
+~~~
+php yii rbac/assign <role_name> <username>
+~~~

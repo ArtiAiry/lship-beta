@@ -24,12 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+
             'payout_type_id',
             'bank_id',
             'currency_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'app\widgets\CustomColumn'],
         ],
     ]); ?>
 </div>

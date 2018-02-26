@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 <!--    --><?//= Html::button('Create', ['value'=>Url::to('create'), 'class' => 'btn waves-effect waves-light  cyan darken-2', 'id'=>'modalButton']); ?>
     <p>
-<?= Html::a('Create Payout Type', ['create'], ['class' => 'btn waves-effect waves-light  cyan darken-2']) ?>
+<?= Html::a('Create Payout Type', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <!--    --><?php
 //    Modal::begin([
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'app\widgets\CustomColumn'],
         ],
     ]); ?>
 </div>
