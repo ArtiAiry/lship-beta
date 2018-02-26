@@ -1,5 +1,8 @@
 <?php
 
+use app\modules\payout\models\PayoutType;
+use app\modules\wallet\models\Bank;
+use app\modules\wallet\models\Currency;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -23,11 +26,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-
-            'payout_type_id',
-            'bank_id',
-            'currency_id',
+            [
+                'attribute' => 'payout_type_id',
+               'filter' => PayoutType::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'payoutType.name',
+            ],
+            [
+                'attribute' => 'bank_id',
+                 'filter' => Bank::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'bank.name',
+            ],
+            [
+                'attribute' => 'currency_id',
+                  'filter' => Currency::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'currency.name',
+            ],
 
             ['class' => 'app\widgets\CustomColumn'],
         ],

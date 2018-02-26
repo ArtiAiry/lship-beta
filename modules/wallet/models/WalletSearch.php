@@ -18,7 +18,8 @@ class WalletSearch extends Wallet
     public function rules()
     {
         return [
-            [['id', 'payout_type_id', 'bank_id', 'currency_id'], 'integer'],
+            [['id'],'integer'],
+            [['payout_type_id', 'bank_id', 'currency_id'], 'safe'],
         ];
     }
 
@@ -51,18 +52,38 @@ class WalletSearch extends Wallet
         $this->load($params);
 
         if (!$this->validate()) {
+
+
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
+        $query->joinWith('payoutType');
+        $query->joinWith('currency');
+        $query->joinWith('bank');
+
+
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'payout_type_id' => $this->payout_type_id,
-            'bank_id' => $this->bank_id,
-            'currency_id' => $this->currency_id,
+            'payoutType.name' => $this->payoutType->name,
+            'bank.name' => $this->bank->name,
+            'currency.name' => $this->currency->name,
         ]);
+
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => ['pageSize' => 10],
+        ]);
+
+
+        $query->andFilterWhere(['like', 'payoutType.name', $this->payout_type_id])
+            ->andFilterWhere(['like', 'bank.name', $this->bank_id])
+            ->andFilterWhere(['like', 'currency.name', $this->currency_id]);
+
 
         return $dataProvider;
     }

@@ -1,5 +1,9 @@
 <?php
 
+use app\modules\payout\models\PayoutType;
+use app\modules\wallet\models\Bank;
+use app\modules\wallet\models\Currency;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,11 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'payout_type_id')->textInput() ?>
+    <?= $form->field($model, 'payout_type_id')->dropDownList(ArrayHelper::map(PayoutType::find()->all(), 'id', 'name'),['prompt'=>'Choose a Payout Type']); ?>
 
-    <?= $form->field($model, 'bank_id')->textInput() ?>
 
-    <?= $form->field($model, 'currency_id')->textInput() ?>
+   <?=  $form->field($model, 'bank_id')->dropDownList(ArrayHelper::map(Bank::find()->all(), 'id', 'name'),['prompt'=>'Choose a Bank']); ?>
+
+
+    <?=  $form->field($model, 'currency_id')->dropDownList(ArrayHelper::map(Currency::find()->all(), 'id', 'name'),['prompt'=>'Choose a Currency']); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

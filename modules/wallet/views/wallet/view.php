@@ -29,9 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'payout_type_id',
-            'bank_id',
-            'currency_id',
+            'payoutType.name',
+            'bank.name',
+            'currency.name',
         ],
     ]) ?>
 

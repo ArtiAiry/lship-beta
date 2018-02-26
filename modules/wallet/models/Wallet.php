@@ -55,9 +55,9 @@ class Wallet extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'payout_type_id' => 'Payout Type ID',
-            'bank_id' => 'Bank ID',
-            'currency_id' => 'Currency ID',
+            'payout_type_id' => 'Payout Type',
+            'bank_id' => 'Bank',
+            'currency_id' => 'Currency',
         ];
     }
 
