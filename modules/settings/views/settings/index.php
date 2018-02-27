@@ -66,19 +66,19 @@ use yii\helpers\Url;
                 <div class="card">
                     <div class="card-header ">
                         <h4 class="card-title text-center">
-                            <a class="btn btn-wd btn-info btn-outline" href="<?= Url::to(['/wallet/bank/index'])?>">
+                            <a class="btn btn-wd btn-info btn-outline" href="<?= Url::to(['/leads/form/index'])?>">
                                                     <span class="btn-label">
                                                         <i class="fa fa-address-card-o"></i>
                                                     </span>
                                 Form
                             </a>
-                            <a class="btn btn-wd btn-info btn-outline" href="<?= Url::to(['/wallet/currency/index'])?>">
+                            <a class="btn btn-wd btn-info btn-outline" href="<?= Url::to(['/leads/landing/index'])?>">
                                                     <span class="btn-label">
                                                         <i class="fa fa-area-chart"></i>
                                                     </span>
                                 Landing
                             </a>
-                            <a class="btn btn-wd btn-info btn-outline" href="<?= Url::to(['/wallet/currency/index'])?>">
+                            <a class="btn btn-wd btn-info btn-outline" href="<?= Url::to(['/leads/channel/index'])?>">
                                                     <span class="btn-label">
                                                         <i class="fa fa-bar-chart-o"></i>
                                                     </span>

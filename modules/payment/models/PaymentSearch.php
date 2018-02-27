@@ -1,16 +1,16 @@
 <?php
 
-namespace app\modules\wallet\models;
+namespace app\modules\payment\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\wallet\models\Wallet;
+use app\modules\payment\models\Payment;
 
 /**
- * WalletSearch represents the model behind the search form about `app\modules\wallet\models\Wallet`.
+ * PaymentSearch represents the model behind the search form about `app\modules\payment\models\Payment`.
  */
-class WalletSearch extends Wallet
+class PaymentSearch extends Payment
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class WalletSearch extends Wallet
     public function rules()
     {
         return [
-            [['id'],'integer'],
-            [['payout_type_id', 'bank_id', 'currency_id'], 'safe'],
+            [['id', 'payment_type_id', 'package_id', 'lessons', 'stock_lessons', 'total_lessons', 'is_rejected'], 'integer'],
+            [['create_time'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class WalletSearch extends Wallet
      */
     public function search($params)
     {
-        $query = Wallet::find();
+        $query = Payment::find();
 
         // add conditions that should always apply here
 
@@ -52,37 +52,22 @@ class WalletSearch extends Wallet
         $this->load($params);
 
         if (!$this->validate()) {
-
-
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
-        $query->joinWith('payoutType');
-        $query->joinWith('currency');
-        $query->joinWith('bank');
-
-
-        // for grid
+        // grid filtering conditions
         $query->andFilterWhere([
-
             'id' => $this->id,
-//            'bank.name' => $this->bank->name,
-//            'currency.name' => $this->currency->name,
+            'create_time' => $this->create_time,
+            'payment_type_id' => $this->payment_type_id,
+            'package_id' => $this->package_id,
+            'lessons' => $this->lessons,
+            'stock_lessons' => $this->stock_lessons,
+            'total_lessons' => $this->total_lessons,
+            'is_rejected' => $this->is_rejected,
         ]);
-
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => ['pageSize' => 10],
-        ]);
-
-
-        $query->andFilterWhere(['like', 'payout_type.name', $this->payout_type_id])
-            ->andFilterWhere(['like', 'bank.name', $this->bank_id])
-            ->andFilterWhere(['like', 'currency.name', $this->currency_id]);
-
 
         return $dataProvider;
     }
