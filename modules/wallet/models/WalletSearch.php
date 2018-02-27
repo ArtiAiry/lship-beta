@@ -60,17 +60,17 @@ class WalletSearch extends Wallet
         }
 
         $query->joinWith('payoutType');
+
         $query->joinWith('currency');
         $query->joinWith('bank');
 
 
 
-        // grid filtering conditions
+        // for grid
         $query->andFilterWhere([
             'id' => $this->id,
-            'payoutType.name' => $this->payoutType->name,
-            'bank.name' => $this->bank->name,
-            'currency.name' => $this->currency->name,
+//            'bank.name' => $this->bank->name,
+//            'currency.name' => $this->currency->name,
         ]);
 
 
@@ -80,7 +80,7 @@ class WalletSearch extends Wallet
         ]);
 
 
-        $query->andFilterWhere(['like', 'payoutType.name', $this->payout_type_id])
+        $query->andFilterWhere(['like', 'payout_type.name', $this->payout_type_id])
             ->andFilterWhere(['like', 'bank.name', $this->bank_id])
             ->andFilterWhere(['like', 'currency.name', $this->currency_id]);
 
