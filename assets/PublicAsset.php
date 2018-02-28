@@ -18,8 +18,11 @@ class PublicAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/custom.css',
         'css/light-bootstrap-dashboard.css',
         'css/demo.css',
+
+
 
     ];
     public $js = [

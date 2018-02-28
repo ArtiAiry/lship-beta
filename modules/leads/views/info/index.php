@@ -1,5 +1,8 @@
 <?php
 
+use app\modules\leads\models\LeadChannel;
+use app\modules\leads\models\LeadForm;
+use app\modules\leads\models\LeadLanding;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -94,16 +97,42 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'create_time',
-            'client_id',
-            'product_id',
-            'lead_channel_id',
+
+            [
+                'attribute' => 'user_id',
+                'value' => 'user.username',
+            ],
+            [
+                'attribute' =>'product_id',
+                'value' => 'product.name',
+            ],
+            [
+                'attribute' => 'lead_channel_id',
+                'filter' => LeadChannel::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'leadChannel.name',
+            ],
+            [
+                'attribute' => 'lead_landing_id',
+                'filter' => LeadLanding::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'leadLanding.name',
+            ],
+            [
+                'attribute' => 'lead_form_id',
+                'filter' => LeadForm::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'leadForm.name',
+            ],
+            [
+                'attribute' => 'promocode_id',
+//                'filter' => LeadForm::find()->select('id','name')->indexBy('name')->column(),
+                'value' => 'promocode.promo_name',
+            ],
+
+//            'lead_channel_id',
             // 'partner_id',
             // 'aff_id',
-            // 'lead_landing_id',
-            // 'lead_form_id',
+//            'lead_landing_id',
+//            'lead_form_id',
             // 'source',
             // 'conv_url:url',
             // 'ga_cid',
@@ -116,7 +145,10 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'count_sells',
             // 'total_lessons',
 
-            ['class' => 'app\widgets\CustomColumn'],
+            [
+                'class' => 'app\widgets\CustomColumn',
+                'header' => 'Actions',
+            ],
         ],
     ]);
 

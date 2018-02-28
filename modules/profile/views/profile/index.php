@@ -68,7 +68,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'wallet_id',
             //'isRemoved',
 
-            ['class' => 'app\widgets\CustomColumn'],
+            [
+                'class' => 'app\widgets\CustomColumn',
+                'header' => 'Actions',
+            ],
         ],
     ]); ?>
 </div>

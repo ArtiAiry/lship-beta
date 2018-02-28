@@ -18,7 +18,7 @@ class PromocodeSearch extends Promocode
     public function rules()
     {
         return [
-            [['promo_name', 'action_id'], 'safe'],
+            [['name', 'action_id'], 'safe'],
         ];
     }
 
@@ -63,7 +63,7 @@ class PromocodeSearch extends Promocode
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'action.name' => $this->action->name,
+//            'action.name' => $this->action->name,
             'isRemoved' => $this->isRemoved,
         ]);
 
@@ -75,7 +75,7 @@ class PromocodeSearch extends Promocode
 
 //        $query = Promocode::find()->andWhere(['isRemoved' => 1]);
 
-        $query->andFilterWhere(['like', 'promo_name', $this->promo_name])
+        $query
             ->andFilterWhere(['like', 'action.name', $this->action_id])
 
 //            ->andFilterWhere(['like', 'name', $this->name])

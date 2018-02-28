@@ -14,7 +14,7 @@ class m170731_075052_create_promocode_table extends Migration
     {
         $this->createTable('{{%promocode}}', [
             'id' => 'pk',
-            'name' => $this->string(128)->notNull()->unique(),
+            'promo_name' => $this->string(128)->notNull()->unique(),
             'action_id' => $this->integer(),
             'isRemoved'=> "TINYINT (1) default 1",
         ]);

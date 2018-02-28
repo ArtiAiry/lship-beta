@@ -12,7 +12,7 @@ use yii\db\ActiveRecord;
  *
  * @property integer $id
  * @property string $create_time
- * @property integer $client_id
+ * @property integer $user_id
  * @property integer $product_id
  * @property integer $lead_channel_id
  * @property integer $partner_id
@@ -31,7 +31,7 @@ use yii\db\ActiveRecord;
  * @property integer $count_sells
  * @property integer $total_lessons
  *
- * @property User $client
+ * @property User $user
  * @property LeadChannel $leadChannel
  * @property LeadForm $leadForm
  * @property LeadLanding $leadLanding
@@ -55,9 +55,9 @@ class LeadInfo extends ActiveRecord
     {
         return [
             [['create_time'], 'safe'],
-            [['client_id', 'product_id', 'lead_channel_id', 'partner_id', 'aff_id', 'lead_landing_id', 'lead_form_id', 'ga_cid', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign', 'promocode_id', 'count_orders', 'count_sells', 'total_lessons'], 'integer'],
+            [['user_id', 'product_id', 'lead_channel_id', 'partner_id', 'aff_id', 'lead_landing_id', 'lead_form_id', 'ga_cid', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign', 'promocode_id', 'count_orders', 'count_sells', 'total_lessons'], 'integer'],
             [['source', 'conv_url'], 'string', 'max' => 255],
-            [['client_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['client_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['lead_channel_id'], 'exist', 'skipOnError' => true, 'targetClass' => LeadChannel::className(), 'targetAttribute' => ['lead_channel_id' => 'id']],
             [['lead_form_id'], 'exist', 'skipOnError' => true, 'targetClass' => LeadForm::className(), 'targetAttribute' => ['lead_form_id' => 'id']],
             [['lead_landing_id'], 'exist', 'skipOnError' => true, 'targetClass' => LeadLanding::className(), 'targetAttribute' => ['lead_landing_id' => 'id']],
@@ -74,7 +74,7 @@ class LeadInfo extends ActiveRecord
         return [
             'id' => 'ID',
             'create_time' => 'Create Time',
-            'client_id' => 'Client',
+            'user_id' => 'Client',
             'product_id' => 'Product',
             'lead_channel_id' => 'Lead Channel',
             'partner_id' => 'Partner ID',
@@ -88,7 +88,7 @@ class LeadInfo extends ActiveRecord
             'utm_term' => 'Utm Term',
             'utm_content' => 'Utm Content',
             'utm_campaign' => 'Utm Campaign',
-            'promocode_id' => 'Promocode ID',
+            'promocode_id' => 'Promocode',
             'count_orders' => 'Count Orders',
             'count_sells' => 'Count Sells',
             'total_lessons' => 'Total Lessons',
@@ -98,9 +98,9 @@ class LeadInfo extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getClient()
+    public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'client_id']);
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
     /**

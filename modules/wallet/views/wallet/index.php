@@ -42,7 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => 'currency.name',
             ],
 
-            ['class' => 'app\widgets\CustomColumn'],
+            [
+                'class' => 'app\widgets\CustomColumn',
+                'header' => 'Actions',
+            ],
         ],
     ]); ?>
 </div>

@@ -3,6 +3,7 @@
 namespace app\modules\promocode\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "action".
@@ -12,7 +13,7 @@ use Yii;
  *
  * @property Promocode[] $promocodes
  */
-class Action extends \yii\db\ActiveRecord
+class Action extends ActiveRecord
 {
     /**
      * @inheritdoc

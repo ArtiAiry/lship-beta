@@ -41,7 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'name',
-            ['class' => 'app\widgets\CustomColumn'],
+            [
+                'class' => 'app\widgets\CustomColumn',
+                'header' => 'Actions',
+            ],
         ],
     ]);
 

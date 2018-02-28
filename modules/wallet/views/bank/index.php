@@ -46,7 +46,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'name',
 
-            ['class' => 'app\widgets\CustomColumn'],
+            [
+                'class' => 'app\widgets\CustomColumn',
+                'header' => 'Actions',
+            ],
         ],
     ]); ?>
 </div>

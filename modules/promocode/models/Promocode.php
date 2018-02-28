@@ -3,14 +3,14 @@
 namespace app\modules\promocode\models;
 
 
-use app\modules\lead_info\models\LeadInfo;
+use app\modules\leads\models\LeadInfo;
 use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "promocode".
  *
  * @property integer $id
- * @property string $name
+ * @property string $promo_name
  * @property integer $action_id
  *
  * @property LeadInfo[] $leadInfos
@@ -32,10 +32,10 @@ class Promocode extends ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['promo_name'], 'required'],
             [['action_id'], 'integer'],
-            [['name'], 'string', 'max' => 128],
-            [['name'], 'unique'],
+            [['promo_name'], 'string', 'max' => 128],
+            [['promo_name'], 'unique'],
             [['action_id'], 'exist', 'skipOnError' => true, 'targetClass' => Action::className(), 'targetAttribute' => ['action_id' => 'id']],
         ];
     }
@@ -47,8 +47,8 @@ class Promocode extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'action_id' => 'Action ID',
+            'promo_name' => 'Name',
+            'action_id' => 'Action',
         ];
     }
 
