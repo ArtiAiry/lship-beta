@@ -1,5 +1,13 @@
 <?php
 
+
+use app\models\User;
+use app\modules\leads\models\LeadChannel;
+use app\modules\leads\models\LeadForm;
+use app\modules\leads\models\LeadLanding;
+use app\modules\product\models\Product;
+use app\modules\promocode\models\Promocode;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,21 +20,21 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'create_time')->textInput() ?>
+<!--    --><?//= $form->field($model, 'create_time')->textInput() ?>
 
-    <?= $form->field($model, 'client_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')->dropDownList(ArrayHelper::map(User::find()->all(), 'id', 'username'),['prompt'=>'Choose a Client']) ?>
 
-    <?= $form->field($model, 'product_id')->textInput() ?>
+    <?= $form->field($model, 'product_id')->dropDownList(ArrayHelper::map(Product::find()->all(), 'id', 'name'),['prompt'=>'Choose a Product Type']) ?>
 
-    <?= $form->field($model, 'lead_channel_id')->textInput() ?>
+    <?= $form->field($model, 'lead_channel_id')->dropDownList(ArrayHelper::map(LeadChannel::find()->all(), 'id', 'name'),['prompt'=>'Choose a Channel Type']) ?>
 
     <?= $form->field($model, 'partner_id')->textInput() ?>
 
     <?= $form->field($model, 'aff_id')->textInput() ?>
 
-    <?= $form->field($model, 'lead_landing_id')->textInput() ?>
+    <?= $form->field($model, 'lead_landing_id')->dropDownList(ArrayHelper::map(LeadLanding::find()->all(), 'id', 'name'),['prompt'=>'Choose a Landing Type']) ?>
 
-    <?= $form->field($model, 'lead_form_id')->textInput() ?>
+    <?= $form->field($model, 'lead_form_id')->dropDownList(ArrayHelper::map(LeadForm::find()->all(), 'id', 'name'),['prompt'=>'Choose a Form Type']) ?>
 
     <?= $form->field($model, 'source')->textInput(['maxlength' => true]) ?>
 
@@ -42,7 +50,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'utm_campaign')->textInput() ?>
 
-    <?= $form->field($model, 'promocode_id')->textInput() ?>
+    <?= $form->field($model, 'promocode_id')->dropDownList(ArrayHelper::map(Promocode::find()->all(), 'id', 'promo_name'),['prompt'=>'Choose a Promocode']) ?>
 
     <?= $form->field($model, 'count_orders')->textInput() ?>
 
@@ -51,7 +59,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'total_lessons')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn waves-effect waves-light  cyan darken-2' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

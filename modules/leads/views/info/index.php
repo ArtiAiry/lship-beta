@@ -3,6 +3,8 @@
 use app\modules\leads\models\LeadChannel;
 use app\modules\leads\models\LeadForm;
 use app\modules\leads\models\LeadLanding;
+use app\modules\product\models\Product;
+use app\modules\promocode\models\Promocode;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -21,70 +23,70 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Lead Info', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Create Channel', ['/leads/channel/create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Create Form', ['/leads/form/create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Create Landing', ['/leads/landing/create'], ['class' => 'btn btn-success']) ?>
-<!--        --><?//= Html::button('Create Lead Info', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
-<!--        --><?//= Html::button('Create Channel', ['value'=>Url::to('/leads/channel/create'), 'class' => 'btn btn-success', 'id'=>'modalButton1']); ?>
-<!--        --><?//= Html::button('Create Form', ['value'=>Url::to('/leads/form/create'), 'class' => 'btn btn-success', 'id'=>'modalButton2']); ?>
-<!--        --><?//= Html::button('Create Landing', ['value'=>Url::to('/leads/landing/create'), 'class' => 'btn btn-success', 'id'=>'modalButton3']); ?>
+<!--        --><?//= Html::a('Create Lead Info', ['create'], ['class' => 'btn btn-success']) ?>
+<!--        --><?//= Html::a('Create Channel', ['/leads/channel/create'], ['class' => 'btn btn-success']) ?>
+<!--        --><?//= Html::a('Create Form', ['/leads/form/create'], ['class' => 'btn btn-success']) ?>
+<!--        --><?//= Html::a('Create Landing', ['/leads/landing/create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Lead Info', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
+        <?= Html::button('Create Channel', ['value'=>Url::to('/leads/channel/create'), 'class' => 'btn btn-success', 'id'=>'modalButton1']); ?>
+        <?= Html::button('Create Form', ['value'=>Url::to('/leads/form/create'), 'class' => 'btn btn-success', 'id'=>'modalButton2']); ?>
+        <?= Html::button('Create Landing', ['value'=>Url::to('/leads/landing/create'), 'class' => 'btn btn-success', 'id'=>'modalButton3']); ?>
 
 
     </p>
 
     <!-- modal structure beginning (for create-action buttons)-->
 
-<!--    --><?php
-//    Modal::begin([
-//        'header'=>'<h4>Add a lead</h4>',
-//        'id'=>'modal',
-//        'size'=>'modal-lg',
-//    ]);
-//
-//    echo "<div id='modalContent'></div>";
-//
-//    Modal::end();
-//
-//    ?>
+    <?php
+    digitv\bootstrap\widgets\Modal::begin([
+        'header'=>'<h4>Add a lead</h4>',
+        'id'=>'modal',
+        'size'=>'modal-lg',
+    ]);
+
+    echo "<div id='modalContent'></div>";
+
+    digitv\bootstrap\widgets\Modal::end();
+
+    ?>
 <!---->
-<!--    --><?php
-//    Modal::begin([
-//        'header'=>'<h4>Add a channel</h4>',
-//        'id'=>'modal1',
-//        'size'=>'modal-lg',
-//    ]);
-//
-//    echo "<div id='modalContent1'></div>";
-//
-//    Modal::end();
-//
-//    ?>
-<!---->
-<!--    --><?php
-//    Modal::begin([
-//        'header'=>'<h4>Add a Form</h4>',
-//        'id'=>'modal2',
-//        'size'=>'modal-lg',
-//    ]);
-//
-//    echo "<div id='modalContent2'></div>";
-//
-//    Modal::end();
-//    ?>
-<!---->
-<!--    --><?php
-//    Modal::begin([
-//        'header'=>'<h4>Add a Landing</h4>',
-//        'id'=>'modal3',
-//        'size'=>'modal-lg',
-//    ]);
-//
-//    echo "<div id='modalContent3'></div>";
-//
-//    Modal::end();
-//
-//    ?>
+    <?php
+    digitv\bootstrap\widgets\Modal::begin([
+        'header'=>'<h4>Add a channel</h4>',
+        'id'=>'modal1',
+        'size'=>'modal-lg',
+    ]);
+
+    echo "<div id='modalContent1'></div>";
+
+    digitv\bootstrap\widgets\Modal::end();
+
+    ?>
+
+    <?php
+    digitv\bootstrap\widgets\Modal::begin([
+        'header'=>'<h4>Add a Form</h4>',
+        'id'=>'modal2',
+        'size'=>'modal-lg',
+    ]);
+
+    echo "<div id='modalContent2'></div>";
+
+    digitv\bootstrap\widgets\Modal::end();
+    ?>
+
+    <?php
+    digitv\bootstrap\widgets\Modal::begin([
+        'header'=>'<h4>Add a Landing</h4>',
+        'id'=>'modal3',
+        'size'=>'modal-lg',
+    ]);
+
+    echo "<div id='modalContent3'></div>";
+
+    digitv\bootstrap\widgets\Modal::end();
+
+    ?>
 
 
 
@@ -105,6 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' =>'product_id',
+                'filter' => Product::find()->select('id','name')->indexBy('name')->column(),
                 'value' => 'product.name',
             ],
             [
@@ -124,7 +127,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'promocode_id',
-//                'filter' => LeadForm::find()->select('id','name')->indexBy('name')->column(),
+                'filter' => Promocode::find()->select('id','promo_name')->indexBy('promo_name')->column(),
                 'value' => 'promocode.promo_name',
             ],
 

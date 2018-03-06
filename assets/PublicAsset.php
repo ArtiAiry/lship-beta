@@ -51,6 +51,12 @@ class PublicAsset extends AssetBundle
         'js/light-bootstrap-dashboard.js?v=2.0.1',
 
         'js/demo.js',
+
+        'js/modals/modal.js',
+        'js/modals/modal1.js',
+        'js/modals/modal2.js',
+        'js/modals/modal3.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -18,22 +18,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Lead Form', ['create'], ['class' => 'btn btn-success']) ?>
-<!--        --><?//= Html::button('Create Form', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
+<!--        --><?//= Html::a('Create Lead Form', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Form', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
     </p>
 
-<!--    --><?php
-//    Modal::begin([
-//        'header'=>'<h4>Add a form</h4>',
-//        'id'=>'modal',
-//        'size'=>'modal-lg',
-//    ]);
-//
-//    echo "<div id='modalContent'></div>";
-//
-//    Modal::end();
-//
-//    ?>
+    <?php
+    digitv\bootstrap\widgets\Modal::begin([
+        'header'=>'<h4>Add a form</h4>',
+        'id'=>'modal',
+        'size'=>'modal-lg',
+    ]);
+
+    echo "<div id='modalContent'></div>";
+
+    digitv\bootstrap\widgets\Modal::end();
+
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -48,11 +48,12 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
 
-//    Modal::begin([
+//    digitv\bootstrap\widgets\Modal::begin([
 //        'id'=>'pModal',
 //        'size'=>'modal-lg',
 //    ]);
-//    Modal::end();
+//
+//    digitv\bootstrap\widgets\Modal::end();
 
 
     ?>

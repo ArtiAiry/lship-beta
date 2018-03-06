@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn waves-effect waves-light red darken-4',
+            'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
@@ -30,13 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'create_time',
-            'client_id',
-            'product_id',
-            'lead_channel_id',
+            'user.username',
+            'product.name',
+            'leadChannel.name',
             'partner_id',
             'aff_id',
-            'lead_landing_id',
-            'lead_form_id',
+            'leadLanding.name',
+            'leadForm.name',
             'source',
             'conv_url:url',
             'ga_cid',
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'utm_term',
             'utm_content',
             'utm_campaign',
-            'promocode_id',
+            'promocode.promo_name',
             'count_orders',
             'count_sells',
             'total_lessons',
