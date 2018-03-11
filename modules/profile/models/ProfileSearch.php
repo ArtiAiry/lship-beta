@@ -18,7 +18,7 @@ class ProfileSearch extends Profile
     public function rules()
     {
         return [
-            [['id', 'phone', 'age', 'wallet_id', 'isRemoved'], 'integer'],
+            [['id', 'phone', 'age', 'isRemoved'], 'integer'],
             [['skype','user_id', 'country', 'city', 'ip_address', 'gender', 'dob', 'activity', 'interests'], 'safe'],
 
         ];
@@ -70,7 +70,6 @@ class ProfileSearch extends Profile
             'age' => $this->age,
             'dob' => $this->dob,
             'gender' => $this->gender,
-            'wallet_id' => $this->wallet_id,
             'isRemoved' => $this->isRemoved,
         ]);
 

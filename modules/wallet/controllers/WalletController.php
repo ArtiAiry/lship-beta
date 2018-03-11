@@ -121,4 +121,24 @@ class WalletController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionActivate($id)
+    {
+        $article = Wallet::findOne($id);
+        if($article->activate())
+        {
+            return $this->redirect(['wallet/index']);
+        }
+    }
+
+
+    public function actionDisactivate($id)
+    {
+        $article = Wallet::findOne($id);
+        if($article->disactivate())
+        {
+            return $this->redirect(['wallet/index']);
+        }
+    }
 }

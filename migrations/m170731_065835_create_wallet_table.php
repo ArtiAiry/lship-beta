@@ -14,9 +14,12 @@ class m170731_065835_create_wallet_table extends Migration
     {
         $this->createTable('{{%wallet}}', [
             'id' => 'pk',
+            'description' => $this->string(255)->defaultValue(null),
             'payout_type_id' => $this->integer()->defaultValue(null),
             'bank_id' => $this->integer()->defaultValue(null),
             'currency_id' => $this->integer()->defaultValue(null),
+            'user_id' => $this->integer()->defaultValue(null),
+            'isActive'=> "TINYINT (1) default 1",
             'isRemoved'=> "TINYINT (1) default 1",
         ]);
 
@@ -36,6 +39,12 @@ class m170731_065835_create_wallet_table extends Migration
             'idx-wallet-currency_id',
             'wallet',
             'currency_id'
+        );
+
+        $this->createIndex(
+            'idx-wallet-user_id',
+            'wallet',
+            'user_id'
         );
 
         $this->addForeignKey(
@@ -65,6 +74,17 @@ class m170731_065835_create_wallet_table extends Migration
             'wallet',
             'currency_id',
             'currency',
+            'id',
+            'CASCADE',
+            'CASCADE'
+
+        );
+
+        $this->addForeignKey(
+            'fk-wallet-user',
+            'wallet',
+            'user_id',
+            'user',
             'id',
             'CASCADE',
             'CASCADE'

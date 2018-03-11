@@ -28,7 +28,7 @@ class m170731_065838_create_profile_table extends Migration
             'dob' => $this->date()->defaultValue(null), //date of birth
             'activity' => $this->string(255)->defaultValue(null),
             'interests' => $this->string(255)->defaultValue(null),
-            'wallet_id'=> $this->integer()->defaultValue(null),
+//            'wallet_id'=> $this->integer()->defaultValue(null),
             'isRemoved'=> "TINYINT (1) default 1",
         ]);
 
@@ -36,12 +36,6 @@ class m170731_065838_create_profile_table extends Migration
             'idx-profile-user_id',
             'profile',
             'user_id'
-        );
-
-        $this->createIndex(
-            'idx-profile-wallet_id',
-            'profile',
-            'wallet_id'
         );
 
         $this->addForeignKey(
@@ -54,18 +48,6 @@ class m170731_065838_create_profile_table extends Migration
             'CASCADE'
 
         );
-
-        $this->addForeignKey(
-            'fk-profile-wallet',
-            'profile',
-            'wallet_id',
-            'wallet',
-            'id',
-            'CASCADE',
-            'CASCADE'
-
-        );
-
 
     }
 

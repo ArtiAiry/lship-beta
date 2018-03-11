@@ -4,7 +4,6 @@ namespace app\modules\profile\models;
 
 
 use app\models\User;
-use app\modules\wallet\models\Wallet;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Query;
@@ -27,10 +26,8 @@ use yii\db\Query;
  * @property string $dob
  * @property string $activity
  * @property string $interests
- * @property integer $wallet_id
  *
  * @property User $user
- * @property Wallet $wallet
  */
 class Profile extends ActiveRecord
 {
@@ -54,7 +51,7 @@ class Profile extends ActiveRecord
     {
         return [
             [['user_id'], 'required'],
-            [['user_id', 'phone', 'age', 'wallet_id'], 'integer'],
+            [['user_id', 'phone', 'age'], 'integer'],
             [['dob'], 'safe'],
             [['first_name','last_name'], 'string', 'max' => 255],
             [['skype', 'ip_address', 'activity', 'interests'], 'string', 'max' => 255],
@@ -63,7 +60,6 @@ class Profile extends ActiveRecord
             [['gender'], 'string', 'max' => 7],
             [['skype'], 'unique'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
-            [['wallet_id'], 'exist', 'skipOnError' => true, 'targetClass' => Wallet::className(), 'targetAttribute' => ['wallet_id' => 'id']],
         ];
     }
 
@@ -87,7 +83,6 @@ class Profile extends ActiveRecord
             'dob' => 'Dob',
             'activity' => 'Activity',
             'interests' => 'Interests',
-            'wallet_id' => 'Wallet ID',
         ];
     }
 
@@ -98,13 +93,6 @@ class Profile extends ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
-
-
-    public function getWallet()
-    {
-        return $this->hasOne(Wallet::className(), ['id' => 'wallet_id']);
-    }
-
 
     public function isRemoved()
     {

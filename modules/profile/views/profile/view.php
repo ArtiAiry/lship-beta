@@ -59,7 +59,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'dob',
             'activity',
             'interests',
-            'wallet_id',
         ],
     ]) ?>
 

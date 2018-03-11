@@ -1,5 +1,6 @@
 <?php
 
+use app\models\User;
 use app\modules\payout\models\PayoutType;
 use app\modules\wallet\models\Bank;
 use app\modules\wallet\models\Currency;
@@ -16,13 +17,17 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'description')->textarea() ?>
+
     <?= $form->field($model, 'payout_type_id')->dropDownList(ArrayHelper::map(PayoutType::find()->all(), 'id', 'name'),['prompt'=>'Choose a Payout Type']); ?>
 
 
-   <?=  $form->field($model, 'bank_id')->dropDownList(ArrayHelper::map(Bank::find()->all(), 'id', 'name'),['prompt'=>'Choose a Bank']); ?>
+    <?=  $form->field($model, 'bank_id')->dropDownList(ArrayHelper::map(Bank::find()->all(), 'id', 'name'),['prompt'=>'Choose a Bank']); ?>
 
 
     <?=  $form->field($model, 'currency_id')->dropDownList(ArrayHelper::map(Currency::find()->all(), 'id', 'name'),['prompt'=>'Choose a Currency']); ?>
+
+    <?=  $form->field($model, 'user_id')->dropDownList(ArrayHelper::map(User::find()->all(), 'id', 'username'),['prompt'=>'Choose a User']); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

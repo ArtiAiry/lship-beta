@@ -2,11 +2,7 @@
 
 namespace app\modules\wallet\models;
 
-use app\models\User;
-use app\modules\payout\models\PayoutType;
-use app\modules\profile\models\Profile;
 use Yii;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "wallet".
@@ -16,21 +12,16 @@ use yii\db\ActiveRecord;
  * @property integer $payout_type_id
  * @property integer $bank_id
  * @property integer $currency_id
- * @property integer $isActive
+ * @property integer $user_id
  * @property integer $isRemoved
  *
- * @property User $user
  * @property Bank $bank
  * @property Currency $currency
  * @property PayoutType $payoutType
+ * @property User $user
  */
-class Wallet extends ActiveRecord
+class Wallet extends \yii\db\ActiveRecord
 {
-    const STATUS_ALLOW = 'allw';
-    const STATUS_DISALLOW = 'dsal';
-    const REMOVE = 0;
-//    const INACTIVE = 0;
-    const ACTIVE = 1;
     /**
      * @inheritdoc
      */
@@ -45,11 +36,9 @@ class Wallet extends ActiveRecord
     public function rules()
     {
         return [
-            [['payout_type_id', 'bank_id', 'currency_id'], 'required'],
-            [['payout_type_id', 'bank_id', 'currency_id'], 'integer'],
+            [['payout_type_id', 'bank_id', 'currency_id', 'user_id'], 'integer'],
             [['description'], 'string', 'max' => 255],
             [['isRemoved'], 'string', 'max' => 1],
-            [['isActive'], 'string', 'max' => 1],
             [['bank_id'], 'exist', 'skipOnError' => true, 'targetClass' => Bank::className(), 'targetAttribute' => ['bank_id' => 'id']],
             [['currency_id'], 'exist', 'skipOnError' => true, 'targetClass' => Currency::className(), 'targetAttribute' => ['currency_id' => 'id']],
             [['payout_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PayoutType::className(), 'targetAttribute' => ['payout_type_id' => 'id']],
@@ -65,21 +54,12 @@ class Wallet extends ActiveRecord
         return [
             'id' => 'ID',
             'description' => 'Description',
-            'payout_type_id' => 'Payout Type',
-            'bank_id' => 'Bank',
-            'currency_id' => 'Currency',
-            'user_id' => 'User',
-            'isRemoved' => 'is Removed',
-            'isActive' => 'Active',
+            'payout_type_id' => 'Payout Type ID',
+            'bank_id' => 'Bank ID',
+            'currency_id' => 'Currency ID',
+            'user_id' => 'User ID',
+            'isRemoved' => 'Is Removed',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
     /**
@@ -106,51 +86,11 @@ class Wallet extends ActiveRecord
         return $this->hasOne(PayoutType::className(), ['id' => 'payout_type_id']);
     }
 
-    //allow | disallow pack
-
-    public function isAllowed()
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
     {
-        return $this->status;
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
-
-    public function allow()
-    {
-        $this->status = self::STATUS_ALLOW;
-        return $this->save(false);
-    }
-
-    public function disallow()
-    {
-        $this->status = self::STATUS_DISALLOW;
-        return $this->save(false);
-    }
-
-    public function isRemoved()
-    {
-        return $this->isRemoved;
-    }
-
-    public function remove()
-    {
-        $this->isRemoved = self::REMOVE;
-        return $this->save(false);
-    }
-
-    public function isActive()
-    {
-        return $this->isActive;
-    }
-
-    public function activate()
-    {
-        $this->isActive = self::ACTIVE;
-        return $this->save(false);
-    }
-
-    public function disactivate()
-    {
-        $this->isActive = self::REMOVE;
-        return $this->save(false);
-    }
-
 }

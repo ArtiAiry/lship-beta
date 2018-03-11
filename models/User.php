@@ -8,6 +8,7 @@ use app\modules\orders\models\OrderInfo;
 use app\modules\orders\models\OrderStatusLog;
 use app\modules\package\models\Package;
 use app\modules\profile\models\Profile;
+use app\modules\wallet\models\Wallet;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -30,6 +31,7 @@ use yii\web\IdentityInterface;
  * @property Package[] $packages
  * @property Package[] $packages0
  * @property Profile[] $profiles
+ * @property Wallet[] $wallet
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -214,6 +216,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasMany(Profile::className(), ['user_id' => 'id']);
     }
 
+
+    public function getWallet()
+    {
+        return $this->hasMany(Wallet::className(), ['user_id' => 'id']);
+    }
 
     //findBy methods
 
