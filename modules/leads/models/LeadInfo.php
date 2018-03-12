@@ -2,7 +2,7 @@
 
 namespace app\modules\leads\models;
 
-use app\models\User;
+use app\modules\user\models\User;
 use app\modules\product\models\Product;
 use app\modules\promocode\models\Promocode;
 use yii\db\ActiveRecord;

@@ -2,7 +2,7 @@
 
 namespace app\modules\wallet\models;
 
-use app\models\User;
+use app\modules\user\models\User;
 use app\modules\payout\models\PayoutType;
 use app\modules\profile\models\Profile;
 use Yii;

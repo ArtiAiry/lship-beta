@@ -11,11 +11,9 @@ namespace app\models\form;
 
 use app\modules\profile\models\Profile;
 use Yii;
-use yii\base\Exception;
 use yii\base\Model;
-use app\models\User;
-use yii\db\ActiveRecord;
-use yii\web\IdentityInterface;
+use app\modules\user\models\User;
+
 
 class AddUserForm extends Model
 {
@@ -72,7 +70,6 @@ class AddUserForm extends Model
             $user->status = 10;
 
             $user->save();
-
 
             $profile = new Profile();
 

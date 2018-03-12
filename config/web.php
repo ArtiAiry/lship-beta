@@ -62,16 +62,21 @@ $config = [
         'settings' => [
             'class' => 'app\modules\settings\SettingsModule',
         ],
-        'comments' => [
-            'class' => 'app\modules\comments\CommentsModule',
+        'admin' => [
+            'class' => 'app\modules\admin\AdminModule',
+        ],
+        'user' => [
+            'class' => 'app\modules\user\UserModule',
         ],
     ],
     'components' => [
 
         'user' => [
-                'identityClass' => 'app\models\User',
+                'identityClass' => 'app\modules\user\models\User',
                 'loginUrl' => ['auth/login'],
+                'enableAutoLogin' => true,
         ],
+
         'request' => [
             'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -83,10 +88,6 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-//        'user' => [
-//            'identityClass' => 'app\models\User',
-//            'enableAutoLogin' => true,
-//        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -145,9 +146,6 @@ $config = [
                 ]
             ],
         ],
-
-
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -191,10 +189,14 @@ $config = [
                 //settings
                 '<module:settings>/<action:\w+>/<id:\d+>' => '<module>/settings/<action>',
                 '<module:settings>/<action:\w+>' => '<module>/settings/<action>',
+                //manage users
+                '<module:user>/<action:\w+>/<id:\d+>' => '<module>/user/<action>',
+                '<module:user>/<action:\w+>' => '<module>/user/<action>',
+
             ],
         ],
-        'authManager'  => [
-            'class'        => 'yii\rbac\DbManager',
+        'authManager' => [
+            'class' => 'app\components\AuthManager',
         ],
     ],
 

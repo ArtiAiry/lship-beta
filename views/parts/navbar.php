@@ -5,7 +5,8 @@
  * Date: 16.10.2017
  * Time: 16:15
  */
-Use yii\helpers\Url;
+use yii\helpers\Url;
+use app\modules\admin\rbac\Rbac as AdminRbac;
 ?>
 
 <!-- START HEADER -->
@@ -73,9 +74,16 @@ Use yii\helpers\Url;
                         <a class="dropdown-item" href="#">
                             <i class="nc-icon nc-email-85"></i> Comments
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="nc-icon nc-umbrella-13"></i> Help Center
+
+                        <?php if(Yii::$app->user->can(AdminRbac::PERMISSION_ADMIN_PANEL)): ?>
+                        <a class="dropdown-item" href="<?= Url::to(['/admin/default/index']) ?>">
+                            <i class="nc-icon nc-single-02"></i> Manage Roles
                         </a>
+                            <?php else: ?>
+                            <a class="dropdown-item" href="<?= Url::to(['/admin/default/index']) ?>">
+                                <i class="nc-icon nc-single-02"></i> No Permach
+                            </a>
+                        <?php endif; ?>
                         <a class="dropdown-item" href="<?= Url::to(['/settings/index'])?>">
                             <i class="nc-icon nc-settings-90"></i> Settings
                         </a>

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\modules\user\models;
 
 
 use app\modules\leads\models\LeadInfo;
@@ -38,6 +38,9 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    const SCENARIO_ADMIN_CREATE = 'adminCreate';
+    const SCENARIO_ADMIN_UPDATE = 'adminUpdate';
+
     /**
      * @inheritdoc
      */
@@ -53,6 +56,13 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios[self::SCENARIO_ADMIN_CREATE] = ['username', 'email', 'status', 'role', 'newPassword', 'newPasswordRepeat'];
+        $scenarios[self::SCENARIO_ADMIN_UPDATE] = ['username', 'email', 'status', 'role', 'newPassword', 'newPasswordRepeat'];
+        return $scenarios;
+    }
     /**
      * @inheritdoc
      */
@@ -133,7 +143,6 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->getAuthKey() === $authKey;
     }
-
 
 
     /**

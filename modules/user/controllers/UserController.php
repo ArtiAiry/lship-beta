@@ -6,11 +6,11 @@
  * Time: 13:07
  */
 
-namespace app\controllers;
+namespace app\modules\user\controllers;
 
 
 use app\models\form\AddUserForm;
-use app\models\User;
+use app\modules\user\models\User;
 use app\modules\profile\models\Profile;
 use Yii;
 use yii\web\Controller;
@@ -19,21 +19,14 @@ class UserController extends Controller
 {
 
 
-
-
     public function actionAdd()
     {
-
-
         $model = new AddUserForm();
 
 
         if ($model->load(Yii::$app->request->post()) && $model->user_create()) {
 //                return $this->redirect(['view', 'id' => $model->id]);
                 return $this->redirect(['profile/index']);
-
-
-
         }
 
         return $this->render('add', [

@@ -14,7 +14,7 @@ use app\modules\wallet\models\Wallet;
 use Yii;
 use yii\base\Exception;
 use yii\base\Model;
-use app\models\User;
+use app\modules\user\models\User;
 
 class SignupForm extends Model
 {

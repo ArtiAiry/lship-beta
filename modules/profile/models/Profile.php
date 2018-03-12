@@ -3,7 +3,7 @@
 namespace app\modules\profile\models;
 
 
-use app\models\User;
+use app\modules\user\models\User;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Query;
