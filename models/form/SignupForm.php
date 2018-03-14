@@ -77,6 +77,14 @@ class SignupForm extends Model
 
             $user->link('profile', $profile);
 
+            $wallet = new Wallet();
+
+            $wallet->user_id = $user->id;
+            $wallet->description = 'test2';
+//            $profile->ip_address = Yii::$app->request->userIP;
+
+            $user->link('wallet', $wallet);
+
             $transaction = $user->getDb()->beginTransaction();
             if ($user->create() && $profile->save()) {
 
