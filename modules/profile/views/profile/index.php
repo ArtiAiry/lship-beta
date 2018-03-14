@@ -33,12 +33,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            [
-                'attribute' => 'user_id',
-//              'filter' => User::find()->select('id','username')->indexBy('username')->column(),
-                'value' => 'user.username',
-            ],
+//            [
+//                'attribute' => 'user_id',
+////              'filter' => User::find()->select('id','username')->indexBy('username')->column(),
+//                'value' => 'user.username',
+//            ],
 
+
+            'user.email:email',
+            'fullName',
             'skype',
             'phone',
             'country',

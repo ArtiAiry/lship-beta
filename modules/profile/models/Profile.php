@@ -73,6 +73,7 @@ class Profile extends ActiveRecord
             'user_id' => 'Username',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
+            'fullName' => 'Full Name',
             'skype' => 'Skype',
             'phone' => 'Phone',
             'country' => 'Country',
@@ -121,5 +122,10 @@ class Profile extends ActiveRecord
     {
         return $this->gender;
     }
+
+    public function getFullName() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
 
 }

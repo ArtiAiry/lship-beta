@@ -119,7 +119,7 @@
             "version": "v1.12.9",
             "source": {
                 "type": "git",
-                "url": "git@github.com:FezVrasta/popper.js.git",
+                "url": "https://github.com/FezVrasta/popper.js.git",
                 "reference": "bf60988e6ee6f7b73e7be8088fd325985bb6e7f4"
             },
             "dist": {
@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cebe/markdown.git",
-                "reference": "af7bae155b5a35a1c8ef67d2a242b31cbc11a45e"
+                "reference": "87972f161228f25889c7d017221fa5d3e0b73cd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cebe/markdown/zipball/af7bae155b5a35a1c8ef67d2a242b31cbc11a45e",
-                "reference": "af7bae155b5a35a1c8ef67d2a242b31cbc11a45e",
+                "url": "https://api.github.com/repos/cebe/markdown/zipball/87972f161228f25889c7d017221fa5d3e0b73cd0",
+                "reference": "87972f161228f25889c7d017221fa5d3e0b73cd0",
                 "shasum": ""
             },
             "require": {
@@ -248,7 +248,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2018-01-17T11:51:05+00:00"
+            "time": "2018-03-13T23:44:44+00:00"
         },
         {
             "name": "codemix/yii2-localeurls",
@@ -389,16 +389,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "dev-master",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "7af995f2dcd4f6714203f122708b37fd8fbde428"
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7af995f2dcd4f6714203f122708b37fd8fbde428",
-                "reference": "7af995f2dcd4f6714203f122708b37fd8fbde428",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
                 "shasum": ""
             },
             "require": {
@@ -438,7 +438,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-06T13:59:20+00:00"
+            "time": "2018-03-10T10:10:14+00:00"
         },
         {
             "name": "nivans/yii2-bs4-breadcrumbs",
@@ -487,16 +487,16 @@
         },
         {
             "name": "paulzi/yii2-adjacency-list",
-            "version": "v2.0.4",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paulzi/yii2-adjacency-list.git",
-                "reference": "9371a006a82fcc64220ec084d51f5f7e431bda6c"
+                "reference": "968e85bf9acd6a7ca891ca63cb4ab5b7b292ef84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paulzi/yii2-adjacency-list/zipball/9371a006a82fcc64220ec084d51f5f7e431bda6c",
-                "reference": "9371a006a82fcc64220ec084d51f5f7e431bda6c",
+                "url": "https://api.github.com/repos/paulzi/yii2-adjacency-list/zipball/968e85bf9acd6a7ca891ca63cb4ab5b7b292ef84",
+                "reference": "968e85bf9acd6a7ca891ca63cb4ab5b7b292ef84",
                 "shasum": ""
             },
             "require": {
@@ -529,7 +529,7 @@
                 "adjacency list",
                 "yii2"
             ],
-            "time": "2016-10-13T22:16:03+00:00"
+            "time": "2018-03-13T20:58:46+00:00"
         },
         {
             "name": "paulzi/yii2-sortable",
@@ -1058,12 +1058,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "02ac0f7418f26f3bc0ed7b1fbe7b98f0d905368a"
+                "reference": "3d1f0e9849fdfdec37ead7ebd5c461716b3bcf67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/02ac0f7418f26f3bc0ed7b1fbe7b98f0d905368a",
-                "reference": "02ac0f7418f26f3bc0ed7b1fbe7b98f0d905368a",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/3d1f0e9849fdfdec37ead7ebd5c461716b3bcf67",
+                "reference": "3d1f0e9849fdfdec37ead7ebd5c461716b3bcf67",
                 "shasum": ""
             },
             "require": {
@@ -1150,7 +1150,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-03-05T09:52:08+00:00"
+            "time": "2018-03-13T14:15:29+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1478,12 +1478,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "44e2100c300413a6b40cf8874ad402695010f443"
+                "reference": "d020db336c52af4498aefe5905a17333b26486c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/44e2100c300413a6b40cf8874ad402695010f443",
-                "reference": "44e2100c300413a6b40cf8874ad402695010f443",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/d020db336c52af4498aefe5905a17333b26486c8",
+                "reference": "d020db336c52af4498aefe5905a17333b26486c8",
                 "shasum": ""
             },
             "require": {
@@ -1491,6 +1491,13 @@
                 "phpunit/phpunit": ">=4.8.28 <5.0.0 || >=5.6.3 <7.0",
                 "sebastian/comparator": ">1.1 <3.0",
                 "sebastian/diff": ">=1.4 <4.0"
+            },
+            "replace": {
+                "codeception/phpunit-wrapper": "*"
+            },
+            "require-dev": {
+                "codeception/specify": "*",
+                "vlucas/phpdotenv": "^2.4"
             },
             "type": "library",
             "autoload": {
@@ -1509,7 +1516,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2018-02-19T13:24:40+00:00"
+            "time": "2018-03-13T02:15:58+00:00"
         },
         {
             "name": "codeception/specify",
@@ -3243,12 +3250,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "490f27762705c8489bd042fe3e9377a191dba9b4"
+                "reference": "33773a276529725bb3b66a1b4114be2436d3aeab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/490f27762705c8489bd042fe3e9377a191dba9b4",
-                "reference": "490f27762705c8489bd042fe3e9377a191dba9b4",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/33773a276529725bb3b66a1b4114be2436d3aeab",
+                "reference": "33773a276529725bb3b66a1b4114be2436d3aeab",
                 "shasum": ""
             },
             "require": {
@@ -3292,7 +3299,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:34+00:00"
+            "time": "2018-03-13T14:46:24+00:00"
         },
         {
             "name": "symfony/console",
@@ -3478,12 +3485,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "2bb5d3101cc01f4fe580e536daf4f1959bc2d24d"
+                "reference": "dcaa7fb67de9051fa157d1ca196ba3a2e789ab26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/2bb5d3101cc01f4fe580e536daf4f1959bc2d24d",
-                "reference": "2bb5d3101cc01f4fe580e536daf4f1959bc2d24d",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/dcaa7fb67de9051fa157d1ca196ba3a2e789ab26",
+                "reference": "dcaa7fb67de9051fa157d1ca196ba3a2e789ab26",
                 "shasum": ""
             },
             "require": {
@@ -3526,7 +3533,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-22T10:48:49+00:00"
+            "time": "2018-03-13T12:30:05+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
