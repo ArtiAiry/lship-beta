@@ -84,7 +84,7 @@ Use yii\helpers\Url;
                             <i class="nc-icon nc-lock-circle-open"></i> Lock Screen
                         </a>
 <!--                        http://bootest/lock-screen?previous=http%3A%2F%2Fbootest%2F-->
-                        <a href="<?= Url::to(['auth/logout']) ?>" class="dropdown-item text-danger">
+                        <a href="<?= Url::to(['/auth/logout']) ?>" class="dropdown-item text-danger">
                             <i class="nc-icon nc-button-power"></i> Log out
                         </a>
                     </div>
