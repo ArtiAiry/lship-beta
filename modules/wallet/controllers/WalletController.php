@@ -5,6 +5,7 @@ namespace app\modules\wallet\controllers;
 use Yii;
 use app\modules\wallet\models\Wallet;
 use app\modules\wallet\models\WalletSearch;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -125,20 +126,27 @@ class WalletController extends Controller
 
     public function actionActivate($id)
     {
-        $article = Wallet::findOne($id);
-        if($article->activate())
+        $wallet = Wallet::findOne($id);
+
+        Url::remember();
+        
+        if($wallet->activate())
         {
-            return $this->redirect(['wallet/index']);
+
+            return $this->redirect(Yii::$app->request->referrer);
         }
     }
 
 
     public function actionDisactivate($id)
     {
-        $article = Wallet::findOne($id);
-        if($article->disactivate())
+        $wallet = Wallet::findOne($id);
+
+        Url::remember();
+
+        if($wallet->disactivate())
         {
-            return $this->redirect(['wallet/index']);
+            return $this->redirect(Yii::$app->request->referrer);
         }
     }
 }
