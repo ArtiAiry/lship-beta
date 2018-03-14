@@ -15,7 +15,7 @@ class m170731_085321_create_lead_info_table extends Migration
         $this->createTable('{{%lead_info}}', [
             'id' => 'pk',
             'create_time' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP',
-            'client_id' => $this->integer(),
+            'user_id' => $this->integer(),
             'product_id' => $this->integer(),
             'lead_channel_id' => $this->integer(),
             'partner_id' => $this->integer(),
@@ -39,9 +39,9 @@ class m170731_085321_create_lead_info_table extends Migration
         //creating indexes for table 'lead_info'
 
         $this->createIndex(
-            'idx-lead_info-client_id',
+            'idx-lead_info-user_id',
             'lead_info',
-            'client_id'
+            'user_id'
         );
 
         $this->createIndex(
@@ -79,9 +79,9 @@ class m170731_085321_create_lead_info_table extends Migration
 
 
         $this->addForeignKey(
-            'fk-lead_info-client',
+            'fk-lead_info-user',
             'lead_info',
-            'client_id',
+            'user_id',
             'user',
             'id',
             'CASCADE',

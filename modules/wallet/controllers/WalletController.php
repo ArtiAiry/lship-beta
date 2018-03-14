@@ -129,7 +129,7 @@ class WalletController extends Controller
         $wallet = Wallet::findOne($id);
 
         Url::remember();
-        
+
         if($wallet->activate())
         {
 

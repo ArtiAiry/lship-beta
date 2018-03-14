@@ -10,6 +10,9 @@ use yii\data\ActiveDataProvider;
  */
 class LeadInfoSearch extends LeadInfo
 {
+
+
+    public $user_id;
     /**
      * @inheritdoc
      */
@@ -61,7 +64,7 @@ class LeadInfoSearch extends LeadInfo
          $query->joinWith('leadForm');
          $query->joinWith('leadLanding');
          $query->joinWith('leadChannel');
-        $query->joinWith('promocode');
+         $query->joinWith('promocode');
          $query->joinWith('product');
          $query->joinWith('user');
 
