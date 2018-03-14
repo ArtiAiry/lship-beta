@@ -70,7 +70,8 @@ class Wallet extends ActiveRecord
             'currency_id' => 'Currency',
             'user_id' => 'User',
             'isRemoved' => 'is Removed',
-            'isActive' => 'Active',
+            'isActive' => 'Status',
+
         ];
     }
 

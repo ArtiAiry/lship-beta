@@ -19,7 +19,7 @@ class WalletSearch extends Wallet
     {
         return [
             [['id'],'integer'],
-            [['payout_type_id', 'bank_id', 'currency_id'], 'safe'],
+            [['payout_type_id', 'bank_id', 'currency_id', 'isActive'], 'safe'],
         ];
     }
 
@@ -80,6 +80,7 @@ class WalletSearch extends Wallet
 
 
         $query->andFilterWhere(['like', 'payout_type.name', $this->payout_type_id])
+            ->andFilterWhere(['like', 'isActive', $this->isActive])
             ->andFilterWhere(['like', 'bank.name', $this->bank_id])
             ->andFilterWhere(['like', 'currency.name', $this->currency_id]);
 
