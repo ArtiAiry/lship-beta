@@ -59,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['create_time'], 'safe'],
+            [['created_at', 'updated_at'], 'safe'],
             [['username', 'email'], 'string', 'max' => 255],
             [['password_hash'], 'string', 'max' => 128],
             [['email'], 'unique'],
@@ -78,7 +78,8 @@ class User extends ActiveRecord implements IdentityInterface
             'username' => 'Username',
             'email' => 'Email',
             'password_hash' => 'Password',
-            'create_time' => 'Create Time',
+            'created_at' => 'Create Time',
+            'updated_at' => 'Update Time'
         ];
     }
 
@@ -165,7 +166,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getLeadInfos()
     {
-        return $this->hasMany(LeadInfo::className(), ['client_id' => 'id']);
+        return $this->hasMany(LeadInfo::className(), ['user_id' => 'id']);
     }
 
     /**
@@ -181,7 +182,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function getOrderInfos()
     {
-        return $this->hasMany(OrderInfo::className(), ['client_id' => 'id']);
+        return $this->hasMany(OrderInfo::className(), ['user_id' => 'id']);
     }
 
     /**

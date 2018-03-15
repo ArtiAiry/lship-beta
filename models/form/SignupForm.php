@@ -21,21 +21,19 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password_hash;
-    public $repeat_password;
 
     public function rules()
     {
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            [['username','email','password_hash','repeat_password'],'required'],
+            [['username','email','password_hash'],'required'],
             [['username'], 'string', 'min'=> 4, 'max'=> 255],
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email', 'message'=>"This email has been already token."],
             ['email', 'filter', 'filter' => 'trim'],
             [['email'], 'trim'],
             ['email', 'string', 'max' => 255],
             ['password_hash', 'string', 'min' => 6],
-            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
 
         ];
     }

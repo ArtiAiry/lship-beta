@@ -58,22 +58,25 @@ class ProfileSearch extends Profile
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => [
-                'attributes' => [
-                    'user.email' => [
-                        'asc' => ['user.email' => SORT_ASC],
-                        'desc' => ['user.email' => SORT_DESC],
-                    ],
-                    'fullName' => [
-                        'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
-                        'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
-                        'label' => 'Full Name',
-                        'default' => SORT_ASC
-                    ],
-                ],
 
-            ]
+//            'sort' => [
+//                'attributes' => [
+//                    'user.email' => [
+//                        'asc' => ['user.email' => SORT_ASC],
+//                        'desc' => ['user.email' => SORT_DESC],
+//                    ],
+//                    'fullName' => [
+//                        'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+//                        'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+//                        'label' => 'Full Name',
+//                        'default' => SORT_ASC
+//                    ],
+//                ],
+
+//            ]
         ]);
+
+
 
         $this->load($params);
 

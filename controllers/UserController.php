@@ -10,6 +10,7 @@ namespace app\controllers;
 
 
 use app\models\form\AddUserForm;
+use app\models\form\CreateUserForm;
 use app\models\User;
 use app\modules\profile\models\Profile;
 use Yii;
@@ -17,22 +18,14 @@ use yii\web\Controller;
 
 class UserController extends Controller
 {
-
-
-
-
     public function actionAdd()
     {
-
-
         $model = new AddUserForm();
 
 
         if ($model->load(Yii::$app->request->post()) && $model->user_create()) {
 //                return $this->redirect(['view', 'id' => $model->id]);
                 return $this->redirect(['profile/index']);
-
-
 
         }
 
@@ -41,6 +34,25 @@ class UserController extends Controller
             'model' => $model,
         ]);
     }
+
+
+    public function actionCreate()
+    {
+        $model = new CreateUserForm();
+
+
+        if ($model->load(Yii::$app->request->post()) && $model->default_user_create()) {
+//                return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['/profile/index']);
+
+        }
+
+        return $this->render('create', [
+
+            'model' => $model,
+        ]);
+    }
+
 
     public function actionTracking()
     {

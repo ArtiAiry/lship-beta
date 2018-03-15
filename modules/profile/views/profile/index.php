@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Profile', ['/user/add'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Default Profile', ['/user/create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= GridView::widget([
@@ -61,6 +62,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
 
             ],
+
+            [
+                'label' => 'Lead Info',
+                'format' => 'html',
+                'value' => function($model) {
+
+                        return Html::a('Edit', ['/leads/info/update', 'id'=>$model->id], ['class' => 'btn btn-primary btn-xs']);
+
+
+                }
+            ],
+
             //'city',
             //'ip_address',
             //'age',

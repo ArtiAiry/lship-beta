@@ -38,6 +38,7 @@ class ProfileController extends Controller
     {
         $searchModel = new ProfileSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize=5;
 
         return $this->render('index', [
             'searchModel' => $searchModel,
