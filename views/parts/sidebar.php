@@ -25,6 +25,7 @@ Tip 2: you can also add an image using data-image tag
                             <span><?=Yii::$app->user->identity->username?>
                                 <b class="caret"></b>
                             </span>
+
                 </a>
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">

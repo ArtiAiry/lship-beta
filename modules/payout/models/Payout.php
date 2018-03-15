@@ -3,6 +3,7 @@
 namespace app\modules\payout\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "payout".
@@ -15,7 +16,7 @@ use Yii;
  *
  * @property PayoutType $payoutType
  */
-class Payout extends \yii\db\ActiveRecord
+class Payout extends ActiveRecord
 {
     /**
      * @inheritdoc

@@ -2,6 +2,7 @@
 
 namespace app\modules\wallet\controllers;
 
+use app\models\form\AddWalletForm;
 use Yii;
 use app\modules\wallet\models\Wallet;
 use app\modules\wallet\models\WalletSearch;
@@ -123,7 +124,6 @@ class WalletController extends Controller
         }
     }
 
-
     public function actionActivate($id)
     {
         $wallet = Wallet::findOne($id);
@@ -149,4 +149,56 @@ class WalletController extends Controller
             return $this->redirect(Yii::$app->request->referrer);
         }
     }
+
+    //Add | Edit Wallet in profile
+
+
+    public function actionAdd()
+    {
+        $model = new Wallet();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+
+            $model->user_id = Yii::$app->user->id;
+
+            $model->save();
+
+            return $this->redirect(['profile/view', 'id' => $model->id]);
+        } else {
+            return $this->render('profile/add', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionSpectate($id)
+    {
+        return $this->render('profile/view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    public function actionEdit($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post())) {
+
+
+            $model->user_id = Yii::$app->user->id;
+
+            $model->save(false);
+
+            return $this->redirect(['spectate', 'id' => $model->id]);
+        } else {
+            return $this->render('profile/edit', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+
+
+
 }

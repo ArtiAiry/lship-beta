@@ -7,6 +7,7 @@ use app\modules\payout\models\PayoutType;
 use app\modules\profile\models\Profile;
 use Yii;
 use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "wallet".
