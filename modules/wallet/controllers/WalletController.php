@@ -164,9 +164,9 @@ class WalletController extends Controller
 
             $model->save();
 
-            return $this->redirect(['profile/view', 'id' => $model->id]);
+            return $this->redirect(['/wallet/spectate', 'id' => $model->id]);
         } else {
-            return $this->render('profile/add', [
+            return $this->render('/wallet/add', [
                 'model' => $model,
             ]);
         }

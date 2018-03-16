@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 $this->title = 'Update Profile: ' . $profile->user->username;
 $this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $profile->id, 'url' => ['view', 'id' => $profile->id]];
+$this->params['breadcrumbs'][] = ['label' => $profile->user->username, 'url' => ['view', 'id' => $profile->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="profile-update">

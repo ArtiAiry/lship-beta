@@ -3,6 +3,7 @@
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -25,8 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Add Wallet', ['/wallet/create', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Add Default Wallet', ['/wallet/add', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Add Wallet', ['/wallet/add', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -116,10 +116,29 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             [
-                'header'=>'Actions',
-                'class'=>'app\widgets\CustomColumn',
-                'controller'=>'/wallet'
+                'class'    => 'app\widgets\CustomColumn',
+                'template' => '{spectate} {edit} {delete}',
+                'buttons'  => [
+                    'spectate'   => function ($url, $model) {
+                        $url = Url::to(['/wallet/spectate', 'id' => $model->id]);
+                        return Html::a('<span class="fa fa-eye"></span>', $url, ['title' => 'spectate']);
+                    },
+                    'edit' => function ($url, $model) {
+                        $url = Url::to(['/wallet/edit', 'id' => $model->id]);
+                        return Html::a('<span class="fa fa-pencil"></span>', $url, ['title' => 'edit']);
+                    },
+                    'delete' => function ($url, $model) {
+                        $url = Url::to(['/wallet/delete', 'id' => $model->id]);
+                        return Html::a('<span class="fa fa-trash"></span>', $url, [
+                            'title'        => 'delete',
+                            'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+                            'data-method'  => 'post',
+                        ]);
+                    },
+                ]
             ],
+
+
             [
                 'label' => 'Activation',
                 'format' => 'html',

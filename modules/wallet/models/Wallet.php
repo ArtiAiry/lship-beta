@@ -84,6 +84,12 @@ class Wallet extends ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
+    public function getUsername()
+    {
+        $this->user->username;
+    }
+
+
     /**
      * @return \yii\db\ActiveQuery
      */
