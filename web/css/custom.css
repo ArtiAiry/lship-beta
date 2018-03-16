@@ -8,3 +8,11 @@ body {
     text-align: left;
     background-color: #fff;
 }
+
+table.table-striped.table-bordered td, table.table-striped.table-bordered th {
+    text-align: center;
+}
+
+table.table-striped.table-bordered.detail-view td, table.table-striped.table-bordered.detail-view th {
+    text-align: left;
+}

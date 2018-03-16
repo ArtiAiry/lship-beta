@@ -116,6 +116,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             [
+                'header' => 'Actions',
                 'class'    => 'app\widgets\CustomColumn',
                 'template' => '{spectate} {edit} {delete}',
                 'buttons'  => [
