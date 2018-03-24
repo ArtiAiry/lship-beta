@@ -2,6 +2,7 @@
 
 namespace app\modules\product\controllers;
 
+use yii\web\HttpException;
 use Yii;
 use app\modules\product\models\Product;
 use app\modules\product\models\ProductSearch;
@@ -101,7 +102,7 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->removeProduct();
 
         return $this->redirect(['index']);
     }
@@ -119,6 +120,29 @@ class ProductController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+    public function actionBatchDelete() {
+        if (($ids = Yii::$app->request->post('ids')) !== null) {
+            $models = $this->findAll($ids);
+            foreach ($models as $model) {
+                $model->removeProduct();
+            }
+            return $this->redirect(['index']);
+        } else {
+            throw new HttpException(400);
+        }
+    }
+
+
+    public function findAll($id)
+    {
+        if (($model = Product::find()->where(['id' => $id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new HttpException(404);
         }
     }
 }

@@ -5,6 +5,7 @@ use app\modules\leads\models\LeadForm;
 use app\modules\leads\models\LeadLanding;
 use app\modules\product\models\Product;
 use app\modules\promocode\models\Promocode;
+use kartik\date\DatePicker;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -99,7 +100,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'create_time',
+//            'create_time',
+
+            [
+                'filter' =>
+                    Html::tag(
+                        'div',
+                        Html::tag('div', Html::activeTextInput($searchModel, 'date_from', ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker']), ['class' => 'col-md-6']) .
+                        Html::tag('div', Html::activeTextInput($searchModel, 'date_to', ['class' => 'form-control datetimepicker','id' => 'datetimepicker']), ['class' => 'col-md-6']),
+                        ['class' => 'row']
+                    ),
+                'attribute' => 'create_time',
+                'format' => 'datetime',
+            ],
+
+
+//            [
+//                'filter' => DatePicker::widget([
+//                    'model' => $searchModel,
+//                    'attribute' => 'date_from',
+//                    'attribute2' => 'date_to',
+//                    'type' => DatePicker::TYPE_RANGE,
+//                    'separator' => '-',
+//                    'pluginOptions' => ['format' => 'yyyy-mm-dd']
+//                ]),
+//                'attribute' => 'created_at',
+//                'format' => 'datetime',
+//            ],
+
 
             [
                 'attribute' => 'user_id',

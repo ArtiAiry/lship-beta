@@ -2,9 +2,10 @@
 
 namespace app\modules\product\models;
 
-use app\modules\lead_info\models\LeadInfo;
-use app\modules\order_info\models\OrderInfo;
+use app\modules\leads\models\LeadInfo;
+use app\modules\orders\models\OrderInfo;
 use app\modules\package\models\Package;
+use Yii;
 use yii\db\ActiveRecord;
 
 /**
@@ -19,6 +20,8 @@ use yii\db\ActiveRecord;
  */
 class Product extends ActiveRecord
 {
+
+    const REMOVE = 0;
     /**
      * @inheritdoc
      */
@@ -46,7 +49,8 @@ class Product extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => Yii::t('product','Name'),
+            'actions' => Yii::t('product','Actions')
         ];
     }
 
@@ -72,5 +76,11 @@ class Product extends ActiveRecord
     public function getPackages()
     {
         return $this->hasMany(Package::className(), ['product_id' => 'id']);
+    }
+
+    public function removeProduct()
+    {
+        $this->isRemoved = self::REMOVE;
+        return $this->save(false);
     }
 }

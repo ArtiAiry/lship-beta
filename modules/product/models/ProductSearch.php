@@ -62,6 +62,8 @@ class ProductSearch extends Product
             'id' => $this->id,
         ]);
 
+        $query->andFilterWhere(['isRemoved'=>1]);
+
         $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;

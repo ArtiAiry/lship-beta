@@ -16,7 +16,9 @@
         "codemix/yii2-localeurls": "^1.4",
         "nivans/yii2-bs4-breadcrumbs": "*",
         "yii2mod/yii2-comments": "*",
-        "digitv/yii2bootstrap4": "^1.0@dev"
+        "digitv/yii2bootstrap4": "^1.0@dev",
+        "kartik-v/yii2-widget-datepicker": "*",
+        "kartik-v/yii2-field-range": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

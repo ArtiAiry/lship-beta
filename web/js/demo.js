@@ -12,6 +12,7 @@ $().ready(function() {
 
     if ($("#datetimepicker").length != 0) {
         $('.datetimepicker').datetimepicker({
+            
             icons: {
                 time: "fa fa-clock-o",
                 date: "fa fa-calendar",

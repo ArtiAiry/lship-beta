@@ -13,6 +13,8 @@ class LeadInfoSearch extends LeadInfo
 
 
     public $user_id;
+    public $date_from;
+    public $date_to;
     /**
      * @inheritdoc
      */
@@ -20,7 +22,8 @@ class LeadInfoSearch extends LeadInfo
     {
         return [
             [['id','partner_id', 'aff_id', 'ga_cid', 'utm_medium', 'utm_term', 'utm_content', 'utm_campaign','count_orders', 'count_sells', 'total_lessons'], 'integer'],
-            [['create_time', 'source', 'conv_url','user_id','product_id', 'promocode_id', 'lead_channel_id', 'lead_landing_id', 'lead_form_id'], 'safe'],
+            [['source', 'conv_url','user_id','product_id', 'promocode_id', 'lead_channel_id', 'lead_landing_id', 'lead_form_id'], 'safe'],
+            [['date_from', 'date_to', 'create_time'], 'date'],
         ];
     }
 
@@ -98,6 +101,11 @@ class LeadInfoSearch extends LeadInfo
             ->andFilterWhere(['like', 'product.name', $this->product_id])
             ->andFilterWhere(['like', 'promocode.promo_name', $this->promocode_id])
             ->andFilterWhere(['like', 'user.username', $this->user_id])
+//            ->andFilterWhere(['>=', 'create_time', $this->date_from ? strtotime($this->date_from . ' 00:00:00') : null])
+//            ->andFilterWhere(['<=', 'create_time', $this->date_to ? strtotime($this->date_to . ' 23:59:59') : null]);
+        ->andFilterWhere(['>=', 'create_time', $this->date_from])
+        ->andFilterWhere(['<=', 'create_time', $this->date_to]);
+
         ;
 
         return $dataProvider;

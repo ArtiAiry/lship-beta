@@ -116,6 +116,12 @@ $config = [
                     // Setting unknown property: yii2mod\comments\Module::enableInlineEdit
 
                 ],
+                'product*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'sourceLanguage' => 'en-US',
+                    'basePath' => '@app/messages',
+                ]
+
                 // ...
             ],
 
