@@ -4,6 +4,7 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\form\LoginForm */
 
+use app\assets\AppAsset;
 use app\assets\PublicAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -12,7 +13,7 @@ use yii\helpers\Url;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 
-PublicAsset::register($this);
+AppAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
@@ -84,7 +85,7 @@ PublicAsset::register($this);
 
 
                                         <label>Login</label>
-                                        <?= $form->field($model, 'login')->textInput(['autofocus' => true, 'placeholder' => 'Enter Username or Email', 'class'=>'form-control'])->label('') ?>
+                                        <?= $form->field($model, 'login')->textInput(['autofocus' => true, 'placeholder' => Yii::t('app','Enter Username or Email'), 'class'=>'form-control'])->label('') ?>
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>

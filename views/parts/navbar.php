@@ -43,12 +43,12 @@ Use yii\helpers\Url;
                         <i class="nc-icon nc-planet"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Create</a>
-                        <a class="dropdown-item" href="#">Manage</a>
-                        <a class="dropdown-item" href="#">Do Nothing</a>
-                        <a class="dropdown-item" href="#">Submit to live</a>
+                        <a class="dropdown-item" href="#"><?= Yii::t('app','Create')?></a>
+                        <a class="dropdown-item" href="#"><?= Yii::t('app','Manage')?></a>
+                        <a class="dropdown-item" href="#"><?= Yii::t('app','Do Nothing')?></a>
+                        <a class="dropdown-item" href="#"><?= Yii::t('app','Submit to live')?></a>
                         <li class="divider"></li>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#"><?= Yii::t('app','Another action')?></a>
                     </ul>
                 </li>
 <!--                <li class="dropdown nav-item">-->
@@ -71,21 +71,21 @@ Use yii\helpers\Url;
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="#">
-                            <i class="nc-icon nc-email-85"></i> Comments
+                            <i class="nc-icon nc-email-85"></i><?= Yii::t('app','Comments')?>
                         </a>
                         <a class="dropdown-item" href="#">
-                            <i class="nc-icon nc-umbrella-13"></i> Help Center
+                            <i class="nc-icon nc-umbrella-13"></i><?= Yii::t('app','Help Center')?>
                         </a>
                         <a class="dropdown-item" href="<?= Url::to(['/settings/index'])?>">
-                            <i class="nc-icon nc-settings-90"></i> Settings
+                            <i class="nc-icon nc-settings-90"></i><?= Yii::t('app','Settings')?>
                         </a>
                         <div class="divider"></div>
                         <a class="dropdown-item" href="<?= Url::to(['/lock-screen?previous=http%3A%2F%2Fbootest%2F'])?>">
-                            <i class="nc-icon nc-lock-circle-open"></i> Lock Screen
+                            <i class="nc-icon nc-lock-circle-open"></i><?= Yii::t('app','Lock Screen')?>
                         </a>
 <!--                        http://bootest/lock-screen?previous=http%3A%2F%2Fbootest%2F-->
                         <a href="<?= Url::to(['/auth/logout']) ?>" class="dropdown-item text-danger">
-                            <i class="nc-icon nc-button-power"></i> Log out
+                            <i class="nc-icon nc-button-power"></i><?= Yii::t('app','Log out')?>
                         </a>
                     </div>
                 </li>

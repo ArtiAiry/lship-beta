@@ -4,12 +4,12 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\form\LoginForm */
 
-use app\assets\PublicAsset;
+use app\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
-PublicAsset::register($this);
+AppAsset::register($this);
 
 $this->title = 'Sign Up';
 $this->params['breadcrumbs'][] = $this->title;

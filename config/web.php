@@ -21,7 +21,7 @@ $config = [
             'class' => 'app\modules\wallet\WalletModule',
         ],
         'product' => [
-            'class' => 'app\modules\product\ProductModule',
+            'class' => 'app\modules\product\Module',
         ],
         'promocode' => [
             'class' => 'app\modules\promocode\PromocodeModule',
@@ -116,13 +116,10 @@ $config = [
                     // Setting unknown property: yii2mod\comments\Module::enableInlineEdit
 
                 ],
-                'product*' => [
+                'app' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'sourceLanguage' => 'en-US',
                     'basePath' => '@app/messages',
                 ]
-
-                // ...
             ],
 
         ],

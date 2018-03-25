@@ -2,12 +2,13 @@
 /* @var $this \yii\web\View */
 /* @var $profile app\modules\profile\models\Profile */
 
+use app\assets\AppAsset;
 use app\assets\PublicAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
-PublicAsset::register($this);
+AppAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
@@ -92,41 +93,7 @@ PublicAsset::register($this);
             </div>
         </div>
         <?php ActiveForm::end(); ?>
-        <footer class="footer">
-            <div class="container">
-                <nav>
-                    <ul class="footer-menu">
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-center">
-                        ©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                    </p>
-                </nav>
-            </div>
-        </footer>
+        <?= $this->render('//parts/footer')?>
     </div>
     </div>
     <?php $this->endBody() ?>

@@ -31,14 +31,14 @@ Tip 2: you can also add an image using data-image tag
                     <ul class="nav">
                         <li>
                             <a class="profile-dropdown" href="<?= Url::toRoute(['/profile/view','id'=>Yii::$app->user->identity->id]);?>">
-                                <span class="sidebar-mini">VP</span>
-                                <span class="sidebar-normal">My Profile</span>
+                                <span class="sidebar-mini"><?= Yii::t('app','MP');?></span>
+                                <span class="sidebar-normal"><?= Yii::t('app','My Profile');?></span>
                             </a>
                         </li>
                         <li>
                             <a class="profile-dropdown" href="<?= Url::toRoute(['/profile/update','id'=>Yii::$app->user->identity->id]);?>">
-                                <span class="sidebar-mini">EP</span>
-                                <span class="sidebar-normal">Edit Profile</span>
+                                <span class="sidebar-mini"><?= Yii::t('app','EP');?></span>
+                                <span class="sidebar-normal"><?= Yii::t('app','Edit Profile');?></span>
                             </a>
                         </li>
 <!--                        <li>-->
@@ -56,20 +56,20 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/leads/info/index'])?>">
                     <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>Lead Info</p>
+                    <p><?= Yii::t('app','Lead Info');?></p>
                 </a>
             </li>
             <li class="nav-item">
 
                 <a class="nav-link" href="<?=  Url::toRoute(['/orders/info/index'])?>">
                     <i class="nc-icon nc-circle-09"></i>
-                    <p>Order Info</p>
+                    <p><?= Yii::t('app','Order Info');?></p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/product/index'])?>">
                     <i class="nc-icon nc-notes"></i>
-                    <p>Product</p>
+                    <p><?= Yii::t('app','Products');?></p>
                 </a>
 <!--                <ul class="dropdown-menu">-->
 <!---->
@@ -87,38 +87,38 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/wallet/index'])?>">
                     <i class="nc-icon nc-cart-simple"></i>
-                    <p>Wallets</p>
+                    <p><?= Yii::t('app','Wallets');?></p>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/payout/type/index'])?>">
                     <i class="nc-icon nc-paper-2"></i>
-                    <p>Payouts</p>
+                    <p><?= Yii::t('app','Payouts');?></p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/payment/type/index'])?>">
                     <i class="nc-icon nc-money-coins"></i>
-                    <p>Payments</p>
+                    <p><?= Yii::t('app','Payments');?></p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?= Url::toRoute(['/tutors/default/index'])?>">
                     <i class="nc-icon nc-badge"></i>
-                    <p>Tutors</p>
+                    <p><?= Yii::t('app','Tutors');?></p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/comments/manage/index'])?>">
                     <i class="nc-icon nc-notification-70"></i>
-                    <p>Comments</p>
+                    <p><?= Yii::t('app','Comments');?></p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/events/index'])?>">
                     <i class="nc-icon nc-bulb-63"></i>
-                    <p>Events</p>
+                    <p><?= Yii::t('app','Events');?></p>
                 </a>
             </li>
         </ul>

@@ -39,9 +39,9 @@ $this->context->layout = 'custom-error-layout';
 <div class='c'>
     <div class='_404'>404</div>
     <hr>
-    <div class='_1'>ERROR</div>
+    <div class='_1'><?= Yii::t('app','Error')?></div>
     <div class='_2'><?= nl2br(Html::encode($message)) ?></div>
-    <a class='btn' href='<?=Yii::$app->homeUrl ?>'>BACK TO HOME</a>
+    <a class='btn' href='<?=Yii::$app->homeUrl ?>'><?= Yii::t('app','Back to home')?></a>
 
 
 </div>

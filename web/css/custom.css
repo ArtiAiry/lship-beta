@@ -13,6 +13,12 @@ table.table-striped.table-bordered td, table.table-striped.table-bordered th {
     text-align: center;
 }
 
+div.content {
+
+    background-color: #ffffff;
+
+}
+
 table.table-striped.table-bordered.detail-view td, table.table-striped.table-bordered.detail-view th {
     text-align: left;
 }

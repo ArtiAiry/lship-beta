@@ -305,12 +305,12 @@ body,
 }
 
 a {
-    color: #23CCEF;
+    color: #000000;
 }
 
 a:hover,
 a:focus {
-    color: #11bfe3;
+    color: #ababab;
     text-decoration: none;
 }
 
@@ -4063,10 +4063,12 @@ fieldset[disabled] .form-control {
     top: 1px;
 }
 
-.navbar .navbar-nav .nav-item .nav-link:hover {
-    color: #23CCEF;
-}
+/*color: #23CCEF;*/
 
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+    color: #ababab;
+}
 .navbar .navbar-nav .nav-item .nav-link .stats {
     margin-left: 10px;
 }

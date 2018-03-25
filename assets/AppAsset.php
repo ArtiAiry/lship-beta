@@ -18,9 +18,44 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/light-bootstrap-dashboard.css',
+        'css/demo.css',
+
+
+
     ];
     public $js = [
+        'js/core/popper.min.js',
+        'js/core/bootstrap.min.js',
+//        'js/lock-screen.js',
+
+        'js/plugins/moment.min.js',
+        'js/plugins/bootstrap-datetimepicker.js',
+        'js/plugins/sweetalert2.min.js',
+        'js/plugins/bootstrap-tagsinput.js',
+        'js/plugins/nouislider.js',
+        'js/plugins/bootstrap-selectpicker.js',
+        'js/plugins/bootstrap-notify.js',
+        'js/plugins/bootstrap-switch.js',
+        'js/plugins/bootstrap-table.js',
+
+        'js/plugins/jquery.validate.min.js',
+        'js/plugins/jquery.bootstrap-wizard.js',
+        'js/plugins/fullcalendar.min.js',
+        'js/plugins/perfect-scrollbar.jquery.min.js',
+        'js/plugins/jquery-jvectormap.js',
+        'js/plugins/jquery.dataTables.min.js',
+
+
+        'js/light-bootstrap-dashboard.js?v=2.0.1',
+
+        'js/demo.js',
+
+        'js/modals/modal.js',
+        'js/modals/modal1.js',
+        'js/modals/modal2.js',
+        'js/modals/modal3.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',

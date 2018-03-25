@@ -1,7 +1,7 @@
 <?php
 
 use app\modules\product\models\Product;
-use app\modules\product\ProductModule;
+use app\modules\product\Module;
 use yii\grid\CheckboxColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\product\models\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('product','Products');
+$this->title = Module::t('product','Products');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-index">
@@ -30,9 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
     "evt.preventDefault();" .
     "var keys = jQuery('#" . $gridId . "').yiiGridView('getSelectedRows');" .
     "if (keys == '') {" .
-    "alert('" . Yii::t('product', 'You need to select at least one item.') . "');" .
+    "alert('" . Module::t('product', 'You need to select at least one item.') . "');" .
     "} else {" .
-    "if (confirm('" . Yii::t('product', 'Are you sure you want to delete selected items?') . "')) {" .
+    "if (confirm('" . Module::t('product', 'Are you sure you want to delete selected items?') . "')) {" .
     "jQuery.ajax({" .
     "type: 'POST'," .
     "url: jQuery(this).attr('href')," .
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::a('<i class="fa fa-plus"></i>', ['create'],
                         [
                             'class' => 'btn btn-primary btn-sm',
-                            'title' => Yii::t('product', 'Create Product')
+                            'title' => Module::t('product', 'Create Product')
                         ]); ?>
                     <?= Html::a('<i class="fa fa-trash"></i>', ['batch-delete'],
                         [
@@ -70,14 +70,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'id' => $gridId,
         'columns' => [
-            ['class' => CheckboxColumn::classname()],
+            [
+                    'class' => CheckboxColumn::classname(),
+                'headerOptions' => ['style' => 'width:10px;'],
+            ],
 //            ['class' => 'yii\grid\SerialColumn'],
 
             'name',
 
             [
                 'class' => 'app\widgets\CustomColumn',
-                'header' => Yii::t('product','Actions'),
+                'header' => Module::t('product','Actions'),
+                'headerOptions' => ['style' => 'width:10px;'],
             ],
         ],
     ]); ?>

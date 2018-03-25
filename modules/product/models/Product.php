@@ -5,6 +5,7 @@ namespace app\modules\product\models;
 use app\modules\leads\models\LeadInfo;
 use app\modules\orders\models\OrderInfo;
 use app\modules\package\models\Package;
+use app\modules\product\Module;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -49,8 +50,8 @@ class Product extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => Yii::t('product','Name'),
-            'actions' => Yii::t('product','Actions')
+            'name' => Module::t('product','Name'),
+            'actions' => Module::t('product','Actions')
         ];
     }
 

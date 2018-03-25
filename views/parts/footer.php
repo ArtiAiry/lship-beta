@@ -13,31 +13,28 @@ Use yii\helpers\Url;
                 <nav>
                     <ul class="footer-menu">
                         <li>
-                            <a href="<?=Yii::$app->homeUrl ?>">
-    Home
+                            <a href="<?=Yii::$app->homeUrl ?>"><?= Yii::t('app','Home')?>
+
                             </a>
                         </li>
                         <li>
-                            <a href="<?=Url::to(['site/about'])?>">
-    About
+                            <a href="<?=Url::to(['site/about'])?>"><?= Yii::t('app','About')?>
+
                             </a>
                         </li>
                         <li>
-                            <a href="http://skype.airyschool.ru/">
-    Our Site
+                            <a href="http://skype.airyschool.ru/"><?= Yii::t('app','Our Website')?>
+
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-    Blog (Soon, maybe)
+                            <a href="#"><?= Yii::t('app','Blog')?>
+     (<?= Yii::t('app','Soon')?>)
                             </a>
                         </li>
                     </ul>
                     <p class="copyright text-center">
 © <?= date('Y') ?>
-<!--                        <script>-->
-<!--document.write(new Date().getFullYear()) -->
-<!--                        </script>-->
                         By <a href="http://www.instagram.com/artur.airy">Airy</a>
 </p>
                 </nav>

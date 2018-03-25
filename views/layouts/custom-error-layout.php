@@ -9,7 +9,7 @@
 /* @var $content string */
 use yii\helpers\Html;
 
-\app\assets\PublicAsset::register($this);
+\app\assets\AppAsset::register($this);
 
 ?>
 
