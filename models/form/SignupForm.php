@@ -9,6 +9,7 @@
 namespace app\models\form;
 
 
+use app\modules\leads\models\LeadInfo;
 use app\modules\profile\models\Profile;
 use app\modules\wallet\models\Wallet;
 use Yii;
@@ -21,6 +22,8 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password_hash;
+    public $repeat_password;
+    public $status;
 
     public function rules()
     {
@@ -34,6 +37,7 @@ class SignupForm extends Model
             [['email'], 'trim'],
             ['email', 'string', 'max' => 255],
             ['password_hash', 'string', 'min' => 6],
+            ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
 
         ];
     }
@@ -78,10 +82,18 @@ class SignupForm extends Model
             $wallet = new Wallet();
 
             $wallet->user_id = $user->id;
-            $wallet->description = 'test2';
+            $wallet->description = 'test';
 //            $profile->ip_address = Yii::$app->request->userIP;
 
             $user->link('wallet', $wallet);
+
+
+            $lead_info = new LeadInfo();
+
+            $lead_info->user_id = $user->id;
+
+            $user->link('leadInfos', $lead_info);
+
 
             $transaction = $user->getDb()->beginTransaction();
             if ($user->create() && $profile->save()) {

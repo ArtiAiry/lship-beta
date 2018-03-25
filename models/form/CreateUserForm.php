@@ -46,6 +46,7 @@ class CreateUserForm extends Model
           [['email'], 'trim'],
           ['email', 'string', 'max' => 255],
           ['password_hash', 'string', 'min' => 6],
+          ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
       ];
     }
 
