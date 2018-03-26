@@ -11,7 +11,7 @@ use yii\helpers\Url;
 
 AppAsset::register($this);
 
-$this->title = 'Sign Up';
+$this->title = Yii::t('app','Sign up');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?php $this->beginPage() ?>
@@ -46,12 +46,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <ul class="navbar-nav">
                     <li class="nav-item  active ">
                         <a href="<?= Url::toRoute(['signup/index'])?>" class="nav-link">
-                            <i class="nc-icon nc-badge"></i> Register
+                            <i class="nc-icon nc-badge"></i><?=  Yii::t('app','Register'); ?>
                         </a>
                     </li>
                     <li class="nav-item ">
                         <a href="<?= Url::toRoute(['auth/login'])?>" class="nav-link">
-                            <i class="nc-icon nc-mobile"></i> Login
+                            <i class="nc-icon nc-mobile"></i> <?= Yii::t('app','Log in'); ?>
                         </a>
                     </li>
                 </ul>
@@ -125,20 +125,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                     <div class="card card-plain">
                                         <div class="content">
                                             <div class="form-group">
-                                                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Your username'])->label(false) ?>
+                                                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => Yii::t('app','Your Username')])->label(false) ?>
                                             </div>
                                             <div class="form-group">
-                                                <?= $form->field($model, 'email')->textInput(['placeholder' => 'Your email'])->label(false) ?>
+                                                <?= $form->field($model, 'email')->textInput(['placeholder' => Yii::t('app','Your Email')])->label(false) ?>
                                             </div>
                                             <div class="form-group">
-                                                <?= $form->field($model, 'password_hash')->passwordInput(['placeholder' => 'Your password'])->label(false) ?>
+                                                <?= $form->field($model, 'password_hash')->passwordInput(['placeholder' => Yii::t('app','Your Password')])->label(false) ?>
                                             </div>
                                             <div class="form-group">
-                                                <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder' => 'Repeat password'])->label(false) ?>
+                                                <?= $form->field($model, 'repeat_password')->passwordInput(['placeholder' => Yii::t('app','Repeat Password')])->label(false) ?>
                                             </div>
                                         </div>
                                         <div class="footer text-center">
-                                            <?= Html::submitButton('Create Account', ['class' => 'btn btn-fill btn-neutral btn-wd', 'name' => 'signup-button']) ?>
+                                            <?= Html::submitButton(Yii::t('app','Create Account'), ['class' => 'btn btn-fill btn-neutral btn-wd', 'name' => 'signup-button']) ?>
                                         </div>
                                     </div>
                                 </form>

@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Lessonship';
 ?>
 <?php if( Yii::$app->session->hasFlash('success') ): ?>
     <div class="alert alert-success alert-dismissible" role="alert">

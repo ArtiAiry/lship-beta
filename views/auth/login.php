@@ -48,12 +48,12 @@ AppAsset::register($this);
                 <ul class="navbar-nav">
                     <li class="nav-item ">
                         <a href="<?= Url::toRoute(['signup/index'])?>" class="nav-link">
-                            <i class="nc-icon nc-badge"></i> Register
+                            <i class="nc-icon nc-badge"></i><?=  Yii::t('app','Register'); ?>
                         </a>
                     </li>
                     <li class="nav-item  active ">
                         <a href="<?= Url::toRoute(['auth/login'])?>" class="nav-link">
-                            <i class="nc-icon nc-mobile"></i> Login
+                            <i class="nc-icon nc-mobile"></i><?= Yii::t('app','Log in'); ?>
                         </a>
                     </li>
                 </ul>
@@ -77,19 +77,19 @@ AppAsset::register($this);
                         ]); ?>
                         <div class="card card-login">
                             <div class="card-header ">
-                                <h3 class="header text-center">Login</h3>
+                                <h3 class="header text-center"><?= Yii::t('app','Log in'); ?></h3>
                             </div>
                             <div class="card-body">
                                 <div class="card-body">
                                     <div class="form-group">
 
 
-                                        <label>Login</label>
+                                        <label><?= Yii::t('app','Login'); ?></label>
                                         <?= $form->field($model, 'login')->textInput(['autofocus' => true, 'placeholder' => Yii::t('app','Enter Username or Email'), 'class'=>'form-control'])->label('') ?>
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Enter Password'])->label('') ?>
+                                        <label><?= Yii::t('app','Password');?></label>
+                                        <?= $form->field($model, 'password')->passwordInput(['placeholder' => Yii::t('app','Enter Password')])->label('') ?>
                                     </div>
 <!--                                    <div class="form-group">-->
 <!--                                        <div class="form-check">-->
@@ -111,7 +111,7 @@ AppAsset::register($this);
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-warning btn-wd">Login</button>
+                                <button type="submit" class="btn btn-warning btn-wd"><?= Yii::t('app','Log in '); ?></button>
                             </div>
                         </div>
                     </form>

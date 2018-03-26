@@ -81,7 +81,7 @@ Use yii\helpers\Url;
                         </a>
                         <div class="divider"></div>
                         <a class="dropdown-item" href="<?= Url::to(['/lock-screen?previous=http%3A%2F%2Fbootest%2F'])?>">
-                            <i class="nc-icon nc-lock-circle-open"></i><?= Yii::t('app','Lock Screen')?>
+                            <i class="nc-icon nc-lock-circle-open"></i><?= Yii::t('app','Lock')?>
                         </a>
 <!--                        http://bootest/lock-screen?previous=http%3A%2F%2Fbootest%2F-->
                         <a href="<?= Url::to(['/auth/logout']) ?>" class="dropdown-item text-danger">
