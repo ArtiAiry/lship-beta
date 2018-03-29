@@ -2,6 +2,7 @@
 
 namespace app\modules\leads\models;
 
+use app\modules\leads\Module;
 use yii\db\ActiveRecord;
 
 /**
@@ -41,7 +42,7 @@ class LeadChannel extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => Module::t('lead-channel','Name'),
         ];
     }
 

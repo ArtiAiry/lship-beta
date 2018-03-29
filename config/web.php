@@ -48,7 +48,7 @@ $config = [
             'class' => 'app\modules\orders\OrdersModule',
         ],
         'leads' => [
-            'class' => 'app\modules\leads\LeadsModule',
+            'class' => 'app\modules\leads\Module',
         ],
         'tutors' => [
             'class' => 'app\modules\tutors\TutorsModule',

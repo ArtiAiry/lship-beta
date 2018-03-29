@@ -91,6 +91,7 @@ class LeadInfoSearch extends LeadInfo
             'count_orders' => $this->count_orders,
             'count_sells' => $this->count_sells,
             'total_lessons' => $this->total_lessons,
+            'lead_info.isRemoved'=>1
         ]);
 
         $query->andFilterWhere(['like', 'source', $this->source])

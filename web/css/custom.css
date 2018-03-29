@@ -10,6 +10,10 @@ body {
 }
 
 table.table-striped.table-bordered td, table.table-striped.table-bordered th {
+     text-align: center;
+}
+
+table.table-bordered td, table.table-bordered th {
     text-align: center;
 }
 
@@ -21,4 +25,22 @@ div.content {
 
 table.table-striped.table-bordered.detail-view td, table.table-striped.table-bordered.detail-view th {
     text-align: left;
+}
+input[type=checkbox], input[type=radio] {
+    /*font-family: 'FontAwesome';*/
+    content: "\f096";
+    color: #888888;
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    /*width: 19px;*/
+    /*height: 19px;*/
+    /*margin-left: -23px;*/
+    /*font-size: 18px;*/
+    /*cursor: pointer;*/
+    /*-webkit-transition: opacity 0.3s linear;*/
+    /*-moz-transition: opacity 0.3s linear;*/
+    /*-o-transition: opacity 0.3s linear;*/
+    /*-ms-transition: opacity 0.3s linear;*/
+    /*transition: opacity 0.3s linear;*/
+
 }

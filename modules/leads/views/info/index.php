@@ -3,6 +3,7 @@
 use app\modules\leads\models\LeadChannel;
 use app\modules\leads\models\LeadForm;
 use app\modules\leads\models\LeadLanding;
+use app\modules\leads\Module;
 use app\modules\product\models\Product;
 use app\modules\promocode\models\Promocode;
 use kartik\date\DatePicker;
@@ -15,7 +16,7 @@ use yii\helpers\Url;
 /* @var $searchModel app\modules\leads\models\LeadInfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Lead Infos';
+$this->title = Module::t('lead-info','Lead Infos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lead-info-index">
@@ -28,10 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--        --><?//= Html::a('Create Channel', ['/leads/channel/create'], ['class' => 'btn btn-success']) ?>
 <!--        --><?//= Html::a('Create Form', ['/leads/form/create'], ['class' => 'btn btn-success']) ?>
 <!--        --><?//= Html::a('Create Landing', ['/leads/landing/create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::button('Create Lead Info', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
-        <?= Html::button('Create Channel', ['value'=>Url::to('/leads/channel/create'), 'class' => 'btn btn-success', 'id'=>'modalButton1']); ?>
-        <?= Html::button('Create Form', ['value'=>Url::to('/leads/form/create'), 'class' => 'btn btn-success', 'id'=>'modalButton2']); ?>
-        <?= Html::button('Create Landing', ['value'=>Url::to('/leads/landing/create'), 'class' => 'btn btn-success', 'id'=>'modalButton3']); ?>
+        <?= Html::button(Module::t('lead-info','Create Lead Info'), ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
+        <?= Html::button(Module::t('lead-info','Create Channel'), ['value'=>Url::to('/leads/channel/create'), 'class' => 'btn btn-success', 'id'=>'modalButton1']); ?>
+        <?= Html::button(Module::t('lead-info','Create Form'), ['value'=>Url::to('/leads/form/create'), 'class' => 'btn btn-success', 'id'=>'modalButton2']); ?>
+        <?= Html::button(Module::t('lead-info','Create Landing'), ['value'=>Url::to('/leads/landing/create'), 'class' => 'btn btn-success', 'id'=>'modalButton3']); ?>
 
 
     </p>
@@ -40,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     digitv\bootstrap\widgets\Modal::begin([
-        'header'=>'<h4>Add a lead</h4>',
+        'header'=>'<h4>'.Module::t("lead-info","Add a lead").'</h4>',
         'id'=>'modal',
         'size'=>'modal-lg',
     ]);
@@ -53,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!---->
     <?php
     digitv\bootstrap\widgets\Modal::begin([
-        'header'=>'<h4>Add a channel</h4>',
+        'header'=>'<h4>'.Module::t("lead-channel","Add a Channel").'</h4>',
         'id'=>'modal1',
         'size'=>'modal-lg',
     ]);
@@ -66,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     digitv\bootstrap\widgets\Modal::begin([
-        'header'=>'<h4>Add a Form</h4>',
+        'header'=>'<h4>'.Module::t("lead-form","Add a Form").'</h4>',
         'id'=>'modal2',
         'size'=>'modal-lg',
     ]);
@@ -78,7 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     digitv\bootstrap\widgets\Modal::begin([
-        'header'=>'<h4>Add a Landing</h4>',
+        'header'=>'<h4>'.Module::t("lead-landing","Add a Landing").'</h4>',
         'id'=>'modal3',
         'size'=>'modal-lg',
     ]);
@@ -178,7 +179,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'app\widgets\CustomColumn',
-                'header' => 'Actions',
+                'header' => Module::t('lead-info','Actions'),
             ],
         ],
     ]);

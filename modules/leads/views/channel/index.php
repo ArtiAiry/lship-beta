@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\leads\Module;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -9,7 +10,7 @@ use yii\helpers\Url;
 /* @var $searchModel app\modules\leads\models\LeadChannelSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Lead Channels';
+$this->title = Module::t('lead-channel','Lead Channels');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lead-channel-index">
@@ -20,12 +21,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
 <!--        --><?//= Html::a('Create Lead Channel', ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::button('Create Channel', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
+        <?= Html::button(Module::t('lead-channel','Create Channel'), ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
     </p>
 
 <!--    --><?php
     digitv\bootstrap\widgets\Modal::begin([
-        'header'=>'<h4>Add a channel</h4>',
+        'header'=>'<h4>'.Module::t("lead-channel","Add a Channel").'</h4>',
         'id'=>'modal',
         'size'=>'modal-lg',
     ]);

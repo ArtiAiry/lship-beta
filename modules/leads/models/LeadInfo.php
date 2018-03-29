@@ -3,6 +3,7 @@
 namespace app\modules\leads\models;
 
 use app\models\User;
+use app\modules\leads\Module;
 use app\modules\product\models\Product;
 use app\modules\promocode\models\Promocode;
 use yii\db\ActiveRecord;
@@ -40,6 +41,8 @@ use yii\db\ActiveRecord;
  */
 class LeadInfo extends ActiveRecord
 {
+
+    const REMOVE = 0;
     /**
      * @inheritdoc
      */
@@ -73,25 +76,25 @@ class LeadInfo extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'create_time' => 'Create Time',
-            'user_id' => 'Client',
-            'product_id' => 'Product',
-            'lead_channel_id' => 'Lead Channel',
-            'partner_id' => 'Partner ID',
-            'aff_id' => 'Aff ID',
-            'lead_landing_id' => 'Lead Landing',
-            'lead_form_id' => 'Lead Form',
-            'source' => 'Source',
-            'conv_url' => 'Conv Url',
-            'ga_cid' => 'Ga Cid',
-            'utm_medium' => 'Utm Medium',
-            'utm_term' => 'Utm Term',
-            'utm_content' => 'Utm Content',
-            'utm_campaign' => 'Utm Campaign',
-            'promocode_id' => 'Promocode',
-            'count_orders' => 'Count Orders',
-            'count_sells' => 'Count Sells',
-            'total_lessons' => 'Total Lessons',
+            'create_time' => Module::t('lead-info','Create Time'),
+            'user_id' => Module::t('lead-info','Client'),
+            'product_id' => Module::t('lead-info','Product'),
+            'lead_channel_id' => Module::t('lead-info','Lead Channel'),
+            'partner_id' => Module::t('lead-info','Partner ID'),
+            'aff_id' => Module::t('lead-info','Aff ID'),
+            'lead_landing_id' => Module::t('lead-info','Lead Landing'),
+            'lead_form_id' => Module::t('lead-info','Lead Form'),
+            'source' => Module::t('lead-info','Source'),
+            'conv_url' => Module::t('lead-info','Conv Url'),
+            'ga_cid' => Module::t('lead-info','Ga Cid'),
+            'utm_medium' => Module::t('lead-info','Utm Medium'),
+            'utm_term' => Module::t('lead-info','Utm Term'),
+            'utm_content' => Module::t('lead-info','Utm Content'),
+            'utm_campaign' => Module::t('lead-info','Utm Campaign'),
+            'promocode_id' => Module::t('lead-info','Promocode'),
+            'count_orders' => Module::t('lead-info','Count Orders'),
+            'count_sells' => Module::t('lead-info','Count Sells'),
+            'total_lessons' => Module::t('lead-info','Total Lessons'),
         ];
     }
 
@@ -141,5 +144,11 @@ class LeadInfo extends ActiveRecord
     public function getPromocode()
     {
         return $this->hasOne(Promocode::className(), ['id' => 'promocode_id']);
+    }
+
+    public function removeInfo()
+    {
+        $this->isRemoved = self::REMOVE;
+        return $this->save(false);
     }
 }

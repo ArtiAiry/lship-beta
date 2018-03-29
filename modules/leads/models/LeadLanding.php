@@ -2,6 +2,7 @@
 
 namespace app\modules\leads\models;
 
+use app\modules\leads\Module;
 use yii\db\ActiveRecord;
 
 /**
@@ -14,6 +15,8 @@ use yii\db\ActiveRecord;
  */
 class LeadLanding extends ActiveRecord
 {
+    const REMOVE = 0;
+
     /**
      * @inheritdoc
      */
@@ -41,7 +44,7 @@ class LeadLanding extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => Module::t('lead-landing','Name'),
         ];
     }
 
@@ -51,5 +54,11 @@ class LeadLanding extends ActiveRecord
     public function getLeadInfos()
     {
         return $this->hasMany(LeadInfo::className(), ['lead_landing_id' => 'id']);
+    }
+
+    public function removeLanding()
+    {
+        $this->isRemoved = self::REMOVE;
+        return $this->save(false);
     }
 }

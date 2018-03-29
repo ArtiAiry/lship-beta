@@ -69,10 +69,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'id' => $gridId,
+        'tableOptions' => [
+            'class' => 'table table-bordered'
+        ],
         'columns' => [
             [
                     'class' => CheckboxColumn::classname(),
                 'headerOptions' => ['style' => 'width:10px;'],
+//                'checkboxOptions' => ''
             ],
 //            ['class' => 'yii\grid\SerialColumn'],
 

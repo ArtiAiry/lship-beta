@@ -1,13 +1,14 @@
 <?php
 
+use app\modules\leads\Module;
 use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\leads\models\LeadInfo */
 
-$this->title = 'Create Lead Info';
-$this->params['breadcrumbs'][] = ['label' => 'Lead Infos', 'url' => ['index']];
+$this->title = Module::t('lead-info','Create Lead Info');
+$this->params['breadcrumbs'][] = ['label' => Module::t('lead-info','Lead Infos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lead-info-create">

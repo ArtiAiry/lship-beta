@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\leads\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
@@ -8,7 +9,7 @@ use yii\helpers\Url;
 /* @var $searchModel app\modules\leads\models\LeadLandingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Lead Landings';
+$this->title = Module::t('lead-landing','Lead Landings');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lead-landing-index">
@@ -19,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
 <!--        --><?//= Html::a('Create Lead Landing', ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::button('Create landing', ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
+        <?= Html::button(Module::t('lead-landing','Create Landing'), ['value'=>Url::to('create'), 'class' => 'btn btn-success', 'id'=>'modalButton']); ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     digitv\bootstrap\widgets\Modal::begin([
-        'header'=>'<h4>Add a form</h4>',
+        'header'=>'<h4>'.Module::t("lead-landing","Add a Landing").'</h4>',
         'id'=>'modal',
         'size'=>'modal-lg',
     ]);
