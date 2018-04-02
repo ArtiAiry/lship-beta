@@ -6,6 +6,7 @@ use Yii;
 use app\modules\leads\models\LeadInfo;
 use app\modules\leads\models\LeadInfoSearch;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -119,6 +120,29 @@ class InfoController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+    public function actionBatchDelete() {
+        if (($ids = Yii::$app->request->post('ids')) !== null) {
+            $models = $this->findAll($ids);
+            foreach ($models as $model) {
+                $model->removeInfo();
+            }
+            return $this->redirect(['index']);
+        } else {
+            throw new HttpException(400);
+        }
+    }
+
+
+    public function findAll($id)
+    {
+        if (($model = LeadInfo::find()->where(['id' => $id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new HttpException(404);
         }
     }
 }
