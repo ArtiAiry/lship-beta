@@ -12,6 +12,7 @@ namespace app\models\form;
 use app\models\User;
 use app\modules\leads\models\LeadInfo;
 use app\modules\profile\models\Profile;
+use app\modules\wallet\models\Wallet;
 use Yii;
 use yii\base\Model;
 
@@ -23,16 +24,16 @@ class CreateUserForm extends Model
     public $username;
     public $email;
     public $password_hash;
-    public $repeat_password;
     public $status;
 
-
     //profile values
-
 
     public $first_name;
     public $last_name;
 
+    //role value
+
+    public $role;
 
     public function rules() {
       return  [
@@ -46,8 +47,21 @@ class CreateUserForm extends Model
           [['email'], 'trim'],
           ['email', 'string', 'max' => 255],
           ['password_hash', 'string', 'min' => 6],
-          ['repeat_password', 'compare', 'compareAttribute'=>'password_hash', 'message'=>"Passwords don't match."],
       ];
+    }
+
+
+    public function roleIdentity($role)
+    {
+
+            if($role==1){
+
+                return 'admin';
+
+            }elseif($role==2){
+
+                return 'manager';
+            }
     }
 
 
@@ -59,6 +73,8 @@ class CreateUserForm extends Model
 
             $pw_default = 'qwerty';
 
+            //user object create
+
             $user = new User();
 
             $user->username = $this->username;
@@ -69,6 +85,8 @@ class CreateUserForm extends Model
 
             $user->save();
 
+            //profile object create
+
             $profile = new Profile();
 
             $profile->user_id = $user->id;
@@ -76,7 +94,11 @@ class CreateUserForm extends Model
             $profile->last_name = $this->last_name;
             $profile->ip_address = Yii::$app->request->userIP;
 
+            $role = $this->role;
+
             $user->link('profile', $profile);
+
+            //lead info object create
 
             $lead_info = new LeadInfo();
 
@@ -84,6 +106,22 @@ class CreateUserForm extends Model
 
             $user->link('leadInfos', $lead_info);
 
+            //wallet object create
+
+            $wallet = new Wallet();
+
+            $wallet->user_id = $user->id;
+            $wallet->description = 'test';
+
+            $user->link('wallet', $wallet);
+
+            //role assignment create
+
+            $auth = Yii::$app->authManager;
+            $aRole = $auth->getRole($this->roleIdentity($role));
+            $auth->assign($aRole, $user->getId());
+
+            //db and transaction activating
 
             $db = \Yii::$app->db;
 

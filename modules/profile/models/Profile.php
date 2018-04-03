@@ -7,6 +7,7 @@ use app\models\User;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Query;
+use yii\helpers\ArrayHelper;
 
 
 /**
@@ -126,6 +127,15 @@ class Profile extends ActiveRecord
     public function getFullName() {
         return $this->first_name . ' ' . $this->last_name;
     }
+
+    public function getRole()
+    {
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+        return !empty($roles) ? array_keys($roles)[0] : null;
+    }
+
+
 
 
 }

@@ -13,6 +13,7 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
 /**
@@ -292,6 +293,18 @@ class User extends ActiveRecord implements IdentityInterface
         $this->status = self::STATUS_DELETED;
         return $this->save(false);
     }
+
+
+    public function getRole()
+    {
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+        return !empty($roles) ? array_keys($roles)[0] : null;
+    }
+
+
+
+
 
 
 

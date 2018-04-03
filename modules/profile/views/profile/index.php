@@ -3,6 +3,8 @@
 use app\models\User;
 
 use app\modules\profile\models\Profile;
+use app\widgets\RoleColumn;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -72,6 +74,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
                 }
+            ],
+            [
+                'attribute' => 'role',
+                'class' => RoleColumn::className(),
+                'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
             ],
 
             //'city',
