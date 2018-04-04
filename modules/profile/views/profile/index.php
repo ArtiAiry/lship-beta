@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Profile', ['/user/add'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Create Default Profile', ['/user/create'], ['class' => 'btn btn-primary']) ?>
     </p>
-
+    <div class="table-content">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -97,4 +97,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
+    </div>
 </div>

@@ -20,8 +20,6 @@ use yii\helpers\Url;
 $this->title = Module::t('lead-info','Lead Infos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
-
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -119,82 +117,84 @@ $this->params['breadcrumbs'][] = $this->title;
     );
 
     ?>
-    <div class="<?= $gridId ?>">
-        <div class="box box-default">
-            <div class="box-header">
-                <div class="pull-right">
-                    <?= Html::button('<i class="nc-icon nc-chart-pie-35"></i>',
-                        [
-                            'id'=>'modalButton',
-                            'value'=>Url::to('create'),
-                            'class' => 'btn btn-primary btn-sm',
-                            'rel'=>'tooltip',
-                            'title' => Module::t('lead-info', 'Create Lead Info')
-                        ]); ?>
-                    <?= Html::button('<i class="fa fa-bar-chart-o"></i>',
-                        [
-                            'id'=>'modalButton1',
-                            'value'=>Url::to('/leads/channel/create'),
-                            'class' => 'btn btn-primary btn-sm',
-                            'rel'=>'tooltip',
-                            'title' => Module::t('lead-info', 'Create Channel')
-                        ]); ?>
-                    <?= Html::button('<i class="fa fa-address-card-o"></i>',
-                        [
-                            'id'=>'modalButton2',
-                            'value'=>Url::to('/leads/form/create'),
-                            'class' => 'btn btn-primary btn-sm',
-                            'rel'=>'tooltip',
-                            'title' => Module::t('lead-info', 'Create Form')
-                        ]); ?>
-                    <?= Html::button('<i class="fa fa-area-chart"></i>',
-                        [
-                            'id'=>'modalButton3',
-                            'value'=>Url::to('/leads/landing/create'),
-                            'class' => 'btn btn-primary btn-sm',
-                            'rel'=>'tooltip',
-                            'title' => Module::t('lead-info', 'Create Landing')
-                        ]); ?>
-                    <?= Html::a('<i class="fa fa-trash"></i>', ['batch-delete'],
-                        [
-                            'class' => 'btn btn-danger btn-sm',
-                            'id' => 'batch-delete',
-                            'rel'=>'tooltip',
-                            'title' => Module::t('lead-info', 'Delete Selected')
-                        ]); ?>
-                </div>
-            </div>
 
+<div class="<?= $gridId ?>">
+    <div class="box box-default">
+        <div class="box-header">
+                <?= Html::button('<i class="nc-icon nc-chart-pie-35"></i>',
+                    [
+                        'id'=>'modalButton',
+                        'value'=>Url::to('create'),
+                        'class' => 'btn btn-primary btn-sm',
+                        'rel'=>'tooltip',
+                        'title' => Module::t('lead-info', 'Create Lead Info')
+                    ]); ?>
+                <?= Html::button('<i class="fa fa-bar-chart-o"></i>',
+                    [
+                        'id'=>'modalButton1',
+                        'value'=>Url::to('/leads/channel/create'),
+                        'class' => 'btn btn-primary btn-sm',
+                        'rel'=>'tooltip',
+                        'title' => Module::t('lead-info', 'Create Channel')
+                    ]); ?>
+                <?= Html::button('<i class="fa fa-address-card-o"></i>',
+                    [
+                        'id'=>'modalButton2',
+                        'value'=>Url::to('/leads/form/create'),
+                        'class' => 'btn btn-primary btn-sm',
+                        'rel'=>'tooltip',
+                        'title' => Module::t('lead-info', 'Create Form')
+                    ]); ?>
+                <?= Html::button('<i class="fa fa-area-chart"></i>',
+                    [
+                        'id'=>'modalButton3',
+                        'value'=>Url::to('/leads/landing/create'),
+                        'class' => 'btn btn-primary btn-sm',
+                        'rel'=>'tooltip',
+                        'title' => Module::t('lead-info', 'Create Landing')
+                    ]); ?>
+                <?= Html::a('<i class="fa fa-trash"></i>', ['batch-delete'],
+                    [
+                        'class' => 'btn btn-danger btn-sm',
+                        'id' => 'batch-delete',
+                        'rel'=>'tooltip',
+                        'title' => Module::t('lead-info', 'Delete Selected')
+                    ]); ?>
         </div>
+    </div>
 
 
 
 
+
+<!--    style="max-width: 100%; overflow: auto;"-->
+
+<div class="table-content">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'id' => $gridId,
         'tableOptions' => [
-            'class' => 'table table-bordered'
+            'class' => 'table table-bordered',
         ],
         'columns' => [
                 [
                     'class' => CheckboxColumn::classname(),
                     'headerOptions' => ['style' => 'width:10px;'],
                 ],
-//            'create_time',
+            'create_time',
 
-            [
-                'filter' =>
-                    Html::tag(
-                        'div',
-                        Html::tag('div', Html::activeTextInput($searchModel, 'date_from', ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker']), ['class' => 'col-md-6']) .
-                        Html::tag('div', Html::activeTextInput($searchModel, 'date_to', ['class' => 'form-control datetimepicker','id' => 'datetimepicker']), ['class' => 'col-md-6']),
-                        ['class' => 'row']
-                    ),
-                'attribute' => 'create_time',
-                'format' => 'datetime',
-            ],
+//            [
+//                'filter' =>
+//                    Html::tag(
+//                        'div',
+//                        Html::tag('div', Html::activeTextInput($searchModel, 'date_from', ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker']), ['class' => 'col-md-6']) .
+//                        Html::tag('div', Html::activeTextInput($searchModel, 'date_to', ['class' => 'form-control datetimepicker','id' => 'datetimepicker']), ['class' => 'col-md-6']),
+//                        ['class' => 'row']
+//                    ),
+//                'attribute' => 'create_time',
+//                'format' => 'date',
+//            ],
 
 
 //            [
@@ -271,4 +271,5 @@ $this->params['breadcrumbs'][] = $this->title;
 //    ]);
 //    Modal::end();
 //    ?>
+</div>
 </div>

@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Diwork
- * Date: 27.12.2017
- * Time: 17:58
- */
-Use yii\helpers\Url;
 
+Use yii\helpers\Url;
 ?>
 <footer class="footer">
             <div class="container">

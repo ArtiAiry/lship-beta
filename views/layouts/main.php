@@ -37,8 +37,9 @@ PublicAsset::register($this);
                 <?= Alert::widget() ?>
                 <?= $content ?>
             </div>
+            <?= $this->render('//parts/footer')?>
         </div>
-        <?= $this->render('//parts/footer')?>
+
     </div>
 
     <?php

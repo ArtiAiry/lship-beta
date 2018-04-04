@@ -93,7 +93,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => 'Actions',
             ],
 
-
 //            [
 //                'class' => 'app\widgets\CustomColumn',
 //                'header' => 'Actions',
@@ -117,13 +116,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
                 'value' => function($model) {
                     if($model->isActive == 1){
-//                        return Html::checkbox('Click me', ['wallet/disactivate'], ['class'=> 'toggle','data-toggle'=> 'switch', 'data-on-color'=>"info" , 'data-off-color'=>'info', 'data-on-text'=>"", 'data-off-text'=>"",'data-pjax' => 0]);
                         return Html::a('De-activate', ['wallet/disactivate', 'id'=>$model->id], ['class' => 'btn btn-danger btn-xs']);
                     } else {
                         return Html::a('Activate', ['wallet/activate', 'id'=>$model->id], ['class' => 'btn btn-success btn-xs']);
 
-//                        return 0;
-                    }// render your custom button
+                    }
                 }
             ]
 
