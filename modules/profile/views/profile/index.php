@@ -33,6 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table table-bordered',
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -76,6 +79,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
+                'headerOptions' => ['style' => 'width:10px;'],
                 'attribute' => 'role',
                 'class' => RoleColumn::className(),
                 'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),

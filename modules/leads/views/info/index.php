@@ -180,7 +180,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
                 [
                     'class' => CheckboxColumn::classname(),
-                    'headerOptions' => ['style' => 'width:10px;'],
+//                    'headerOptions' => ['style' => 'width:10px;'],
                 ],
             'create_time',
 

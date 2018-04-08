@@ -3369,10 +3369,11 @@ fieldset[disabled] .form-control {
 
 .alert {
     border: 0;
-    border-radius: 0;
+    border-radius: 4px;
     color: #FFFFFF;
     padding: 10px 15px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .container .alert {

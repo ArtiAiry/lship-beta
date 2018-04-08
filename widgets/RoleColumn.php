@@ -8,14 +8,18 @@ use Yii;
 
 class RoleColumn extends DataColumn
 {
-    public $defaultRole = 'user';
+    public $defaultRole = 'client';
+    public $adminRole = 'admin';
+    public $managerRole = 'manager';
+    public $teacherRole = 'teacher';
 
     protected function renderDataCellContent($model, $key, $index)
     {
         $value = $this->getDataCellValue($model, $key, $index);
         $label = $value ? $this->getRoleLabel($value) : $value;
-        $class = $value == $this->defaultRole ? 'primary' : 'danger';
-        $html = Html::tag('span', Html::encode($label), ['class' => 'label label-' . $class]);
+        $class = $this->getColorLabel($model, $key, $index);
+
+        $html = Html::tag('span', Html::encode($label), ['class' => 'alert alert-' . $class]);
         return $value === null ? $this->grid->emptyCell : $html;
     }
 
@@ -30,5 +34,20 @@ class RoleColumn extends DataColumn
         } else {
             return $roleName;
         }
+    }
+
+    protected function getColorLabel($model, $key, $index)
+    {
+        $value = $this->getDataCellValue($model, $key, $index);
+        if ($value == $this->defaultRole){
+            return 'success';
+        } elseif($value == $this->teacherRole) {
+            return 'info';
+        } elseif($value == $this->managerRole){
+            return 'primary';
+        } else {
+            return 'danger';
+        }
+
     }
 }
