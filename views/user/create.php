@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'role')->dropDownList(ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'))->label('Choose a Role') ?>
+    <?= $form->field($model, 'permissions')->dropDownList(ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name'), ['prompt' => 'Select Item'])->label('Choose a Role') ?>
 
 
 

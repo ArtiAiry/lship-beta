@@ -42,8 +42,12 @@ class UserController extends Controller
 
 
         if ($model->load(Yii::$app->request->post()) && $model->default_user_create()) {
+
+
+
 //                return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['/profile/index']);
+
 
         }
 

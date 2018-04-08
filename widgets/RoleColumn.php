@@ -8,7 +8,7 @@ use Yii;
 
 class RoleColumn extends DataColumn
 {
-    public $defaultRole = 'manager';
+    public $defaultRole = 'user';
 
     protected function renderDataCellContent($model, $key, $index)
     {

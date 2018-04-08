@@ -9,6 +9,7 @@
 namespace app\models\form;
 
 
+use app\models\rbac\AuthAssignment;
 use app\modules\leads\models\LeadInfo;
 use app\modules\profile\models\Profile;
 use app\modules\wallet\models\Wallet;
@@ -41,22 +42,7 @@ class SignupForm extends Model
 
         ];
     }
-//    public function signup()
-//    {
-//        if($this->validate())
-//        {
-//            $user = new User();
-//
-//            $user->username = $this->username;
-//            $user->email = $this->email;
-//            $user->setPassword($this->password);
-//
-//
-//            return $user->create();
-//        }
-//        return null;
-//
-//    }
+
     public function signup()
     {
         if($this->validate())
@@ -70,8 +56,6 @@ class SignupForm extends Model
 
             $user->save();
 
-//            $db = \Yii::$app->profile;
-
             $profile = new Profile();
 
             $profile->user_id = $user->id;
@@ -83,7 +67,6 @@ class SignupForm extends Model
 
             $wallet->user_id = $user->id;
             $wallet->description = 'test';
-//            $profile->ip_address = Yii::$app->request->userIP;
 
             $user->link('wallet', $wallet);
 
@@ -93,6 +76,14 @@ class SignupForm extends Model
             $lead_info->user_id = $user->id;
 
             $user->link('leadInfos', $lead_info);
+
+            $permission = new AuthAssignment();
+
+            $permission->user_id = $user->id;
+            $permission->item_name = 'client';
+            $permission->created_at = $user->created_at;
+
+            $permission->save();
 
 
             $transaction = $user->getDb()->beginTransaction();
@@ -107,16 +98,6 @@ class SignupForm extends Model
         return null;
 
     }
-//
-//    public function afterSave(){
-//
-//        //ниже ваш код
-//        $wallet = new Wallet();
-//        $wallet->id = $this->id;
-//        $wallet->save();
-//
-//
-//    }
 
     public function afterSave($insert, $changedAttributes)
 {
@@ -124,18 +105,6 @@ class SignupForm extends Model
     Yii::$app->session->setFlash('success', 'You are signed up.');
 }
 
-//    public function afterSave($insert, $changedAttributes)
-//    {
-//        parent::afterSave($insert, $changedAttributes);
-//
-//                $user = new User();
-//                $user->username = $this->username;
-//                $user->email = $this->email;
-//                $user->setPassword($this->password);
-//                $user->generateAuthKey();
-//
-//
-//    }
 
 
 

@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-
 use app\modules\leads\models\LeadInfo;
 use app\modules\orders\models\OrderInfo;
 use app\modules\orders\models\OrderStatusLog;
@@ -302,7 +301,14 @@ class User extends ActiveRecord implements IdentityInterface
         return !empty($roles) ? array_keys($roles)[0] : null;
     }
 
-
+    public function afterSave($insert, $changedAttributes)
+    {
+        if ($insert) {
+        } else {
+            // Нет, старая (update)
+        }
+        parent::afterSave($insert, $changedAttributes);
+    }
 
 
 
