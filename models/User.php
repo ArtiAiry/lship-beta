@@ -294,13 +294,6 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
 
-    public function getRole()
-    {
-        $auth = Yii::$app->authManager;
-        $roles = $auth->getRolesByUser($this->id);
-        return !empty($roles) ? array_keys($roles)[0] : null;
-    }
-
     public function afterSave($insert, $changedAttributes)
     {
         if ($insert) {
@@ -309,6 +302,46 @@ class User extends ActiveRecord implements IdentityInterface
         }
         parent::afterSave($insert, $changedAttributes);
     }
+
+
+    // getting Roles
+
+    public function getRole()
+    {
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+        return !empty($roles) ? array_keys($roles)[0] : null;
+    }
+
+
+    public function getRoleName()
+    {
+
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+
+        foreach ($roles as $role){
+
+            echo $role->description;
+        }
+
+    }
+
+    public function getRoleNameLabel()
+    {
+        if($this->getRoleName() == 'Client'){
+
+            echo "alert alert-success";
+
+        } else {
+            return "alert alert-danger";
+        }
+
+
+    }
+
+    /**
+     * @return string
+     */
 
 
 

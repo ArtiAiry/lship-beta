@@ -1,5 +1,10 @@
 <?php
+use app\models\User;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+
+$model = new User();
+/* @var $model app\models\User */
 ?>
 
 <div class="sidebar"  data-color="blue" data-image="<?=Url::to(['/web/img/sidebar-2.jpg'])?>">
@@ -7,6 +12,9 @@ use yii\helpers\Url;
 Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
 Tip 2: you can also add an image using data-image tag
+
+
+
 -->
     <div class="sidebar-wrapper">
         <div class="logo">
@@ -23,6 +31,7 @@ Tip 2: you can also add an image using data-image tag
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                             <span><?=Yii::$app->user->identity->username?>
+                                - <?= $model->getRoleName(); ?>
                                 <b class="caret"></b>
                             </span>
 

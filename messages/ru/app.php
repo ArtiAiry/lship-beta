@@ -31,6 +31,7 @@ return [
     'Settings'=>'Настройки',
     'Lock'=>'Блокировать',
     'Log out'=>'Выйти',
+    'Actions' =>'Действия',
 
 
     //footer

@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
 
 $this->title = 'Create Profile';
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['/profile/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 

@@ -1,7 +1,9 @@
 <?php
 
+use app\widgets\RoleColumn;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\DetailView;
@@ -59,12 +61,30 @@ $this->params['breadcrumbs'][] = $this->title;
                 }, $model
 
             ],
+            [
+                'attribute' => 'role',
+                'class' => RoleColumn::className(),
+                'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
+            ],
 
             'dob',
             'activity',
             'interests',
         ],
     ]) ?>
+
+
+
+<!--    <pre>-->
+
+<!--    </pre>-->
+
+
+<!--    --><?//= var_dump([
+//        'attribute' => 'role',
+//        'class' => RoleColumn::className(),
+//        'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
+//    ]);?>
 
     <h3>User's Wallets</h3>
 
@@ -159,6 +179,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php echo \yii2mod\comments\widgets\Comment::widget([
         'model' => $model,
+
         'dataProviderConfig' => [
             'pagination' => [
                 'pageSize' => 10
