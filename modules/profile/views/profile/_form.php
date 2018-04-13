@@ -1,5 +1,6 @@
 <?php
 use app\modules\profile\models\Profile;
+use app\modules\profile\Module;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -33,13 +34,13 @@ use yii\widgets\ActiveForm;
 
     <?php $item = $profile->getGenderList(); ?>
 
-    <?= $form->field($profile, 'gender')->dropDownList($item)->label(''); ?>
+    <?= $form->field($profile, 'gender')->dropDownList($item); ?>
 
     <?= $form->field($profile, 'dob')->textInput(['class'=>'form-control datepicker','id'=>'datetimepicker']);?>
 
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Module::t('profile','Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
 

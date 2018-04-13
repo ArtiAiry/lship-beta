@@ -42,7 +42,7 @@ return [
     'Soon'=>'Скоро',
     'Our Website'=>'Наш сайт',
 
-    //other
+    //actions
 
     'Login'=>'Логин',
     'Log in'=>'Вход',
@@ -61,10 +61,40 @@ return [
     'Create Account'=>'Создать аккаунт',
     'Lock Screen'=>'Экран Блокировки',
     'Unlock'=>'Разблокировать',
-    'Test'=>'Тест'
+    'Test'=>'Тест',
+    'Save' => 'Сохранить',
+
+    //FORMS
+
+    'Full Name'=>'Полное имя',
+    'ID' => 'ID',
+    'Username' => 'Логин',
+    'First Name' => 'Имя',
+    'Last Name' => 'Фамилия',
+    'Skype' => 'Скайп',
+    'Phone' => 'Телефон',
+    'Country' => 'Страна',
+    'City' => 'Город',
+    'Ip Address' => 'IP адрес',
+    'Age' => 'Возраст',
+    'Gender' => 'Пол',
+    'Dob' => 'Дата Рождения',
+    'Email' => 'Почта',
+    'Profiles' => 'Профили',
+    'Select Item' => 'Выбрать...',
+    'Role'=>'Роль',
 
 
+    //gender list
 
+    'Male' => 'Мужской',
+    'Female' => 'Женский',
+    'Not Set'=>'Не указано',
+
+
+    'View' => 'Просмотр',
+    'Edit' => 'Редактировать',
+    'Delete' => 'Удалить'
 
 
 ];

@@ -12,7 +12,6 @@ return [
 
     //grid
 
-
     'Create Time' => 'Дата создания',
     'Client' => 'Клиент',
     'Lead Channel' => 'Канал Лида',
@@ -47,8 +46,8 @@ return [
     'Create' => 'Создать',
     'Update' => 'Обновить',
     'Delete' => 'Удалить',
-    'Add a lead'=>'Добавить лида',
-
+    'View'=> 'Просмотр',
+    'Add a lead'=> 'Добавить лида',
 
     //prompts
 
@@ -59,8 +58,6 @@ return [
     'Choose a Form'=>'Выберите тип формы',
     'Choose a Promocode'=>'Выберите промокод',
 
-
-    //channel
 
 
 

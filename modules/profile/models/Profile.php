@@ -4,6 +4,7 @@ namespace app\modules\profile\models;
 
 
 use app\models\User;
+use app\modules\profile\Module;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Query;
@@ -40,6 +41,8 @@ class Profile extends ActiveRecord
 
     const REMOVE = 0;
 
+
+
     public static function tableName()
     {
         return 'profile';
@@ -70,21 +73,22 @@ class Profile extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'user_id' => 'Username',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'fullName' => 'Full Name',
-            'skype' => 'Skype',
-            'phone' => 'Phone',
-            'country' => 'Country',
-            'city' => 'City',
-            'ip_address' => 'Ip Address',
-            'age' => 'Age',
-            'gender' => 'Gender',
-            'dob' => 'Dob',
-            'activity' => 'Activity',
-            'interests' => 'Interests',
+            'id' => Module::t('profile','ID'),
+            'user_id' => Module::t('profile','Username'),
+            'first_name' => Module::t('profile','First Name'),
+            'last_name' => Module::t('profile','Last Name'),
+            'fullName' => Module::t('profile','Full Name'),
+            'skype' => Module::t('profile','Skype'),
+            'phone' => Module::t('profile','Phone'),
+            'email' => Module::t('profile','Email'),
+            'country' => Module::t('profile','Country'),
+            'city' => Module::t('profile','City'),
+            'ip_address' => Module::t('profile','Ip Address'),
+            'age' => Module::t('profile','Age'),
+            'gender' => Module::t('profile','Gender'),
+            'dob' => Module::t('profile','Dob'),
+            'activity' => Module::t('profile','Activity'),
+            'interests' => Module::t('profile','Interests'),
         ];
     }
 
@@ -112,9 +116,9 @@ class Profile extends ActiveRecord
     {
         return [
 
-            0=>'Not Set',
-            1=>'Female',
-            2=>'Male'
+            0=>Module::t('profile','Not Set'),
+            1=>Module::t('profile','Female'),
+            2=>Module::t('profile','Male')
 
         ];
     }
@@ -134,6 +138,8 @@ class Profile extends ActiveRecord
         $roles = $auth->getRolesByUser($this->id);
         return !empty($roles) ? array_keys($roles)[0] : null;
     }
+
+
 
 
 

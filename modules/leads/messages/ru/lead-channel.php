@@ -7,6 +7,7 @@ return [
     'Create' => 'Создать',
     'Update' => 'Обновить',
     'Delete' => 'Удалить',
+    'View'=>'Просмотр',
 
     'Update Lead Channel: '=>'Обновить канал: ',
     'Lead Channels'=>'Каналы',

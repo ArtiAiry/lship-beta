@@ -181,8 +181,9 @@ class CustomColumn extends Column
                     'title' => $title,
                     'aria-label' => $title,
                     'data-pjax' => '0',
+                    'rel'=>'tooltip',
                 ], $additionalOptions, $this->buttonOptions);
-                $icon = Html::tag('span', '', ['class' => "fa fa-$iconName"]);
+                $icon = Html::tag('span', '', ['class' => "fa fa-$iconName", ]);
                 return Html::a($icon, $url, $options);
             };
         }

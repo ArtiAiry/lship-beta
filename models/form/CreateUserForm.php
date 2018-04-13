@@ -21,6 +21,7 @@ use yii\web\NotFoundHttpException;
 class CreateUserForm extends Model
 {
 
+
     //user values
 
     public $username;
@@ -51,6 +52,30 @@ class CreateUserForm extends Model
           ['email', 'string', 'max' => 255],
           ['password_hash', 'string', 'min' => 6],
       ];
+    }
+
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app','ID'),
+            'user_id' => Yii::t('app','Username'),
+            'first_name' => Yii::t('app','First Name'),
+            'last_name' => Yii::t('app','Last Name'),
+            'fullName' => Yii::t('app','Full Name'),
+            'skype' => Yii::t('app','Skype'),
+            'phone' => Yii::t('app','Phone'),
+            'country' => Yii::t('app','Country'),
+            'city' => Yii::t('app','City'),
+            'ip_address' => Yii::t('app','Ip Address'),
+            'age' => Yii::t('app','Age'),
+            'gender' => Yii::t('app','Gender'),
+            'dob' => Yii::t('app','Dob'),
+            'activity' => Yii::t('app','Activity'),
+            'interests' => Yii::t('app','Interests'),
+            'email' => Yii::t('app','Email'),
+            'username' => Yii::t('app','Username'),
+        ];
     }
 
 

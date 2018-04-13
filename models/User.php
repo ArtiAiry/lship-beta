@@ -24,13 +24,13 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $create_time
  *
- * @property LeadInfo[] $leadInfos
+ * @property LeadInfo[] $leadInfo
  * @property Notification[] $notifications
  * @property OrderInfo[] $orderInfos
  * @property OrderStatusLog[] $orderStatusLogs
  * @property Package[] $packages
  * @property Package[] $packages0
- * @property Profile[] $profiles
+ * @property Profile[] $profile
  * @property Wallet[] $wallet
  */
 class User extends ActiveRecord implements IdentityInterface
@@ -74,12 +74,12 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password_hash' => 'Password',
-            'created_at' => 'Create Time',
-            'updated_at' => 'Update Time'
+            'id' => Yii::t('app','ID'),
+            'username' => Yii::t('app','Username'),
+            'email' => Yii::t('app','Email'),
+            'password_hash' =>  Yii::t('app','Password'),
+            'created_at' => Yii::t('app','Create Time'),
+            'updated_at' => Yii::t('app','Update Time')
         ];
     }
 
@@ -339,11 +339,15 @@ class User extends ActiveRecord implements IdentityInterface
 
     }
 
-    /**
-     * @return string
-     */
 
-
+    public function removeUserProfile()
+    {
+        $this->leadInfo->isRemoved = self::STATUS_DELETED;
+        $this->profile->isRemoved = self::STATUS_DELETED;
+        $this->wallet->isRemoved = self::STATUS_DELETED;
+        $this->status = self::STATUS_DELETED;
+        return $this->save(false);
+    }
 
 
 

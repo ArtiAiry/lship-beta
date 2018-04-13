@@ -36,6 +36,10 @@ class AddUserForm extends Model
     public $ip_address;
     public $gender;
 
+
+
+
+
     public function rules()
     {
         return [
@@ -59,6 +63,10 @@ class AddUserForm extends Model
 
         ];
     }
+
+
+
+
     public function user_create()
     {
         if($this->validate())
@@ -108,24 +116,39 @@ class AddUserForm extends Model
 
     public function attributeLabels()
     {
-        return [
-            'id' => 'ID',
-            'username' => 'Username',
-            'email' => 'Email',
-            'password_hash' => 'Password',
-            'create_time' => 'Create Time',
-            'gender' => 'Gender',
 
+        return [
+            'id' => Yii::t('app','ID'),
+            'user_id' => Yii::t('app','Username'),
+            'first_name' => Yii::t('app','First Name'),
+            'last_name' => Yii::t('app','Last Name'),
+            'fullName' => Yii::t('app','Full Name'),
+            'skype' => Yii::t('app','Skype'),
+            'phone' => Yii::t('app','Phone'),
+            'country' => Yii::t('app','Country'),
+            'city' => Yii::t('app','City'),
+            'ip_address' => Yii::t('app','Ip Address'),
+            'age' => Yii::t('app','Age'),
+            'gender' => Yii::t('app','Gender'),
+            'dob' => Yii::t('app','Dob'),
+            'activity' => Yii::t('app','Activity'),
+            'interests' => Yii::t('app','Interests'),
+            'email' => Yii::t('app','Email'),
+            'password_hash' => Yii::t('app','Password'),
+            'repeat_password' => Yii::t('app','Repeat Password'),
+            'create_time' => Yii::t('app','Create Time'),
         ];
+
+
     }
 
     public static function getGenderList ()
     {
         return [
 
-            0=>'Not Set',
-            1=>'Female',
-            2=>'Male'
+            0=>Yii::t('app','Not Set'),
+            1=>Yii::t('app','Female'),
+            2=>Yii::t('app','Male')
 
         ];
     }

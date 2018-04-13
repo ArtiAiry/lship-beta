@@ -57,7 +57,7 @@ $config = [
             'class' => 'yii2mod\comments\Module',
         ],
         'profile' => [
-            'class' => 'app\modules\profile\ProfileModule',
+            'class' => 'app\modules\profile\Module',
         ],
         'settings' => [
             'class' => 'app\modules\settings\SettingsModule',

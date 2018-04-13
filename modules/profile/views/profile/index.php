@@ -3,6 +3,7 @@
 use app\models\User;
 
 use app\modules\profile\models\Profile;
+use app\modules\profile\Module;
 use app\widgets\RoleColumn;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -12,7 +13,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\profile\models\ProfileSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Profiles';
+$this->title = Module::t('profile','Profiles');
 
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -26,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Profile', ['/user/add'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Create Default Profile', ['/user/create'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Module::t('profile','Create Profile'), ['/user/add'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Module::t('profile','Create Default Profile'), ['/user/create'], ['class' => 'btn btn-primary']) ?>
     </p>
     <div class="table-content">
     <?= GridView::widget([
@@ -51,17 +52,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'skype',
             'phone',
             'country',
+
             [
-                'label'  => 'gender',
+                'label'  => Module::t('profile','Gender'),
                 'filter' => Profile::find()->select('id','gender')->indexBy('gender')->column(),
                 'value'  => function ($data) {
                     if($data->getGenderValue()==1){
-                        return 'Female';
+                        return Module::t('profile','Female');
                     }
                     elseif($data->getGenderValue()==2){
-                        return 'Male';
+                        return Module::t('profile','Male');
                     }else{
-                        return 'Not Set';
+                        return Module::t('profile','Not Set');
                     }
 
                 },
@@ -69,17 +71,34 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             [
-                'label' => 'Lead Info',
+                'label' => Module::t('profile','Lead Infos'),
+                'headerOptions' => [
+                        'title' => Module::t('profile','Leads\' Information'),
+                        'rel'=>'tooltip',
+                    ],
                 'format' => 'html',
                 'value' => function($model) {
 
-                        return Html::a('Edit', ['/leads/info/update', 'id'=>$model->id], ['class' => 'btn btn-primary btn-xs']);
+                        return Html::a(Module::t('profile','Edit'), ['/leads/info/update', 'id'=>$model->id], ['class' => 'btn btn-primary btn-xs']);
 
 
                 }
             ],
+
+//            [
+//                'label' => Module::t('profile','Lead Info'),
+//                'format' => 'html',
+//                'class' => '\yii2mod\toggle\ToggleColumn',
+//                'value' => function($model) {
+//
+//                    return Html::a(Module::t('profile','Edit'), ['/leads/info/update', 'id'=>$model->id], ['class' => 'btn btn-primary btn-xs']);
+//
+//
+//                }
+//            ],
             [
-                'headerOptions' => ['style' => 'width:10px;'],
+                'header'=> Module::t('profile','Role'),
+                'headerOptions' => ['style' => 'width:10px;',],
                 'attribute' => 'role',
                 'class' => RoleColumn::className(),
                 'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
@@ -97,7 +116,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'app\widgets\CustomColumn',
-                'header' => 'Actions',
+
+                'header' => Module::t('profile','Actions'),
             ],
         ],
     ]); ?>

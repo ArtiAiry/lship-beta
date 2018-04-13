@@ -7,6 +7,7 @@ use Yii;
 use app\modules\profile\models\Profile;
 use app\modules\profile\models\ProfileSearch;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -15,6 +16,8 @@ use yii\filters\VerbFilter;
  */
 class ProfileController extends Controller
 {
+
+
     /**
      * @inheritdoc
      */
@@ -128,4 +131,27 @@ class ProfileController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionBatchDelete() {
+        if (($ids = Yii::$app->request->post('ids')) !== null) {
+            $models = $this->findAll($ids);
+            foreach ($models as $model) {
+                $model->removeProfile();
+            }
+            return $this->redirect(['index']);
+        } else {
+            throw new HttpException(400);
+        }
+    }
+
+
+    public function findAll($id)
+    {
+        if (($model = Profile::find()->where(['id' => $id])->all()) !== null) {
+            return $model;
+        } else {
+            throw new HttpException(404);
+        }
+    }
+
 }

@@ -3369,7 +3369,7 @@ fieldset[disabled] .form-control {
 
 .alert {
     border: 0;
-    border-radius: 4px;
+    border-radius: 100px;
     color: #FFFFFF;
     padding: 10px 15px;
     font-size: 14px;

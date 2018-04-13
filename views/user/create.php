@@ -11,8 +11,8 @@ use yii\widgets\ActiveForm;
 /* @var $user app\models\User */
 
 
-$this->title = 'Create Profile';
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['/profile/index']];
+$this->title = Yii::t('app','Create Account');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Profiles'), 'url' => ['/profile/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -32,12 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'permissions')->dropDownList(ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name'), ['prompt' => 'Select Item'])->label('Choose a Role') ?>
-
-
+    <?= $form->field($model, 'permissions')->dropDownList(ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'), ['prompt' => Yii::t('app','Select Item')])->label(Yii::t('app','Role')) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app','Create'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

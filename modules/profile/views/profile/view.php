@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\profile\Module;
 use app\widgets\RoleColumn;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
@@ -12,7 +13,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\profile\models\Profile */
 
 $this->title = $model->user->username;
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('profile','Profiles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="profile-view">
@@ -20,15 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a(Module::t('profile','Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Module::t('profile','Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Add Wallet', ['/wallet/add', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Module::t('profile','Add a Wallet'), ['/wallet/add', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -47,25 +48,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'age',
 
             [
-                'label'  => 'gender',
+                'label'  => Module::t('profile','Gender'),
                 'value'  => function ($data) {
                     if($data->getGenderValue()==1){
-                        return 'Female';
+                        return Module::t('profile','Female');
                     }
                     elseif($data->getGenderValue()==2){
-                        return 'Male';
+                        return Module::t('profile','Male');
                     }else{
-                        return 'Not Set';
+                        return Module::t('profile','Not Set');
                     }
 
                 }, $model
 
             ],
-            [
-                'attribute' => 'role',
-                'class' => RoleColumn::className(),
-                'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
-            ],
+//            [
+//                'label' => Module::t('profile','Role'),
+//                'attribute' => 'Role',
+//                'filter' => $model->user->getRoleName(),
+//            ],
 
             'dob',
             'activity',
@@ -86,7 +87,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //        'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
 //    ]);?>
 
-    <h3>User's Wallets</h3>
+    <h3><?= Module::t('profile','User\'s Wallets') ?></h3>
 
     <?= GridView::widget([
         'dataProvider' => new ActiveDataProvider(['query' => $model->user->getWallet()]),
@@ -95,30 +96,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'description',
             [
-                /**
-                 * Название поля модели
-                 */
                 'attribute' => 'isActive',
                 'label' => 'status',
-                /**
-                 * Формат вывода.
-                 * В этом случае мы отображает данные, как передали.
-                 * По умолчанию все данные прогоняются через Html::encode()
-                 */
                 'format' => 'raw',
-                /**
-                 * Переопределяем отображение фильтра.
-                 * Задаем выпадающий список с заданными значениями вместо поля для ввода
-                 */
                 'filter' => [
                     0 => 'De-activated',
                     1 => 'Activated',
                 ],
-                /**
-                 * Переопределяем отображение самих данных.
-                 * Вместо 1 или 0 выводим Yes или No соответственно.
-                 * Попутно оборачиваем результат в span с нужным классом
-                 */
                 'value' => function ($model, $key, $index, $column) {
                     $active = $model->{$column->attribute} === 1;
                     return \yii\helpers\Html::tag(
@@ -129,7 +113,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                         [
                             'class' => 'alert alert-' . ($active ? 'success' : 'danger'),
-
                         ]
 
                     );
@@ -142,18 +125,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'buttons'  => [
                     'spectate'   => function ($url, $model) {
                         $url = Url::to(['/wallet/spectate', 'id' => $model->id]);
-                        return Html::a('<span class="fa fa-eye"></span>', $url, ['title' => 'spectate']);
+                        return Html::a('<span class="fa fa-eye"></span>', $url, ['title' => Yii::t('app','View'),'rel'=>'tooltip']);
                     },
                     'edit' => function ($url, $model) {
                         $url = Url::to(['/wallet/edit', 'id' => $model->id]);
-                        return Html::a('<span class="fa fa-pencil"></span>', $url, ['title' => 'edit']);
+                        return Html::a('<span class="fa fa-pencil"></span>', $url, ['title' => Yii::t('app','Edit'),'rel'=>'tooltip']);
                     },
                     'delete' => function ($url, $model) {
                         $url = Url::to(['/wallet/delete', 'id' => $model->id]);
                         return Html::a('<span class="fa fa-trash"></span>', $url, [
-                            'title'        => 'delete',
+                            'title'        => Yii::t('app','Delete'),
                             'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
                             'data-method'  => 'post',
+                            'rel' => 'tooltip',
                         ]);
                     },
                 ]

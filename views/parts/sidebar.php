@@ -30,7 +30,7 @@ Tip 2: you can also add an image using data-image tag
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <span><?=Yii::$app->user->identity->username?>
+                            <span><?= Yii::$app->user->identity->username ?>
                                 - <?= $model->getRoleName(); ?>
                                 <b class="caret"></b>
                             </span>
@@ -118,12 +118,15 @@ Tip 2: you can also add an image using data-image tag
                     <p><?= Yii::t('app','Tutors');?></p>
                 </a>
             </li>
+
+            <?php if(Yii::$app->user->can('admin')):?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/comments/manage/index'])?>">
                     <i class="nc-icon nc-notification-70"></i>
                     <p><?= Yii::t('app','Comments');?></p>
                 </a>
             </li>
+            <?php endif; ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?=  Url::toRoute(['/events/index'])?>">
                     <i class="nc-icon nc-bulb-63"></i>

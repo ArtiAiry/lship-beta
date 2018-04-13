@@ -9,8 +9,8 @@ use yii\widgets\ActiveForm;
 /* @var $profile app\modules\profile\models\Profile */
 
 
-$this->title = 'Create Profile';
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['/profile/index']];
+$this->title = Yii::t('app','Create Account');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app','Profiles'), 'url' => ['/profile/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'username')->textInput(['maxlength' => true])->label(Yii::t('app','Username')) ?>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
@@ -45,13 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php $item = $model->getGenderList(); ?>
 
-        <?= $form->field($model, 'gender')->dropDownList($item)->label('Gender'); ?>
+        <?= $form->field($model, 'gender')->dropDownList($item); ?>
 
         <?= $form->field($model, 'dob')->textInput(['class'=>'form-control datepicker','id'=>'datetimepicker']);?>
 
 
         <div class="form-group">
-            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton(Yii::t('app','Save'), ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
