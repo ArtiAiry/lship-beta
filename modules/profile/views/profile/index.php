@@ -64,17 +64,8 @@ digitv\bootstrap\widgets\Modal::end();
 
 <div class="<?= $gridId ?>">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-<!--    <p>-->
-<!--        --><?//= Html::a(Module::t('profile','Create Profile'), ['/user/add'], ['class' => 'btn btn-success']) ?>
-<!--        --><?//= Html::a(Module::t('profile','Create Default Profile'), ['/user/create'], ['class' => 'btn btn-primary']) ?>
-<!--    </p>-->
-
-
     <?= Html::a('<i class="fa fa-plus"></i>', ['/user/add'],
         [
-//            'value'=>Url::to('/user/add'),
             'class' => 'btn btn-success btn-sm',
             'rel'=>'tooltip',
             'title' => Module::t('profile', 'Create Full Profile')
@@ -106,23 +97,37 @@ digitv\bootstrap\widgets\Modal::end();
         ],
         'columns' => [
             ['class' => 'yii\grid\CheckboxColumn'],
-
-//            [
-//                'attribute' => 'user_id',
-////              'filter' => User::find()->select('id','username')->indexBy('username')->column(),
-//                'value' => 'user.username',
-//            ],
-
-
             'user.email:email',
             'fullName',
             'skype',
             'phone',
             'country',
-
             [
-                'label'  => Module::t('profile','Gender'),
-                'filter' => Profile::find()->select('id','gender')->indexBy('gender')->column(),
+                /**
+                 * Название поля модели
+                 */
+                'attribute' => 'gender',
+                'label' => Module::t('profile','Gender'),
+                /**
+                 * Формат вывода.
+                 * В этом случае мы отображает данные, как передали.
+                 * По умолчанию все данные прогоняются через Html::encode()
+                 */
+                'format' => 'raw',
+                /**
+                 * Переопределяем отображение фильтра.
+                 * Задаем выпадающий список с заданными значениями вместо поля для ввода
+                 */
+                'filter' => [
+                    0 => Module::t('profile','Not Set'),
+                    1 => Module::t('profile','Female'),
+                    2 => Module::t('profile','Male'),
+                ],
+                /**
+                 * Переопределяем отображение самих данных.
+                 * Вместо 1 или 0 выводим Yes или No соответственно.
+                 * Попутно оборачиваем результат в span с нужным классом
+                 */
                 'value'  => function ($data) {
                     if($data->getGenderValue()==1){
                         return Module::t('profile','Female');
@@ -134,9 +139,14 @@ digitv\bootstrap\widgets\Modal::end();
                     }
 
                 },
-
             ],
-
+            [
+                'format' => 'raw',
+                'header'=> Module::t('profile','Role'),
+                'attribute' => 'role',
+                'class' => RoleColumn::className(),
+                'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
+            ],
             [
                 'label' => Module::t('profile','Lead Infos'),
                 'headerOptions' => [
@@ -151,36 +161,6 @@ digitv\bootstrap\widgets\Modal::end();
 
                 }
             ],
-
-//            [
-//                'label' => Module::t('profile','Lead Info'),
-//                'format' => 'html',
-//                'class' => '\yii2mod\toggle\ToggleColumn',
-//                'value' => function($model) {
-//
-//                    return Html::a(Module::t('profile','Edit'), ['/leads/info/update', 'id'=>$model->id], ['class' => 'btn btn-primary btn-xs']);
-//
-//
-//                }
-//            ],
-            [
-                'header'=> Module::t('profile','Role'),
-                'headerOptions' => ['style' => 'width:10px;',],
-                'attribute' => 'role',
-                'class' => RoleColumn::className(),
-                'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
-            ],
-
-            //'city',
-            //'ip_address',
-            //'age',
-            //'gender',
-            //'dob',
-            //'activity',
-            //'interests',
-            //'wallet_id',
-            //'isRemoved',
-
             [
                 'class' => 'app\widgets\CustomColumn',
 

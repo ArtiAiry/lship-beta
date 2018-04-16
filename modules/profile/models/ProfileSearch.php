@@ -14,14 +14,16 @@ class ProfileSearch extends Profile
 {
 
     public $fullName;
+    public $gender;
+    public $role;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'phone', 'age', 'isRemoved'], 'integer'],
-            [['skype','user_id', 'country', 'city', 'ip_address', 'gender', 'dob', 'activity', 'interests', 'user.email','fullName'], 'safe'],
+            [['id', 'phone', 'age', 'isRemoved', 'gender'], 'integer'],
+            [['skype','user_id', 'country', 'city', 'role','ip_address', 'gender', 'dob', 'activity', 'interests', 'user.email','fullName'], 'safe'],
 
         ];
     }
@@ -101,15 +103,14 @@ class ProfileSearch extends Profile
             'dob' => $this->dob,
             'gender' => $this->gender,
             'isRemoved' => $this->isRemoved,
+
         ]);
-
-
-
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => ['pageSize' => 10],
         ]);
+
 
 
         $query->andFilterWhere(['like', 'skype', $this->skype])
@@ -124,6 +125,9 @@ class ProfileSearch extends Profile
             ->andWhere('first_name LIKE "%' . $this->fullName . '%" ' .
                 'OR last_name LIKE "%' . $this->fullName . '%"')
             ->andFilterWhere(['like', 'interests', $this->interests]);
+
+        $query->join('LEFT JOIN','auth_assignment','auth_assignment.user_id = profile.id')
+            ->andFilterWhere(['auth_assignment.item_name' => $this->role]);
 
 //        $query = Profile::find()->andWhere(['isRemoved' => 1]);
 
