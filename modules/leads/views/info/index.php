@@ -196,21 +196,6 @@ $this->params['breadcrumbs'][] = $this->title;
 //                'format' => 'date',
 //            ],
 
-
-//            [
-//                'filter' => DatePicker::widget([
-//                    'model' => $searchModel,
-//                    'attribute' => 'date_from',
-//                    'attribute2' => 'date_to',
-//                    'type' => DatePicker::TYPE_RANGE,
-//                    'separator' => '-',
-//                    'pluginOptions' => ['format' => 'yyyy-mm-dd']
-//                ]),
-//                'attribute' => 'created_at',
-//                'format' => 'datetime',
-//            ],
-
-
             [
                 'attribute' => 'user_id',
                 'value' => 'user.username',

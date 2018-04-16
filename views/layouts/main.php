@@ -25,12 +25,20 @@ PublicAsset::register($this);
         <?php $this->head() ?>
     </head>
     <body>
+
     <?php $this->beginBody() ?>
     <div class="wrapper">
         <?= $this->render('//parts/sidebar')?>
         <div class="main-panel">
             <?= $this->render('//parts/navbar')?>
             <div class="content">
+                <?php
+                var_dump(Url::previous());
+                Url::remember();
+//              var_dump(Yii::$app->request->referrer);
+
+              var_dump(Url::current());
+                ?>
                 <?= CustomBreadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>

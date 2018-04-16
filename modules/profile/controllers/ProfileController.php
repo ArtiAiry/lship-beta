@@ -137,6 +137,7 @@ class ProfileController extends Controller
             $models = $this->findAll($ids);
             foreach ($models as $model) {
                 $model->removeProfile();
+                $model->user->removeUser();
             }
             return $this->redirect(['index']);
         } else {

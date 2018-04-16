@@ -7,6 +7,10 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\leads\models\LeadInfo */
 
+
+
+
+
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Module::t('lead-info','Lead Infos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

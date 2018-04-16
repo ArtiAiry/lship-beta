@@ -5,7 +5,11 @@
  * Date: 16.10.2017
  * Time: 16:15
  */
+
+use app\models\User;
 Use yii\helpers\Url;
+
+$model = new User();
 ?>
 
 <!-- START HEADER -->
@@ -22,7 +26,7 @@ Use yii\helpers\Url;
                     <i class="fa fa-navicon visible-on-sidebar-mini"></i>
                 </button>
             </div>
-<!--            <a class="navbar-brand" href="#pablo"> Dashboard PRO </a>-->
+            <span class="navbar-brand" href=""><?= $model->getRoleName(); ?></span>
         </div>
 
         <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,18 +34,19 @@ Use yii\helpers\Url;
             <span class="navbar-toggler-bar burger-lines"></span>
             <span class="navbar-toggler-bar burger-lines"></span>
         </button>
+
         <div class="collapse navbar-collapse justify-content-end">
-            <ul class="nav navbar-nav mr-auto">
-                <form class="navbar-form navbar-left navbar-search-form" role="search">
-                    <div class="input-group">
-                        <i class="nc-icon nc-zoom-split"></i>
-                        <input type="text" value="" class="form-control" placeholder="Search...">
-                    </div>
-                </form>
-            </ul>
+<!--            <ul class="nav navbar-nav mr-auto">-->
+<!--                <form class="navbar-form navbar-left navbar-search-form" role="search">-->
+<!--                    <div class="input-group">-->
+<!--                        <i class="nc-icon nc-zoom-split"></i>-->
+<!--                        <input type="text" value="" class="form-control" placeholder="Search...">-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--            </ul>-->
             <ul class="navbar-nav">
                 <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                    <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <i class="nc-icon nc-planet"></i>
                     </a>
                     <ul class="dropdown-menu">
@@ -53,6 +58,7 @@ Use yii\helpers\Url;
                         <a class="dropdown-item" href="#"><?= Yii::t('app','Another action')?></a>
                     </ul>
                 </li>
+
 <!--                <li class="dropdown nav-item">-->
 <!--                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">-->
 <!--                        <i class="nc-icon nc-bell-55"></i>-->
@@ -85,7 +91,6 @@ Use yii\helpers\Url;
                         <a class="dropdown-item" href="<?= Url::to(['/lock-screen?previous=http%3A%2F%2Fbootest%2F'])?>">
                             <i class="nc-icon nc-lock-circle-open"></i><?= Yii::t('app','Lock')?>
                         </a>
-<!--                        http://bootest/lock-screen?previous=http%3A%2F%2Fbootest%2F-->
                         <a href="<?= Url::to(['/auth/logout']) ?>" class="dropdown-item text-danger">
                             <i class="nc-icon nc-button-power"></i><?= Yii::t('app','Log out')?>
                         </a>

@@ -12,11 +12,24 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\profile\models\Profile */
 
-$this->title = $model->user->username;
-$this->params['breadcrumbs'][] = ['label' => Module::t('profile','Profiles'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+
+
+if(Url::previous() == "/profile/index" || Yii::$app->user->can('admin')){
+
+    $this->title = $model->user->username;
+    $this->params['breadcrumbs'][] = ['label' => Module::t('profile','Profiles'), 'url' => ['index']];
+    $this->params['breadcrumbs'][] = $this->title;
+
+} else {
+
+    $this->title = $model->user->username;
+    $this->params['breadcrumbs'][] = $this->title;
+
+}
+
 ?>
 <div class="profile-view">
+
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -33,6 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
+
+
+
         'model' => $model,
         'attributes' => [
 //            'id',
@@ -88,10 +104,13 @@ $this->params['breadcrumbs'][] = $this->title;
 //    ]);?>
 
     <h3><?= Module::t('profile','User\'s Wallets') ?></h3>
-
+    <div class="table-content">
     <?= GridView::widget([
         'dataProvider' => new ActiveDataProvider(['query' => $model->user->getWallet()]),
         'layout' => "{items}\n{pager}",
+        'tableOptions' => [
+            'class' => 'table table-bordered'
+        ],
         'columns' => [
             'id',
             'description',
@@ -160,7 +179,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ]
         ],
     ]); ?>
-
+    </div>
     <?php echo \yii2mod\comments\widgets\Comment::widget([
         'model' => $model,
 

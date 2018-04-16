@@ -9,6 +9,7 @@ return [
     'Create Channel' => 'Создать канал',
     'Create Form' => 'Создать форму',
     'Create Landing' => 'Создать Лэндинг',
+    'Update Lead Info: ' => 'Обновить лид с id: ',
 
     //grid
 
@@ -32,6 +33,7 @@ return [
     'Product' => 'Продукт',
     'Count Orders' => 'Кол-во заказов',
     'Lead Infos' => 'Лиды',
+    'Profiles' => 'Профили',
 
     //batch delete
 

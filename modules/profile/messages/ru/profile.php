@@ -13,10 +13,14 @@ return [
     'Update Profile: '=>'Редактировать профиль: ',
     'Profiles'=>'Профили',
     'Create Profile'=>'Создать профиль',
+    'Add Profile'=>'Добавить аккаунт',
     'Create Default Profile'=>'Создать Профиль (по умолчанию)',
     'Add a Wallet'=>'Добавить кошелек',
 
     //columns
+
+
+    'Create Full Profile'=>'Создать подробный профиль',
 
     'Full Name'=>'Полное имя',
     'User\'s Wallets'=>'Кошельки пользвателя',
@@ -32,6 +36,7 @@ return [
     'Age' => 'Возраст',
     'Gender' => 'Пол',
     'Email' => 'Почта',
+
     //gender list
 
     'Male' => 'Мужской',
@@ -44,6 +49,14 @@ return [
     'Activity' => 'Занятость',
     'Interests' => 'Интересы',
     'Role' => 'Роль',
+
+
+    //batch delete
+
+    'You need to select at least one item.' => 'Вам нужно выбрать хотя бы один элемент.',
+    'Delete Selected' => 'Удалить выделенное',
+    'Are you sure to delete this item?' => 'Вы действительно хотите удалить этот элемент?',
+    'Are you sure you want to delete selected items?' => 'Вы действительно хотите удалить выбранные элементы?',
 
 
 
