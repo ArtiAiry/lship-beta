@@ -108,6 +108,7 @@ class Profile extends ActiveRecord
     public function removeProfile()
     {
         $this->isRemoved = self::REMOVE;
+        $this->user->status = self::REMOVE;
         return $this->save(false);
     }
 

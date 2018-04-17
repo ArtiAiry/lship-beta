@@ -3,8 +3,6 @@ use app\models\User;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
-$model = new User();
-/* @var $model app\models\User */
 ?>
 
 <div class="sidebar"  data-color="blue" data-image="<?=Url::to(['/web/img/sidebar-2.jpg'])?>">
@@ -30,8 +28,7 @@ Tip 2: you can also add an image using data-image tag
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            <span><?= Yii::$app->user->identity->username ?>
-                                - <?= $model->getRoleName(); ?>
+                            <span><?= Yii::$app->user->identity->username?>
                                 <b class="caret"></b>
                             </span>
 

@@ -33,11 +33,15 @@ PublicAsset::register($this);
             <?= $this->render('//parts/navbar')?>
             <div class="content">
                 <?php
-                var_dump(Url::previous());
+
+
+                echo '<p> Предыдущий экшен' . " " . Url::previous() . '</p>';
+
                 Url::remember();
+
+                echo '<p> Нынешний экшен' . " " . Url::current() .  '</p>';
 //              var_dump(Yii::$app->request->referrer);
 
-              var_dump(Url::current());
                 ?>
                 <?= CustomBreadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

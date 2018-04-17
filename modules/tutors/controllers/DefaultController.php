@@ -2,6 +2,7 @@
 
 namespace app\modules\tutors\controllers;
 
+use app\modules\profile\models\Profile;
 use yii\web\Controller;
 
 /**
@@ -15,6 +16,12 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $profiles = Profile::find()->orderBy('id asc')->all();;
+
+        return $this->render('index',[
+            'profiles' => $profiles,
+
+        ]);
     }
 }

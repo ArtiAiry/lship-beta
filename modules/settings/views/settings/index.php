@@ -38,7 +38,7 @@ use yii\helpers\Url;
         <div class="tab-content">
             <div class="tab-pane fade show active" id="description-logo" aria-labelledby="info-tab">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" >
                         <h4 class="card-title text-center">
                             <a class="btn btn-wd btn-info btn-outline" href="<?=
 

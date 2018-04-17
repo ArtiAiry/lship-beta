@@ -77,6 +77,7 @@ class ProfileController extends Controller
         if (!isset($user, $profile)) {
             throw new NotFoundHttpException("Профиль пользователя не найден.");
         }
+
         if ($user->load(Yii::$app->request->post()) && $profile->load(Yii::$app->request->post())) {
             $isValid = $user->validate();
             $isValid = $profile->validate() && $isValid;

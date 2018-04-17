@@ -344,7 +344,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->leadInfo->isRemoved = self::STATUS_DELETED;
         $this->profile->isRemoved = self::STATUS_DELETED;
-        $this->wallet->isRemoved = self::STATUS_DELETED;
+        $this->wallet->isRemoved =
         $this->status = self::STATUS_DELETED;
         return $this->save(false);
     }
