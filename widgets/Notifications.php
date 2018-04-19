@@ -95,7 +95,7 @@ class Notifications extends \yii\base\Widget
         $html .= Html::tag('span',' Notification',['class'=>'d-lg-none']);
 
         $html .= Html::endTag('a');
-        $html .= Html::begintag('div', ['class' => 'dropdown-menu']);
+        $html .= Html::begintag('div', ['class' => 'dropdown-menu dropdown-menu-right']);
         $header = Html::a(Yii::t('modules/notifications', 'Mark all as read'), '#', ['class' => 'read-all pull-right']);
         $header .= Yii::t('modules/notifications', 'Notifications');
         $html .= Html::tag('div', $header, ['class' => 'header']);
