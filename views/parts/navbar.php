@@ -45,6 +45,7 @@ $model = new User();
 <!--                </form>-->
 <!--            </ul>-->
             <ul class="navbar-nav">
+                <?php echo \app\widgets\Notifications::widget() ?>
                 <li class="dropdown nav-item">
                     <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <i class="nc-icon nc-planet"></i>
@@ -59,20 +60,22 @@ $model = new User();
                     </ul>
                 </li>
 
-<!--                <li class="dropdown nav-item">-->
-<!--                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">-->
-<!--                        <i class="nc-icon nc-bell-55"></i>-->
-<!--                        <span class="notification">5</span>-->
-<!--                        <span class="d-lg-none">Notification</span>-->
-<!--                    </a>-->
-<!--                    <ul class="dropdown-menu">-->
-<!--                        <a class="dropdown-item" href="#">Notification 1</a>-->
-<!--                        <a class="dropdown-item" href="#">Notification 2</a>-->
-<!--                        <a class="dropdown-item" href="#">Notification 3</a>-->
-<!--                        <a class="dropdown-item" href="#">Notification 4</a>-->
-<!--                        <a class="dropdown-item" href="#">Notification 5</a>-->
-<!--                    </ul>-->
-<!--                </li>-->
+                <li class="dropdown nav-item">
+
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <i class="nc-icon nc-bell-55"></i>
+                        <span class="notification">5</span>
+                        <span class="d-lg-none">Notification</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Notification 1</a>
+                        <a class="dropdown-item" href="#">Notification 2</a>
+                        <a class="dropdown-item" href="#">Notification 3</a>
+                        <a class="dropdown-item" href="#">Notification 4</a>
+                        <a class="dropdown-item" href="#">Notification 5</a>
+                    </ul>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="nc-icon nc-bullet-list-67"></i>

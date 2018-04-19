@@ -24,11 +24,10 @@ class m170731_065838_create_profile_table extends Migration
             'ip_address' => $this->string()->defaultValue(null),
             'age' => $this->integer()->notNull()->defaultValue(null),
             'gender' => $this->char(7)->defaultValue(0),
-//            'gender' => "ENUM('Мужской', 'Женский') NOT NULL",
             'dob' => $this->date()->defaultValue(null), //date of birth
             'activity' => $this->string(255)->defaultValue(null),
             'interests' => $this->string(255)->defaultValue(null),
-//            'wallet_id'=> $this->integer()->defaultValue(null),
+            'tutor_type' => $this->string(255)->defaultValue(null),
             'isRemoved'=> "TINYINT (1) default 1",
         ]);
 

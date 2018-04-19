@@ -41,9 +41,7 @@ $config = [
         'payout' => [
             'class' => 'app\modules\payout\PayoutModule',
         ],
-        'notification' => [
-            'class' => 'app\modules\notification\NotificationModule',
-        ],
+
         'orders' => [
             'class' => 'app\modules\orders\OrdersModule',
         ],
@@ -65,6 +63,20 @@ $config = [
         'comments' => [
             'class' => 'app\modules\comments\CommentsModule',
         ],
+            'notifications' => [
+                'class' => 'webzop\notifications\Module',
+                'channels' => [
+                    'screen' => [
+                        'class' => 'webzop\notifications\channels\ScreenChannel',
+                    ],
+                    'email' => [
+                        'class' => 'webzop\notifications\channels\EmailChannel',
+                        'message' => [
+                            'from' => 'example@email.com'
+                        ],
+                    ],
+                ],
+            ],
     ],
     'components' => [
 
