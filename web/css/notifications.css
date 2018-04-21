@@ -1,5 +1,8 @@
+
+
+
 .nav-notifications .dropdown-menu {
-    width: 260px;
+    width: 350px;
     padding: 0;
     margin-top: 3px !important;
 }
@@ -7,7 +10,6 @@
     border-bottom: 1px solid #e5e5e5;
     display: block;
     padding: 8px 12px;
-    color: #868e96;
     white-space: nowrap;
 
 }
@@ -61,7 +63,7 @@
     display: inline-block;
     position: relative;
     top: 1px;
-    font-family: 'Glyphicons Halflings';
+    font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     line-height: 1;
@@ -80,7 +82,8 @@
     color: #e90805;
 }
 .notification-item[data-key="new_account"] .icon:before {
-    content: "\e008";
+
+    content: "\f095";
     color: #248292;
 }
 .notification-item .timeago {
@@ -103,4 +106,23 @@
 }
 .notification-item.read:hover .mark-read {
     background-color: #bcbcbc;
+}
+
+@media (max-width: 991px){
+    .nav-mobile-menu .dropdown .dropdown-menu .dropdown-item.notification-item  {
+        color: #000000;
+        opacity: .86;
+        margin: 0;
+        border-radius: 0;
+        padding-left: 13px;
+
+    }
+    a.read-all.pull-right {
+        color: #FFFFFF;
+    }
+
+    .nav-mobile-menu .nav-item .nav-link span.notification {
+        margin-right: 3px;
+    }
+
 }

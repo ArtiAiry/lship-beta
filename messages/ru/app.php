@@ -94,9 +94,16 @@ return [
 
     'View' => 'Просмотр',
     'Edit' => 'Редактировать',
-    'Delete' => 'Удалить'
+    'Delete' => 'Удалить',
 
 
+    //notifications
+
+    'Notifications'=>'Уведомления',
+    'New Notifications'=>'Новых уведомлений',
+    'View all'=>'Просмотреть все',
+    'Mark all as read'=>'Отм. как проч.',
+    'There are no notifications to show'=>'Нет уведомлений',
 ];
 
 ?>

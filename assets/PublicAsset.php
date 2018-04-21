@@ -19,6 +19,7 @@ class PublicAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/custom.css',
+        'css/notifications.css',
         'css/light-bootstrap-dashboard-custom.css',
         'css/demo.css',
 
