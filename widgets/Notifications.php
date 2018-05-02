@@ -104,7 +104,7 @@ class Notifications extends \yii\base\Widget
 
         //uncomment
 
-        $html .= Html::tag('div', '<span class="ajax-loader"></span>', ['class' => 'loading-row']);
+//        $html .= Html::tag('div', '<span class="ajax-loader"></span>', ['class' => 'loading-row']);
 
         //uncomment
 

@@ -9,6 +9,7 @@
 namespace app\models\form;
 
 
+use app\models\notification\AccountNotification;
 use app\models\rbac\AuthAssignment;
 use app\models\User;
 use app\modules\leads\models\LeadInfo;
@@ -189,6 +190,25 @@ class CreateUserForm extends Model
 
             $transaction = $db->beginTransaction();
             if ($user->create() && $profile->save()) {
+
+//                $user_notify = User::findOne(Yii::$app->user->id);
+
+                $user_to = User::find()->all();
+
+                foreach ($user_to as $u_t){
+
+                    if($u_t->getRole() == 'manager') {
+
+
+                        AccountNotification::create(AccountNotification::KEY_NEW_ACCOUNT, ['user' => $u_t->getPrimaryKey()])->send();
+
+
+                    }
+
+
+                }
+//                AccountNotification::create(AccountNotification::KEY_NEW_ACCOUNT, ['user' => $user_notify])->send();
+
 
                 $transaction->commit();
             } else {

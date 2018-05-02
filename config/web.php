@@ -63,8 +63,8 @@ $config = [
         'comments' => [
             'class' => 'app\modules\comments\CommentsModule',
         ],
-            'notifications' => [
-                'class' => 'webzop\notifications\Module',
+        'notifications' => [
+            'class' => 'webzop\notifications\Module',
                 'channels' => [
                     'screen' => [
                         'class' => 'webzop\notifications\channels\ScreenChannel',
@@ -76,7 +76,7 @@ $config = [
                         ],
                     ],
                 ],
-            ],
+        ],
     ],
     'components' => [
 

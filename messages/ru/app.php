@@ -104,6 +104,7 @@ return [
     'View all'=>'Просмотреть все',
     'Mark all as read'=>'Отм. как проч.',
     'There are no notifications to show'=>'Нет уведомлений',
+    'New account {user} created'=>'Новый аккаунт {user} создан',
 ];
 
 ?>

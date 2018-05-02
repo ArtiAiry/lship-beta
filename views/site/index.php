@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+use app\models\User;
+
 $this->title = 'Lessonship';
 ?>
 <?php if( Yii::$app->session->hasFlash('success') ): ?>
@@ -11,6 +13,45 @@ $this->title = 'Lessonship';
     </div>
 <?php endif;?>
 <div class="site-index">
+
+    <?php echo Yii::$app->user->id ?>
+
+    <?php
+
+    $model = User::find()->count();
+
+        echo $model+1;
+
+    $db = \Yii::$app->db;
+
+    $lastInsertID = $db->getLastInsertID();
+    echo $lastInsertID;
+
+
+    $newId = User::find()->max('id') + 1;
+
+
+    echo $newId;
+
+
+    $model = User::find()->all();
+
+    foreach($model as $m) {
+
+        if ($m->getRole() == 'manager') {
+
+            echo $m->getPrimaryKey();
+            echo $m->getRole();
+
+        }
+
+    }
+
+
+
+
+
+    ?>
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>
